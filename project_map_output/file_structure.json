@@ -86,6 +86,12 @@
           "type": "file",
           "path": "ExecutionSummary/Commit_2026-04-29_17-07-53_1c2433c1.md",
           "size_bytes": 13735
+        },
+        {
+          "name": "Commit_2026-04-29_17-54-17_24a061be.md",
+          "type": "file",
+          "path": "ExecutionSummary/Commit_2026-04-29_17-54-17_24a061be.md",
+          "size_bytes": 12759
         }
       ]
     },
@@ -580,6 +586,13 @@
                   "functions": []
                 },
                 {
+                  "name": "0007_alter_userprofile_openrouter_api_key_and_more.py",
+                  "type": "file",
+                  "path": "backend/ats_app/migrations/0007_alter_userprofile_openrouter_api_key_and_more.py",
+                  "language": "python",
+                  "size_bytes": 842
+                },
+                {
                   "name": "__init__.py",
                   "type": "file",
                   "path": "backend/ats_app/migrations/__init__.py",
@@ -840,7 +853,7 @@
           "name": "db.sqlite3",
           "type": "file",
           "path": "backend/db.sqlite3",
-          "size_bytes": 2953216
+          "size_bytes": 3092480
         },
         {
           "name": "manage.py",
@@ -1121,7 +1134,7 @@
                   "type": "file",
                   "path": "frontend/src/pages/ProfilePage.tsx",
                   "language": "javascript",
-                  "total_lines": 199,
+                  "total_lines": 207,
                   "function_count": 2,
                   "classes": [],
                   "functions": [
@@ -1156,7 +1169,7 @@
               "name": "App.css",
               "type": "file",
               "path": "frontend/src/App.css",
-              "size_bytes": 34274
+              "size_bytes": 34903
             },
             {
               "name": "App.tsx",
@@ -1311,5 +1324,5 @@
     }
   ],
   "total_directories": 21,
-  "total_files": 122
+  "total_files": 124
 }

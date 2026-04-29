@@ -323,55 +323,6 @@
     "signature": "def restart_from_failure(self, process_run: ProcessRun) -> None",
     "class": "OrchestratorAgent"
   },
-  "generate": {
-    "file": "backend/ats_app/services/llm_service.py",
-    "line": 50,
-    "signature": "def generate(self, prompt: str, system: str = \"\", temperature: float = None) -> str",
-    "class": "LLMService"
-  },
-  "_generate_ollama": {
-    "file": "backend/ats_app/services/llm_service.py",
-    "line": 56,
-    "signature": "def _generate_ollama(self, prompt: str, system: str = \"\", temperature: float = None) -> str",
-    "class": "LLMService"
-  },
-  "_generate_openrouter": {
-    "file": "backend/ats_app/services/llm_service.py",
-    "line": 86,
-    "signature": "def _generate_openrouter(self, prompt: str, system: str = \"\", temperature: float = None) -> str",
-    "class": "LLMService"
-  },
-  "_sanitize_json_string": {
-    "file": "backend/ats_app/services/llm_service.py",
-    "line": 141,
-    "signature": "def _sanitize_json_string(self, raw: str) -> str",
-    "class": "LLMService"
-  },
-  "_is_truncated_json": {
-    "file": "backend/ats_app/services/llm_service.py",
-    "line": 156,
-    "signature": "def _is_truncated_json(self, json_str: str) -> bool",
-    "class": "LLMService"
-  },
-  "_complete_truncated_json": {
-    "file": "backend/ats_app/services/llm_service.py",
-    "line": 192,
-    "signature": "def _complete_truncated_json(self, json_str: str) -> str",
-    "class": "LLMService"
-  },
-  "_ensure_dict_result": {
-    "file": "backend/ats_app/services/llm_service.py",
-    "line": 249,
-    "signature": "def _ensure_dict_result(self, result) -> dict",
-    "class": "LLMService",
-    "description": "Ensure the result is always a dict."
-  },
-  "generate_json": {
-    "file": "backend/ats_app/services/llm_service.py",
-    "line": 271,
-    "signature": "def generate_json(self, prompt: str, system: str = \"\", temperature: float = None) -> dict",
-    "class": "LLMService"
-  },
   "register_view": {
     "file": "backend/ats_app/authentication.py",
     "line": 23,
@@ -508,6 +459,55 @@
     "class": "JobViewSet",
     "description": "Force complete a process without running any agents."
   },
+  "generate": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 50,
+    "signature": "def generate(self, prompt: str, system: str = \"\", temperature: float = None) -> str",
+    "class": "LLMService"
+  },
+  "_generate_ollama": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 56,
+    "signature": "def _generate_ollama(self, prompt: str, system: str = \"\", temperature: float = None) -> str",
+    "class": "LLMService"
+  },
+  "_generate_openrouter": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 86,
+    "signature": "def _generate_openrouter(self, prompt: str, system: str = \"\", temperature: float = None) -> str",
+    "class": "LLMService"
+  },
+  "_sanitize_json_string": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 141,
+    "signature": "def _sanitize_json_string(self, raw: str) -> str",
+    "class": "LLMService"
+  },
+  "_is_truncated_json": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 156,
+    "signature": "def _is_truncated_json(self, json_str: str) -> bool",
+    "class": "LLMService"
+  },
+  "_complete_truncated_json": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 192,
+    "signature": "def _complete_truncated_json(self, json_str: str) -> str",
+    "class": "LLMService"
+  },
+  "_ensure_dict_result": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 249,
+    "signature": "def _ensure_dict_result(self, result) -> dict",
+    "class": "LLMService",
+    "description": "Ensure the result is always a dict."
+  },
+  "generate_json": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 271,
+    "signature": "def generate_json(self, prompt: str, system: str = \"\", temperature: float = None) -> dict",
+    "class": "LLMService"
+  },
   "health_check": {
     "file": "backend/ats_project/urls.py",
     "line": 11,
@@ -515,100 +515,53 @@
     "class": null,
     "description": "Health check endpoint that doesn't require authentication"
   },
-  "login": {
-    "file": "frontend/src/context/AuthContext.tsx",
-    "line": 90,
-    "signature": "const login = async (username: string, password: string) => any",
+  "main": {
+    "file": "backend/manage.py",
+    "line": 7,
+    "signature": "def main() -> Any",
+    "class": null,
+    "description": "Run administrative tasks."
+  },
+  "NavLinks": {
+    "file": "frontend/src/App.tsx",
+    "line": 12,
+    "signature": "function NavLinks() : any",
     "class": null
   },
-  "logout": {
-    "file": "frontend/src/context/AuthContext.tsx",
-    "line": 116,
-    "signature": "const logout = async () => any",
+  "App": {
+    "file": "frontend/src/App.tsx",
+    "line": 104,
+    "signature": "function App() : any",
     "class": null
   },
-  "getProfile": {
-    "file": "frontend/src/api/index.ts",
-    "line": 53,
-    "signature": "export const getProfile = () => any",
+  "isActive": {
+    "file": "frontend/src/App.tsx",
+    "line": 17,
+    "signature": "const isActive = (path: string) => any",
     "class": null
   },
-  "updateProfile": {
-    "file": "frontend/src/api/index.ts",
-    "line": 56,
-    "signature": "export const updateProfile = (data: { openrouter_api_key?: string; preferred_model?: string }) => any",
+  "handleLogoutClick": {
+    "file": "frontend/src/App.tsx",
+    "line": 19,
+    "signature": "const handleLogoutClick = () => any",
     "class": null
   },
-  "register": {
-    "file": "frontend/src/context/AuthContext.tsx",
-    "line": 52,
-    "signature": "const register = async (username: string, email: string, password: string) => any",
+  "confirmLogout": {
+    "file": "frontend/src/App.tsx",
+    "line": 23,
+    "signature": "const confirmLogout = async () => any",
     "class": null
   },
-  "createJob": {
-    "file": "frontend/src/api/index.ts",
-    "line": 62,
-    "signature": "export const createJob = (data: { title: string; description: string; latex_cv: string }) => any",
+  "cancelLogout": {
+    "file": "frontend/src/App.tsx",
+    "line": 33,
+    "signature": "const cancelLogout = () => any",
     "class": null
   },
-  "getJobs": {
-    "file": "frontend/src/api/index.ts",
-    "line": 68,
-    "signature": "export const getJobs = () => any",
-    "class": null
-  },
-  "getJob": {
-    "file": "frontend/src/api/index.ts",
-    "line": 70,
-    "signature": "export const getJob = (id: string) => any",
-    "class": null
-  },
-  "runProcess": {
-    "file": "frontend/src/api/index.ts",
-    "line": 72,
-    "signature": "export const runProcess = (jobId: string, maxRetries = 3) => any",
-    "class": null
-  },
-  "getProcessRuns": {
-    "file": "frontend/src/api/index.ts",
-    "line": 78,
-    "signature": "export const getProcessRuns = () => any",
-    "class": null
-  },
-  "getProcessRun": {
-    "file": "frontend/src/api/index.ts",
-    "line": 80,
-    "signature": "export const getProcessRun = (id: string) => any",
-    "class": null
-  },
-  "getPrompt": {
-    "file": "frontend/src/api/index.ts",
-    "line": 82,
-    "signature": "export const getPrompt = (id: string) => any",
-    "class": null
-  },
-  "submitManualLatex": {
-    "file": "frontend/src/api/index.ts",
-    "line": 85,
-    "signature": "export const submitManualLatex = (id: string, latexContent: string) => any",
-    "class": null
-  },
-  "continueIterating": {
-    "file": "frontend/src/api/index.ts",
-    "line": 88,
-    "signature": "export const continueIterating = (id: string) => any",
-    "class": null
-  },
-  "restartProcess": {
-    "file": "frontend/src/api/index.ts",
-    "line": 91,
-    "signature": "export const restartProcess = (id: string) => any",
-    "class": null
-  },
-  "forceComplete": {
-    "file": "frontend/src/api/index.ts",
-    "line": 94,
-    "signature": "export const forceComplete = (id: string) => any",
+  "getUserInitials": {
+    "file": "frontend/src/App.tsx",
+    "line": 38,
+    "signature": "const getUserInitials = () => any",
     "class": null
   },
   "JobForm": {
@@ -773,6 +726,36 @@
     "signature": "const validateForm = () => boolean",
     "class": null
   },
+  "useAuth": {
+    "file": "frontend/src/context/AuthContext.tsx",
+    "line": 23,
+    "signature": "export const useAuth = () => any",
+    "class": null
+  },
+  "register": {
+    "file": "frontend/src/api/index.ts",
+    "line": 59,
+    "signature": "export const register = (username: string, email: string, password: string) => any",
+    "class": null
+  },
+  "login": {
+    "file": "frontend/src/api/index.ts",
+    "line": 47,
+    "signature": "export const login = (username: string, password: string) => any",
+    "class": null
+  },
+  "logout": {
+    "file": "frontend/src/api/index.ts",
+    "line": 50,
+    "signature": "export const logout = (refreshToken: string) => any",
+    "class": null
+  },
+  "refreshToken": {
+    "file": "frontend/src/context/AuthContext.tsx",
+    "line": 143,
+    "signature": "const refreshToken = async () => any",
+    "class": null
+  },
   "ProcessDetail": {
     "file": "frontend/src/pages/ProcessDetail.tsx",
     "line": 7,
@@ -827,64 +810,82 @@
     "signature": "const fetchProfile = async () => any",
     "class": null
   },
-  "useAuth": {
-    "file": "frontend/src/context/AuthContext.tsx",
-    "line": 23,
-    "signature": "export const useAuth = () => any",
+  "getProfile": {
+    "file": "frontend/src/api/index.ts",
+    "line": 53,
+    "signature": "export const getProfile = () => any",
     "class": null
   },
-  "refreshToken": {
-    "file": "frontend/src/context/AuthContext.tsx",
-    "line": 143,
-    "signature": "const refreshToken = async () => any",
+  "updateProfile": {
+    "file": "frontend/src/api/index.ts",
+    "line": 56,
+    "signature": "export const updateProfile = (data: { openrouter_api_key?: string; preferred_model?: string }) => any",
     "class": null
   },
-  "main": {
-    "file": "backend/manage.py",
-    "line": 7,
-    "signature": "def main() -> Any",
+  "createJob": {
+    "file": "frontend/src/api/index.ts",
+    "line": 62,
+    "signature": "export const createJob = (data: { title: string; description: string; latex_cv: string }) => any",
     "class": null
   },
-  "NavLinks": {
-    "file": "frontend/src/App.tsx",
-    "line": 12,
-    "signature": "function NavLinks() : any",
+  "getJobs": {
+    "file": "frontend/src/api/index.ts",
+    "line": 68,
+    "signature": "export const getJobs = () => any",
     "class": null
   },
-  "App": {
-    "file": "frontend/src/App.tsx",
-    "line": 104,
-    "signature": "function App() : any",
+  "getJob": {
+    "file": "frontend/src/api/index.ts",
+    "line": 70,
+    "signature": "export const getJob = (id: string) => any",
     "class": null
   },
-  "isActive": {
-    "file": "frontend/src/App.tsx",
-    "line": 17,
-    "signature": "const isActive = (path: string) => any",
+  "runProcess": {
+    "file": "frontend/src/api/index.ts",
+    "line": 72,
+    "signature": "export const runProcess = (jobId: string, maxRetries = 3) => any",
     "class": null
   },
-  "handleLogoutClick": {
-    "file": "frontend/src/App.tsx",
-    "line": 19,
-    "signature": "const handleLogoutClick = () => any",
+  "getProcessRuns": {
+    "file": "frontend/src/api/index.ts",
+    "line": 78,
+    "signature": "export const getProcessRuns = () => any",
     "class": null
   },
-  "confirmLogout": {
-    "file": "frontend/src/App.tsx",
-    "line": 23,
-    "signature": "const confirmLogout = async () => any",
+  "getProcessRun": {
+    "file": "frontend/src/api/index.ts",
+    "line": 80,
+    "signature": "export const getProcessRun = (id: string) => any",
     "class": null
   },
-  "cancelLogout": {
-    "file": "frontend/src/App.tsx",
-    "line": 33,
-    "signature": "const cancelLogout = () => any",
+  "getPrompt": {
+    "file": "frontend/src/api/index.ts",
+    "line": 82,
+    "signature": "export const getPrompt = (id: string) => any",
     "class": null
   },
-  "getUserInitials": {
-    "file": "frontend/src/App.tsx",
-    "line": 38,
-    "signature": "const getUserInitials = () => any",
+  "submitManualLatex": {
+    "file": "frontend/src/api/index.ts",
+    "line": 85,
+    "signature": "export const submitManualLatex = (id: string, latexContent: string) => any",
+    "class": null
+  },
+  "continueIterating": {
+    "file": "frontend/src/api/index.ts",
+    "line": 88,
+    "signature": "export const continueIterating = (id: string) => any",
+    "class": null
+  },
+  "restartProcess": {
+    "file": "frontend/src/api/index.ts",
+    "line": 91,
+    "signature": "export const restartProcess = (id: string) => any",
+    "class": null
+  },
+  "forceComplete": {
+    "file": "frontend/src/api/index.ts",
+    "line": 94,
+    "signature": "export const forceComplete = (id: string) => any",
     "class": null
   }
 }

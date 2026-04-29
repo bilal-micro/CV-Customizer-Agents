@@ -39,12 +39,14 @@ def _run_orchestrator_async(process_run_id, user_id=None):
         db.connections.close_all()
 
 
-def _resume_orchestrator_async(process_run_id):
+def _resume_orchestrator_async(process_run_id, user_id=None):
     from django import db
+    from django.contrib.auth.models import User
     db.connections.close_all()
     try:
         process_run = ProcessRun.objects.get(id=process_run_id)
-        orchestrator = OrchestratorAgent()
+        user = User.objects.get(id=user_id) if user_id else None
+        orchestrator = OrchestratorAgent(user=user)
         orchestrator.resume_after_manual_input(process_run)
     except Exception as e:
         logger.error(f"Resume orchestrator failed for process {process_run_id}: {e}", exc_info=True)
@@ -53,12 +55,14 @@ def _resume_orchestrator_async(process_run_id):
         db.connections.close_all()
 
 
-def _restart_orchestrator_async(process_run_id):
+def _restart_orchestrator_async(process_run_id, user_id=None):
     from django import db
+    from django.contrib.auth.models import User
     db.connections.close_all()
     try:
         process_run = ProcessRun.objects.get(id=process_run_id)
-        orchestrator = OrchestratorAgent()
+        user = User.objects.get(id=user_id) if user_id else None
+        orchestrator = OrchestratorAgent(user=user)
         orchestrator.restart_from_failure(process_run)
     except Exception as e:
         logger.error(f"Restart orchestrator failed for process {process_run_id}: {e}", exc_info=True)
@@ -184,9 +188,11 @@ class ProcessRunViewSet(viewsets.ReadOnlyModelViewSet):
             process_run.save()
             
             # Resume's orchestrator in a background thread
+            # Pass user ID to orchestrator thread
+            user_id = request.user.id
             thread = threading.Thread(
                 target=_resume_orchestrator_async,
-                args=(str(process_run.id),),
+                args=(str(process_run.id), user_id),
                 daemon=True,
             )
             thread.start()
@@ -228,7 +234,7 @@ class ProcessRunViewSet(viewsets.ReadOnlyModelViewSet):
         
         try:
             from ats_app.agents.orchestrator import OrchestratorAgent
-            orchestrator = OrchestratorAgent()
+            orchestrator = OrchestratorAgent(user=request.user)
             success = orchestrator.trigger_manual_iteration(process_run)
             
             if not success:
@@ -270,9 +276,11 @@ class ProcessRunViewSet(viewsets.ReadOnlyModelViewSet):
         
         try:
             # Start orchestrator restart in a background thread
+            # Pass user ID to orchestrator thread
+            user_id = request.user.id
             thread = threading.Thread(
                 target=_restart_orchestrator_async,
-                args=(str(process_run.id),),
+                args=(str(process_run.id), user_id),
                 daemon=True,
             )
             thread.start()
