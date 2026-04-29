@@ -137,19 +137,23 @@ const ProfilePage: React.FC = () => {
             Preferred Model
             <span className="label-hint">(For OpenRouter API)</span>
           </label>
-          <select
+          <input
             id="preferred_model"
+            type="text"
+            list="model-suggestions"
             value={profileData.preferred_model}
             onChange={(e) => setProfileData({ ...profileData, preferred_model: e.target.value })}
-          >
+            placeholder="e.g., openai/gpt-4o-mini"
+          />
+          <datalist id="model-suggestions">
             {OPENROUTER_MODELS.map((model) => (
               <option key={model} value={model}>
                 {model}
               </option>
             ))}
-          </select>
+          </datalist>
           <p className="field-help">
-            Select the AI model you want to use for CV optimization
+            Type a model name or select from suggestions. Supports any OpenRouter-compatible model.
           </p>
         </div>
 

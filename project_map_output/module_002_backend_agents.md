@@ -1,9 +1,9 @@
-# 🗺️ Module: Core Logic
+# 🗺️ Module: Backend Agents
 
-**Description:** Implements business rules and document processing agents.
-**Goal:** Automates ATS matching and keyword analysis workflows.
-**Directories:** `backend/ats_app/agents, backend/ats_app/services`
-**Files:** 10 | **Functions:** 79
+**Description:** Specialized components for CV analysis, keyword matching, and evaluation.
+**Goal:** Automates resume screening and candidate matching processes.
+**Directories:** `backend/ats_app/agents`
+**Files:** 9 | **Functions:** 70
 
 [⬅️ Back to Index](./index.md)
 
@@ -175,25 +175,5 @@
 | `trigger_manual_iteration` | `def trigger_manual_iteration(self, process_run: ProcessRun) -> bool` | 573 |  |
 | `_fail_process` | `def _fail_process(self, process_run: ProcessRun, reason: str) -> None` | 620 |  |
 | `restart_from_failure` | `def restart_from_failure(self, process_run: ProcessRun) -> None` | 626 |  |
-
----
-
-## 📄 File: `backend/ats_app/services/llm_service.py`
-- **Language:** PYTHON
-- **Lines:** 417
-- **Classes:** `LLMService` (line 11)
-- **Functions:** 9
-
-| Function | Signature | Line | Description |
-|----------|-----------|------|-------------|
-| `__init__` | `def __init__(self) -> Any` | 12 |  |
-| `generate` | `def generate(self, prompt: str, system: str = "", temperature: float = None) -> str` | 25 |  |
-| `_generate_ollama` | `def _generate_ollama(self, prompt: str, system: str = "", temperature: float = None) -> str` | 31 |  |
-| `_generate_openrouter` | `def _generate_openrouter(self, prompt: str, system: str = "", temperature: float = None) -> str` | 61 |  |
-| `_sanitize_json_string` | `def _sanitize_json_string(self, raw: str) -> str` | 116 |  |
-| `_is_truncated_json` | `def _is_truncated_json(self, json_str: str) -> bool` | 131 |  |
-| `_complete_truncated_json` | `def _complete_truncated_json(self, json_str: str) -> str` | 167 |  |
-| `_ensure_dict_result` | `def _ensure_dict_result(self, result) -> dict` | 224 | Ensure the result is always a dict. |
-| `generate_json` | `def generate_json(self, prompt: str, system: str = "", temperature: float = None) -> dict` | 246 |  |
 
 ---

@@ -48,7 +48,7 @@ export const login = (username: string, password: string) =>
   axios.post('http://localhost:8000/api/auth/login/', { username, password }).then((r) => r.data);
 
 export const logout = (refreshToken: string) =>
-  axios.post('http://localhost:8000/api/auth/logout/', { refresh: refreshToken });
+  api.post('/auth/logout/', { refresh: refreshToken }).then((r) => r.data);
 
 export const getProfile = () =>
   api.get('/auth/profile/').then((r) => r.data);

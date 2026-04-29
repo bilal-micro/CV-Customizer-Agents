@@ -1,11 +1,25 @@
-# 🗺️ Module: Frontend UI
+# 🗺️ Module: Frontend Core
 
-**Description:** Contains reusable UI components and page layouts.
-**Goal:** Constructs the user interface for application interactions.
-**Directories:** `frontend/src/components, frontend/src/pages`
-**Files:** 9 | **Functions:** 38
+**Description:** Renders user interface components, pages, and state management.
+**Goal:** Delivers responsive UI for application interaction and data visualization.
+**Directories:** `frontend/src, frontend/src/components, frontend/src/pages, frontend/src/context`
+**Files:** 11 | **Functions:** 47
 
 [⬅️ Back to Index](./index.md)
+
+---
+
+## 📄 File: `frontend/src/App.tsx`
+- **Language:** JAVASCRIPT
+- **Lines:** 61
+- **Functions:** 4
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `NavLinks` | `function NavLinks() : any` | 11 |  |
+| `App` | `function App() : any` | 35 |  |
+| `isActive` | `const isActive = (path: string) => any` | 14 |  |
+| `handleLogout` | `const handleLogout = async () => any` | 16 |  |
 
 ---
 
@@ -104,6 +118,21 @@
 | `getPasswordStrength` | `const getPasswordStrength = (password: string) => { strength: string; color: string; percentage: number }` | 27 |  |
 | `validateForm` | `const validateForm = () => boolean` | 45 |  |
 | `handleSubmit` | `const handleSubmit = async (e: React.FormEvent) => any` | 83 |  |
+
+---
+
+## 📄 File: `frontend/src/context/AuthContext.tsx`
+- **Language:** JAVASCRIPT
+- **Lines:** 179
+- **Functions:** 5
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `useAuth` | `export const useAuth = () => any` | 23 |  |
+| `register` | `const register = async (username: string, email: string, password: string) => any` | 52 |  |
+| `login` | `const login = async (username: string, password: string) => any` | 90 |  |
+| `logout` | `const logout = async () => any` | 116 |  |
+| `refreshToken` | `const refreshToken = async () => any` | 142 |  |
 
 ---
 

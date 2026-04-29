@@ -28,6 +28,7 @@
   --error: #ef4444;
   --error-light: #f87171;
   --error-bg: rgba(239, 68, 68, 0.1);
+  --error-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
   --info: #3b82f6;
   --info-bg: rgba(59, 130, 246, 0.1);
   

@@ -1,7 +1,7 @@
-# 🗺️ Module: Unclassified
+# 🗺️ Module: Backend Core
 
-**Description:** Files not matched to any architectural module.
-**Goal:** Miscellaneous project functionality.
+**Description:** Contains main application logic, models, views, and serializers.
+**Goal:** Implements core business logic for applicant tracking and matching.
 **Directories:** `backend/ats_app`
 **Files:** 6 | **Functions:** 27
 
@@ -70,8 +70,8 @@
 
 ## 📄 File: `backend/ats_app/views.py`
 - **Language:** PYTHON
-- **Lines:** 328
-- **Classes:** `JobViewSet` (line 70), `ProcessRunViewSet` (line 99), `StageResultViewSet` (line 325)
+- **Lines:** 330
+- **Classes:** `JobViewSet` (line 70), `ProcessRunViewSet` (line 100), `StageResultViewSet` (line 327)
 - **Functions:** 12
 
 | Function | Signature | Line | Description |
@@ -79,14 +79,14 @@
 | `_run_orchestrator_async` | `def _run_orchestrator_async(process_run_id, user_id=None) -> Any` | 26 |  |
 | `_resume_orchestrator_async` | `def _resume_orchestrator_async(process_run_id) -> Any` | 42 |  |
 | `_restart_orchestrator_async` | `def _restart_orchestrator_async(process_run_id) -> Any` | 56 |  |
-| `get_queryset` | `def get_queryset(self) -> Any` | 74 |  |
-| `get_serializer_class` | `def get_serializer_class(self) -> Any` | 78 |  |
-| `run_process` | `def run_process(self, request, pk=None) -> Any` | 84 |  |
-| `get_queryset` | `def get_queryset(self) -> Any` | 103 |  |
-| `get_prompt` | `def get_prompt(self, request, pk=None) -> Any` | 108 | Get the generated prompt from Agent 3 for manual LLM input. |
-| `submit_manual_latex` | `def submit_manual_latex(self, request, pk=None) -> Any` | 148 | Submit manually updated LaTeX from external LLM and continue process. |
-| `continue_iterating` | `def continue_iterating(self, request, pk=None) -> Any` | 207 | Trigger a new manual iteration after process completion. |
-| `restart` | `def restart(self, request, pk=None) -> Any` | 255 | Restart a failed process from the point of failure. |
-| `force_complete` | `def force_complete(self, request, pk=None) -> Any` | 292 | Force complete a process without running any agents. |
+| `get_queryset` | `def get_queryset(self) -> Any` | 75 |  |
+| `get_serializer_class` | `def get_serializer_class(self) -> Any` | 79 |  |
+| `run_process` | `def run_process(self, request, pk=None) -> Any` | 85 |  |
+| `get_queryset` | `def get_queryset(self) -> Any` | 105 |  |
+| `get_prompt` | `def get_prompt(self, request, pk=None) -> Any` | 110 | Get the generated prompt from Agent 3 for manual LLM input. |
+| `submit_manual_latex` | `def submit_manual_latex(self, request, pk=None) -> Any` | 150 | Submit manually updated LaTeX from external LLM and continue process. |
+| `continue_iterating` | `def continue_iterating(self, request, pk=None) -> Any` | 209 | Trigger a new manual iteration after process completion. |
+| `restart` | `def restart(self, request, pk=None) -> Any` | 257 | Restart a failed process from the point of failure. |
+| `force_complete` | `def force_complete(self, request, pk=None) -> Any` | 294 | Force complete a process without running any agents. |
 
 ---

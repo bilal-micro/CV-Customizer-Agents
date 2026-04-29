@@ -115,18 +115,26 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const logout = async () => {
     const refreshToken = localStorage.getItem('refresh_token');
+    const accessToken = localStorage.getItem('access_token');
     
     if (refreshToken) {
       try {
-        await fetch('http://localhost:8000/api/auth/logout/', {
+        const response = await fetch('http://localhost:8000/api/auth/logout/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`,
           },
           body: JSON.stringify({ refresh: refreshToken }),
         });
+        
+        // Even if logout fails on server side, we'll continue with client-side logout
+        if (!response.ok) {
+          console.warn('Logout request failed on server, but proceeding with client-side logout');
+        }
       } catch (error) {
         console.error('Logout error:', error);
+        // Continue with client-side logout even if server request fails
       }
     }
 
