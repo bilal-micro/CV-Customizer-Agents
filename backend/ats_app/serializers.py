@@ -31,7 +31,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
         fields = ['id', 'openrouter_api_key', 'preferred_model']
         extra_kwargs = {
             'openrouter_api_key': {
-                'write_only': True,  # Don't expose API key in responses
+                # 'write_only': True,  # Don't expose API key in responses
                 'required': False,
                 'allow_blank': True
             },
@@ -40,6 +40,21 @@ class UserProfileSerializer(serializers.ModelSerializer):
                 'allow_blank': True
             }
         }
+        
+    def to_representation(self, instance):
+        """تعديل شكل البيانات عند العرض فقط"""
+        ret = super().to_representation(instance)
+        key = ret.get('openrouter_api_key')
+        
+        if key:
+            # خيار 1: إظهار أول جزء فقط sk-or-********
+            if len(key) > 10:
+                ret['openrouter_api_key'] = f"{key[:10]}{'*' * 15}"
+            else:
+                # خيار 2: لو المفتاح قصير، اظهر نجوم بس
+                ret['openrouter_api_key'] = '*' * 20
+        
+        return ret
     
     def validate_openrouter_api_key(self, value):
         """Validate OpenRouter API key format if provided"""

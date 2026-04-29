@@ -131,7 +131,7 @@ const ProfilePage: React.FC = () => {
         <div className="form-group">
           <label htmlFor="openrouter_api_key">
             OpenRouter API Key
-            <span className="label-hint">(Optional - Leave empty to use system default)</span>
+            <span className="label-hint">(Required - Get it from OpenRouter)</span>
           </label>
           <div className="password-input-wrapper">
             <span className="input-icon">🔑</span>
@@ -154,12 +154,20 @@ const ProfilePage: React.FC = () => {
             >
               {profileData.openrouter_api_key ? '👁️' : '👁️‍🗨️'}
             </button>
+            {profileData.openrouter_api_key && (
+              <span className="api-key-indicator api-key-set" title="API Key is set">
+                ✓
+              </span>
+            )}
           </div>
           <div className="field-help">
             Get your API key from{' '}
             <a href="https://openrouter.ai/keys" target="_blank" rel="noopener noreferrer">
               OpenRouter
             </a>
+            {!profileData.openrouter_api_key && (
+              <span className="field-warning">⚠️ API Key is required to use the system</span>
+            )}
           </div>
         </div>
 

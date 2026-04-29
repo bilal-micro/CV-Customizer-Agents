@@ -1,27 +1,27 @@
 {
+  "__init__": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 12,
+    "signature": "def __init__(self, api_key=None, model=None) -> Any",
+    "class": "LLMService"
+  },
   "run": {
     "file": "backend/ats_app/agents/match_evaluator.py",
-    "line": 83,
+    "line": 86,
     "signature": "def run(self, job_title: str, keywords: Dict, match_results: Dict,              section_analysis: Dict, latex_cv: str) -> Dict",
     "class": "MatchEvaluatorAgent"
   },
   "evaluate_results": {
     "file": "backend/ats_app/agents/ats_rater.py",
-    "line": 56,
+    "line": 61,
     "signature": "def evaluate_results(self, result: dict, match_rate: float) -> tuple[bool, dict]",
     "class": "ATSRaterAgent"
   },
   "get_feedback_for_iteration": {
     "file": "backend/ats_app/agents/ats_rater.py",
-    "line": 95,
+    "line": 100,
     "signature": "def get_feedback_for_iteration(self, result: dict, match_rate: float) -> dict",
     "class": "ATSRaterAgent"
-  },
-  "__init__": {
-    "file": "backend/ats_app/services/llm_service.py",
-    "line": 12,
-    "signature": "def __init__(self) -> Any",
-    "class": "LLMService"
   },
   "generate_prompt": {
     "file": "backend/ats_app/agents/cv_updater.py",
@@ -37,7 +37,7 @@
   },
   "_log_extraction_summary": {
     "file": "backend/ats_app/agents/keyword_extractor.py",
-    "line": 100,
+    "line": 105,
     "signature": "def _log_extraction_summary(self, result: dict) -> None",
     "class": "KeywordExtractorAgent"
   },
@@ -49,43 +49,43 @@
   },
   "_format_keywords_for_llm": {
     "file": "backend/ats_app/agents/match_evaluator.py",
-    "line": 126,
+    "line": 132,
     "signature": "def _format_keywords_for_llm(self, keywords: Dict) -> str",
     "class": "MatchEvaluatorAgent"
   },
   "_format_match_results_for_llm": {
     "file": "backend/ats_app/agents/match_evaluator.py",
-    "line": 145,
+    "line": 151,
     "signature": "def _format_match_results_for_llm(self, match_results: Dict) -> str",
     "class": "MatchEvaluatorAgent"
   },
   "_format_section_analysis_for_llm": {
     "file": "backend/ats_app/agents/match_evaluator.py",
-    "line": 177,
+    "line": 183,
     "signature": "def _format_section_analysis_for_llm(self, section_analysis: Dict) -> str",
     "class": "MatchEvaluatorAgent"
   },
   "_format_prioritization_for_llm": {
     "file": "backend/ats_app/agents/keyword_gap_analyzer.py",
-    "line": 215,
+    "line": 218,
     "signature": "def _format_prioritization_for_llm(self, prioritization: Dict) -> str",
     "class": "KeywordGapAnalyzerAgent"
   },
   "get_immediate_actions": {
     "file": "backend/ats_app/agents/keyword_gap_analyzer.py",
-    "line": 241,
+    "line": 244,
     "signature": "def get_immediate_actions(self, gap_analysis: Dict) -> List[str]",
     "class": "KeywordGapAnalyzerAgent"
   },
   "get_critical_gaps": {
     "file": "backend/ats_app/agents/keyword_prioritizer.py",
-    "line": 225,
+    "line": 228,
     "signature": "def get_critical_gaps(self, prioritization: Dict) -> List[Dict]",
     "class": "KeywordPrioritizerAgent"
   },
   "get_section_recommendations": {
     "file": "backend/ats_app/agents/keyword_gap_analyzer.py",
-    "line": 271,
+    "line": 274,
     "signature": "def get_section_recommendations(self, gap_analysis: Dict) -> Dict[str, Dict]",
     "class": "KeywordGapAnalyzerAgent"
   },
@@ -187,141 +187,190 @@
   },
   "get_top_priorities": {
     "file": "backend/ats_app/agents/keyword_prioritizer.py",
-    "line": 203,
+    "line": 206,
     "signature": "def get_top_priorities(self, prioritization: Dict, limit: int = 5) -> List[Dict]",
     "class": "KeywordPrioritizerAgent"
   },
   "get_match_quality_assessment": {
     "file": "backend/ats_app/agents/match_evaluator.py",
-    "line": 201,
+    "line": 207,
     "signature": "def get_match_quality_assessment(self, evaluation: Dict) -> Dict",
     "class": "MatchEvaluatorAgent"
   },
   "_get_quality_level": {
     "file": "backend/ats_app/agents/match_evaluator.py",
-    "line": 224,
+    "line": 230,
     "signature": "def _get_quality_level(self, match_rate: float) -> str",
     "class": "MatchEvaluatorAgent"
   },
   "start_process": {
     "file": "backend/ats_app/agents/orchestrator.py",
-    "line": 58,
+    "line": 88,
     "signature": "def start_process(self, process_run: ProcessRun) -> None",
     "class": "OrchestratorAgent"
   },
   "_run_iteration_loop": {
     "file": "backend/ats_app/agents/orchestrator.py",
-    "line": 109,
+    "line": 139,
     "signature": "def _run_iteration_loop(self, process_run: ProcessRun, job: Job,                             keywords: dict, current_latex: str) -> None",
     "class": "OrchestratorAgent"
   },
   "resume_after_manual_input": {
     "file": "backend/ats_app/agents/orchestrator.py",
-    "line": 153,
+    "line": 183,
     "signature": "def resume_after_manual_input(self, process_run: ProcessRun) -> None",
     "class": "OrchestratorAgent"
   },
   "_continue_to_next_iteration": {
     "file": "backend/ats_app/agents/orchestrator.py",
-    "line": 251,
+    "line": 281,
     "signature": "def _continue_to_next_iteration(self, process_run: ProcessRun, job: Job,                                   keywords: dict, latex_cv: str, feedback: dict) -> None",
     "class": "OrchestratorAgent"
   },
   "_execute_keyword_extraction": {
     "file": "backend/ats_app/agents/orchestrator.py",
-    "line": 294,
+    "line": 324,
     "signature": "def _execute_keyword_extraction(self, process_run: ProcessRun, job: Job) -> dict",
     "class": "OrchestratorAgent"
   },
   "_execute_cv_matching": {
     "file": "backend/ats_app/agents/orchestrator.py",
-    "line": 301,
+    "line": 331,
     "signature": "def _execute_cv_matching(self, process_run: ProcessRun, job: Job,                            keywords: dict, latex_cv: str) -> dict",
     "class": "OrchestratorAgent"
   },
   "_execute_cv_update_stage": {
     "file": "backend/ats_app/agents/orchestrator.py",
-    "line": 309,
+    "line": 339,
     "signature": "def _execute_cv_update_stage(self, process_run: ProcessRun, job: Job,                                 keywords: dict, latex_cv: str,                                 iteration: int = 1, feedback: dict = None) -> str",
     "class": "OrchestratorAgent"
   },
   "_execute_ats_rating": {
     "file": "backend/ats_app/agents/orchestrator.py",
-    "line": 363,
+    "line": 393,
     "signature": "def _execute_ats_rating(self, process_run: ProcessRun, job: Job,                            latex_cv: str, match_result: dict) -> dict",
     "class": "OrchestratorAgent"
   },
   "_execute_stage": {
     "file": "backend/ats_app/agents/orchestrator.py",
-    "line": 374,
+    "line": 404,
     "signature": "def _execute_stage(self, process_run: ProcessRun, stage_name: str,                      stage_func) -> dict",
     "class": "OrchestratorAgent"
   },
   "_evaluate_results": {
     "file": "backend/ats_app/agents/orchestrator.py",
-    "line": 436,
+    "line": 466,
     "signature": "def _evaluate_results(self, match_result: dict, rating_result: dict) -> dict",
     "class": "OrchestratorAgent"
   },
   "_prepare_feedback_for_next_iteration": {
     "file": "backend/ats_app/agents/orchestrator.py",
-    "line": 459,
+    "line": 489,
     "signature": "def _prepare_feedback_for_next_iteration(self, process_run: ProcessRun, rating_result: dict,                                          match_result: dict,                                           evaluation: dict) -> dict",
     "class": "OrchestratorAgent"
   },
   "_get_stage_result_safely": {
     "file": "backend/ats_app/agents/orchestrator.py",
-    "line": 492,
+    "line": 522,
     "signature": "def _get_stage_result_safely(self, process_run: ProcessRun, stage_name: str) -> Any",
     "class": "OrchestratorAgent"
   },
   "_get_or_create_stage": {
     "file": "backend/ats_app/agents/orchestrator.py",
-    "line": 519,
+    "line": 549,
     "signature": "def _get_or_create_stage(self, process_run: ProcessRun, stage_name: str) -> StageResult",
     "class": "OrchestratorAgent"
   },
   "_should_retry_stage": {
     "file": "backend/ats_app/agents/orchestrator.py",
-    "line": 527,
+    "line": 557,
     "signature": "def _should_retry_stage(self, stage: str, result: dict) -> bool",
     "class": "OrchestratorAgent"
   },
   "_rate_stage_result": {
     "file": "backend/ats_app/agents/orchestrator.py",
-    "line": 541,
+    "line": 571,
     "signature": "def _rate_stage_result(self, stage: str, result: dict) -> float",
     "class": "OrchestratorAgent"
   },
   "_get_stage_notes": {
     "file": "backend/ats_app/agents/orchestrator.py",
-    "line": 555,
+    "line": 585,
     "signature": "def _get_stage_notes(self, stage: str, result: dict) -> str",
     "class": "OrchestratorAgent"
   },
   "_complete_process": {
     "file": "backend/ats_app/agents/orchestrator.py",
-    "line": 567,
+    "line": 597,
     "signature": "def _complete_process(self, process_run: ProcessRun, reason: str) -> None",
     "class": "OrchestratorAgent"
   },
   "trigger_manual_iteration": {
     "file": "backend/ats_app/agents/orchestrator.py",
-    "line": 573,
+    "line": 603,
     "signature": "def trigger_manual_iteration(self, process_run: ProcessRun) -> bool",
     "class": "OrchestratorAgent"
   },
   "_fail_process": {
     "file": "backend/ats_app/agents/orchestrator.py",
-    "line": 620,
+    "line": 650,
     "signature": "def _fail_process(self, process_run: ProcessRun, reason: str) -> None",
     "class": "OrchestratorAgent"
   },
   "restart_from_failure": {
     "file": "backend/ats_app/agents/orchestrator.py",
-    "line": 626,
+    "line": 656,
     "signature": "def restart_from_failure(self, process_run: ProcessRun) -> None",
     "class": "OrchestratorAgent"
+  },
+  "generate": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 50,
+    "signature": "def generate(self, prompt: str, system: str = \"\", temperature: float = None) -> str",
+    "class": "LLMService"
+  },
+  "_generate_ollama": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 56,
+    "signature": "def _generate_ollama(self, prompt: str, system: str = \"\", temperature: float = None) -> str",
+    "class": "LLMService"
+  },
+  "_generate_openrouter": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 86,
+    "signature": "def _generate_openrouter(self, prompt: str, system: str = \"\", temperature: float = None) -> str",
+    "class": "LLMService"
+  },
+  "_sanitize_json_string": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 141,
+    "signature": "def _sanitize_json_string(self, raw: str) -> str",
+    "class": "LLMService"
+  },
+  "_is_truncated_json": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 156,
+    "signature": "def _is_truncated_json(self, json_str: str) -> bool",
+    "class": "LLMService"
+  },
+  "_complete_truncated_json": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 192,
+    "signature": "def _complete_truncated_json(self, json_str: str) -> str",
+    "class": "LLMService"
+  },
+  "_ensure_dict_result": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 249,
+    "signature": "def _ensure_dict_result(self, result) -> dict",
+    "class": "LLMService",
+    "description": "Ensure the result is always a dict."
+  },
+  "generate_json": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 271,
+    "signature": "def generate_json(self, prompt: str, system: str = \"\", temperature: float = None) -> dict",
+    "class": "LLMService"
   },
   "register_view": {
     "file": "backend/ats_app/authentication.py",
@@ -360,7 +409,7 @@
   },
   "__str__": {
     "file": "backend/ats_app/models.py",
-    "line": 110,
+    "line": 112,
     "signature": "def __str__(self) -> Any",
     "class": "UserProfile"
   },
@@ -387,55 +436,6 @@
     "line": 117,
     "signature": "def validate_latex_content(self, value) -> Any",
     "class": "UserSerializer"
-  },
-  "generate": {
-    "file": "backend/ats_app/services/llm_service.py",
-    "line": 25,
-    "signature": "def generate(self, prompt: str, system: str = \"\", temperature: float = None) -> str",
-    "class": "LLMService"
-  },
-  "_generate_ollama": {
-    "file": "backend/ats_app/services/llm_service.py",
-    "line": 31,
-    "signature": "def _generate_ollama(self, prompt: str, system: str = \"\", temperature: float = None) -> str",
-    "class": "LLMService"
-  },
-  "_generate_openrouter": {
-    "file": "backend/ats_app/services/llm_service.py",
-    "line": 61,
-    "signature": "def _generate_openrouter(self, prompt: str, system: str = \"\", temperature: float = None) -> str",
-    "class": "LLMService"
-  },
-  "_sanitize_json_string": {
-    "file": "backend/ats_app/services/llm_service.py",
-    "line": 116,
-    "signature": "def _sanitize_json_string(self, raw: str) -> str",
-    "class": "LLMService"
-  },
-  "_is_truncated_json": {
-    "file": "backend/ats_app/services/llm_service.py",
-    "line": 131,
-    "signature": "def _is_truncated_json(self, json_str: str) -> bool",
-    "class": "LLMService"
-  },
-  "_complete_truncated_json": {
-    "file": "backend/ats_app/services/llm_service.py",
-    "line": 167,
-    "signature": "def _complete_truncated_json(self, json_str: str) -> str",
-    "class": "LLMService"
-  },
-  "_ensure_dict_result": {
-    "file": "backend/ats_app/services/llm_service.py",
-    "line": 224,
-    "signature": "def _ensure_dict_result(self, result) -> dict",
-    "class": "LLMService",
-    "description": "Ensure the result is always a dict."
-  },
-  "generate_json": {
-    "file": "backend/ats_app/services/llm_service.py",
-    "line": 246,
-    "signature": "def generate_json(self, prompt: str, system: str = \"\", temperature: float = None) -> dict",
-    "class": "LLMService"
   },
   "_run_orchestrator_async": {
     "file": "backend/ats_app/views.py",
@@ -514,55 +514,6 @@
     "signature": "def health_check(request) -> Any",
     "class": null,
     "description": "Health check endpoint that doesn't require authentication"
-  },
-  "main": {
-    "file": "backend/manage.py",
-    "line": 7,
-    "signature": "def main() -> Any",
-    "class": null,
-    "description": "Run administrative tasks."
-  },
-  "NavLinks": {
-    "file": "frontend/src/App.tsx",
-    "line": 12,
-    "signature": "function NavLinks() : any",
-    "class": null
-  },
-  "App": {
-    "file": "frontend/src/App.tsx",
-    "line": 104,
-    "signature": "function App() : any",
-    "class": null
-  },
-  "isActive": {
-    "file": "frontend/src/App.tsx",
-    "line": 17,
-    "signature": "const isActive = (path: string) => any",
-    "class": null
-  },
-  "handleLogoutClick": {
-    "file": "frontend/src/App.tsx",
-    "line": 19,
-    "signature": "const handleLogoutClick = () => any",
-    "class": null
-  },
-  "confirmLogout": {
-    "file": "frontend/src/App.tsx",
-    "line": 23,
-    "signature": "const confirmLogout = async () => any",
-    "class": null
-  },
-  "cancelLogout": {
-    "file": "frontend/src/App.tsx",
-    "line": 33,
-    "signature": "const cancelLogout = () => any",
-    "class": null
-  },
-  "getUserInitials": {
-    "file": "frontend/src/App.tsx",
-    "line": 38,
-    "signature": "const getUserInitials = () => any",
-    "class": null
   },
   "login": {
     "file": "frontend/src/context/AuthContext.tsx",
@@ -822,18 +773,6 @@
     "signature": "const validateForm = () => boolean",
     "class": null
   },
-  "useAuth": {
-    "file": "frontend/src/context/AuthContext.tsx",
-    "line": 23,
-    "signature": "export const useAuth = () => any",
-    "class": null
-  },
-  "refreshToken": {
-    "file": "frontend/src/context/AuthContext.tsx",
-    "line": 143,
-    "signature": "const refreshToken = async () => any",
-    "class": null
-  },
   "ProcessDetail": {
     "file": "frontend/src/pages/ProcessDetail.tsx",
     "line": 7,
@@ -886,6 +825,66 @@
     "file": "frontend/src/pages/ProfilePage.tsx",
     "line": 47,
     "signature": "const fetchProfile = async () => any",
+    "class": null
+  },
+  "useAuth": {
+    "file": "frontend/src/context/AuthContext.tsx",
+    "line": 23,
+    "signature": "export const useAuth = () => any",
+    "class": null
+  },
+  "refreshToken": {
+    "file": "frontend/src/context/AuthContext.tsx",
+    "line": 143,
+    "signature": "const refreshToken = async () => any",
+    "class": null
+  },
+  "main": {
+    "file": "backend/manage.py",
+    "line": 7,
+    "signature": "def main() -> Any",
+    "class": null
+  },
+  "NavLinks": {
+    "file": "frontend/src/App.tsx",
+    "line": 12,
+    "signature": "function NavLinks() : any",
+    "class": null
+  },
+  "App": {
+    "file": "frontend/src/App.tsx",
+    "line": 104,
+    "signature": "function App() : any",
+    "class": null
+  },
+  "isActive": {
+    "file": "frontend/src/App.tsx",
+    "line": 17,
+    "signature": "const isActive = (path: string) => any",
+    "class": null
+  },
+  "handleLogoutClick": {
+    "file": "frontend/src/App.tsx",
+    "line": 19,
+    "signature": "const handleLogoutClick = () => any",
+    "class": null
+  },
+  "confirmLogout": {
+    "file": "frontend/src/App.tsx",
+    "line": 23,
+    "signature": "const confirmLogout = async () => any",
+    "class": null
+  },
+  "cancelLogout": {
+    "file": "frontend/src/App.tsx",
+    "line": 33,
+    "signature": "const cancelLogout = () => any",
+    "class": null
+  },
+  "getUserInitials": {
+    "file": "frontend/src/App.tsx",
+    "line": 38,
+    "signature": "const getUserInitials = () => any",
     "class": null
   }
 }

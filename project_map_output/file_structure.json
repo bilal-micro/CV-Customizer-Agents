@@ -80,6 +80,12 @@
           "type": "file",
           "path": "ExecutionSummary/Commit_2026-04-29_15-44-35_585a8f79.md",
           "size_bytes": 6268
+        },
+        {
+          "name": "Commit_2026-04-29_17-07-53_1c2433c1.md",
+          "type": "file",
+          "path": "ExecutionSummary/Commit_2026-04-29_17-07-53_1c2433c1.md",
+          "size_bytes": 13735
         }
       ]
     },
@@ -274,6 +280,12 @@
           "type": "file",
           "path": "Scopes/scope_2026_04_29_02_36_enhance_frontend_registration_and_login_functional.md",
           "size_bytes": 2903
+        },
+        {
+          "name": "scope_2026_04_29_16_32_remove_all_hardcoded_default_model_and_api_key_dep.md",
+          "type": "file",
+          "path": "Scopes/scope_2026_04_29_16_32_remove_all_hardcoded_default_model_and_api_key_dep.md",
+          "size_bytes": 5228
         }
       ]
     },
@@ -304,12 +316,13 @@
                   "type": "file",
                   "path": "backend/ats_app/agents/ats_rater.py",
                   "language": "python",
-                  "total_lines": 118,
-                  "function_count": 3,
+                  "total_lines": 123,
+                  "function_count": 4,
                   "classes": [
                     "ATSRaterAgent"
                   ],
                   "functions": [
+                    "__init__",
                     "run",
                     "evaluate_results",
                     "get_feedback_for_iteration"
@@ -320,15 +333,17 @@
                   "type": "file",
                   "path": "backend/ats_app/agents/cv_matcher.py",
                   "language": "python",
-                  "total_lines": 314,
-                  "function_count": 4,
+                  "total_lines": 326,
+                  "function_count": 6,
                   "classes": [
                     "SectionAnalyzerAgent",
                     "AnalysisSynthesizerAgent",
                     "CVMatcherAgent"
                   ],
                   "functions": [
+                    "__init__",
                     "run",
+                    "__init__",
                     "run",
                     "__init__",
                     "run"
@@ -354,12 +369,13 @@
                   "type": "file",
                   "path": "backend/ats_app/agents/keyword_extractor.py",
                   "language": "python",
-                  "total_lines": 121,
-                  "function_count": 2,
+                  "total_lines": 126,
+                  "function_count": 3,
                   "classes": [
                     "KeywordExtractorAgent"
                   ],
                   "functions": [
+                    "__init__",
                     "run",
                     "_log_extraction_summary"
                   ]
@@ -369,7 +385,7 @@
                   "type": "file",
                   "path": "backend/ats_app/agents/keyword_gap_analyzer.py",
                   "language": "python",
-                  "total_lines": 284,
+                  "total_lines": 287,
                   "function_count": 9,
                   "classes": [
                     "KeywordGapAnalyzerAgent"
@@ -420,7 +436,7 @@
                   "type": "file",
                   "path": "backend/ats_app/agents/keyword_prioritizer.py",
                   "language": "python",
-                  "total_lines": 237,
+                  "total_lines": 240,
                   "function_count": 7,
                   "classes": [
                     "KeywordPrioritizerAgent"
@@ -440,12 +456,13 @@
                   "type": "file",
                   "path": "backend/ats_app/agents/match_evaluator.py",
                   "language": "python",
-                  "total_lines": 235,
-                  "function_count": 6,
+                  "total_lines": 241,
+                  "function_count": 7,
                   "classes": [
                     "MatchEvaluatorAgent"
                   ],
                   "functions": [
+                    "__init__",
                     "run",
                     "_format_keywords_for_llm",
                     "_format_match_results_for_llm",
@@ -459,7 +476,7 @@
                   "type": "file",
                   "path": "backend/ats_app/agents/orchestrator.py",
                   "language": "python",
-                  "total_lines": 731,
+                  "total_lines": 761,
                   "function_count": 21,
                   "classes": [
                     "OrchestratorAgent"
@@ -551,6 +568,18 @@
                   "size_bytes": 1911
                 },
                 {
+                  "name": "0006_alter_userprofile_fields.py",
+                  "type": "file",
+                  "path": "backend/ats_app/migrations/0006_alter_userprofile_fields.py",
+                  "language": "python",
+                  "total_lines": 23,
+                  "function_count": 0,
+                  "classes": [
+                    "Migration"
+                  ],
+                  "functions": []
+                },
+                {
                   "name": "__init__.py",
                   "type": "file",
                   "path": "backend/ats_app/migrations/__init__.py",
@@ -576,7 +605,7 @@
                   "type": "file",
                   "path": "backend/ats_app/services/llm_service.py",
                   "language": "python",
-                  "total_lines": 417,
+                  "total_lines": 440,
                   "function_count": 9,
                   "classes": [
                     "LLMService"
@@ -657,7 +686,7 @@
               "type": "file",
               "path": "backend/ats_app/models.py",
               "language": "python",
-              "total_lines": 112,
+              "total_lines": 114,
               "function_count": 4,
               "classes": [
                 "UserProfile",
@@ -778,7 +807,7 @@
               "type": "file",
               "path": "backend/ats_project/settings.py",
               "language": "python",
-              "size_bytes": 5161
+              "size_bytes": 5202
             },
             {
               "name": "urls.py",
@@ -811,7 +840,7 @@
           "name": "db.sqlite3",
           "type": "file",
           "path": "backend/db.sqlite3",
-          "size_bytes": 2842624
+          "size_bytes": 2953216
         },
         {
           "name": "manage.py",
@@ -1282,5 +1311,5 @@
     }
   ],
   "total_directories": 21,
-  "total_files": 119
+  "total_files": 122
 }

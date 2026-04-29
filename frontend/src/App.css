@@ -827,6 +827,37 @@
   opacity: 0.5;
 }
 
+/* API Key Indicator Styles */
+.api-key-indicator {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: var(--success);
+  font-weight: 700;
+  background: var(--success-bg);
+  padding: 4px 8px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--success-light);
+}
+
+.api-key-set {
+  animation: fadeIn 0.3s ease;
+}
+
+.field-warning {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--warning);
+  font-weight: 500;
+  background: var(--warning-bg);
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  border: 1px solid var(--warning-light);
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .navbar {
