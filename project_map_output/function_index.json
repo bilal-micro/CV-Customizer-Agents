@@ -1,4 +1,140 @@
 {
+  "register_view": {
+    "file": "backend/ats_app/authentication.py",
+    "line": 23,
+    "signature": "def register_view(request) -> Any",
+    "class": null,
+    "description": "Register a new user and return JWT tokens for automatic login"
+  },
+  "login_view": {
+    "file": "backend/ats_app/authentication.py",
+    "line": 47,
+    "signature": "def login_view(request) -> Any",
+    "class": null,
+    "description": "Login user and return JWT tokens"
+  },
+  "logout_view": {
+    "file": "backend/ats_app/authentication.py",
+    "line": 79,
+    "signature": "def logout_view(request) -> Any",
+    "class": null,
+    "description": "Logout user - blacklist the refresh token to invalidate it"
+  },
+  "profile_view": {
+    "file": "backend/ats_app/authentication.py",
+    "line": 101,
+    "signature": "def profile_view(request) -> Any",
+    "class": null,
+    "description": "Get or update user profile"
+  },
+  "change_password_view": {
+    "file": "backend/ats_app/authentication.py",
+    "line": 128,
+    "signature": "def change_password_view(request) -> Any",
+    "class": null,
+    "description": "Change user password"
+  },
+  "__str__": {
+    "file": "backend/ats_app/models.py",
+    "line": 112,
+    "signature": "def __str__(self) -> Any",
+    "class": "UserProfile"
+  },
+  "create": {
+    "file": "backend/ats_app/serializers.py",
+    "line": 107,
+    "signature": "def create(self, validated_data) -> Any",
+    "class": "UserSerializer"
+  },
+  "validate_old_password": {
+    "file": "backend/ats_app/serializers.py",
+    "line": 48,
+    "signature": "def validate_old_password(self, value) -> Any",
+    "class": "UserSerializer"
+  },
+  "validate_new_password": {
+    "file": "backend/ats_app/serializers.py",
+    "line": 54,
+    "signature": "def validate_new_password(self, value) -> Any",
+    "class": "UserSerializer"
+  },
+  "validate_latex_content": {
+    "file": "backend/ats_app/serializers.py",
+    "line": 117,
+    "signature": "def validate_latex_content(self, value) -> Any",
+    "class": "UserSerializer"
+  },
+  "_run_orchestrator_async": {
+    "file": "backend/ats_app/views.py",
+    "line": 26,
+    "signature": "def _run_orchestrator_async(process_run_id, user_id=None) -> Any",
+    "class": "JobViewSet"
+  },
+  "_resume_orchestrator_async": {
+    "file": "backend/ats_app/views.py",
+    "line": 42,
+    "signature": "def _resume_orchestrator_async(process_run_id, user_id=None) -> Any",
+    "class": "JobViewSet"
+  },
+  "_restart_orchestrator_async": {
+    "file": "backend/ats_app/views.py",
+    "line": 58,
+    "signature": "def _restart_orchestrator_async(process_run_id, user_id=None) -> Any",
+    "class": "JobViewSet"
+  },
+  "get_queryset": {
+    "file": "backend/ats_app/views.py",
+    "line": 109,
+    "signature": "def get_queryset(self) -> Any",
+    "class": "JobViewSet"
+  },
+  "get_serializer_class": {
+    "file": "backend/ats_app/views.py",
+    "line": 83,
+    "signature": "def get_serializer_class(self) -> Any",
+    "class": "JobViewSet"
+  },
+  "run_process": {
+    "file": "backend/ats_app/views.py",
+    "line": 89,
+    "signature": "def run_process(self, request, pk=None) -> Any",
+    "class": "JobViewSet"
+  },
+  "get_prompt": {
+    "file": "backend/ats_app/views.py",
+    "line": 114,
+    "signature": "def get_prompt(self, request, pk=None) -> Any",
+    "class": "JobViewSet",
+    "description": "Get the generated prompt from Agent 3 for manual LLM input."
+  },
+  "submit_manual_latex": {
+    "file": "backend/ats_app/views.py",
+    "line": 154,
+    "signature": "def submit_manual_latex(self, request, pk=None) -> Any",
+    "class": "JobViewSet",
+    "description": "Submit manually updated LaTeX from external LLM and continue process."
+  },
+  "continue_iterating": {
+    "file": "backend/ats_app/views.py",
+    "line": 215,
+    "signature": "def continue_iterating(self, request, pk=None) -> Any",
+    "class": "JobViewSet",
+    "description": "Trigger a new manual iteration after process completion."
+  },
+  "restart": {
+    "file": "backend/ats_app/views.py",
+    "line": 263,
+    "signature": "def restart(self, request, pk=None) -> Any",
+    "class": "JobViewSet",
+    "description": "Restart a failed process from the point of failure."
+  },
+  "force_complete": {
+    "file": "backend/ats_app/views.py",
+    "line": 302,
+    "signature": "def force_complete(self, request, pk=None) -> Any",
+    "class": "JobViewSet",
+    "description": "Force complete a process without running any agents."
+  },
   "__init__": {
     "file": "backend/ats_app/services/llm_service.py",
     "line": 12,
@@ -323,142 +459,6 @@
     "signature": "def restart_from_failure(self, process_run: ProcessRun) -> None",
     "class": "OrchestratorAgent"
   },
-  "register_view": {
-    "file": "backend/ats_app/authentication.py",
-    "line": 23,
-    "signature": "def register_view(request) -> Any",
-    "class": null,
-    "description": "Register a new user and return JWT tokens for automatic login"
-  },
-  "login_view": {
-    "file": "backend/ats_app/authentication.py",
-    "line": 47,
-    "signature": "def login_view(request) -> Any",
-    "class": null,
-    "description": "Login user and return JWT tokens"
-  },
-  "logout_view": {
-    "file": "backend/ats_app/authentication.py",
-    "line": 79,
-    "signature": "def logout_view(request) -> Any",
-    "class": null,
-    "description": "Logout user - blacklist the refresh token to invalidate it"
-  },
-  "profile_view": {
-    "file": "backend/ats_app/authentication.py",
-    "line": 101,
-    "signature": "def profile_view(request) -> Any",
-    "class": null,
-    "description": "Get or update user profile"
-  },
-  "change_password_view": {
-    "file": "backend/ats_app/authentication.py",
-    "line": 128,
-    "signature": "def change_password_view(request) -> Any",
-    "class": null,
-    "description": "Change user password"
-  },
-  "__str__": {
-    "file": "backend/ats_app/models.py",
-    "line": 112,
-    "signature": "def __str__(self) -> Any",
-    "class": "UserProfile"
-  },
-  "create": {
-    "file": "backend/ats_app/serializers.py",
-    "line": 107,
-    "signature": "def create(self, validated_data) -> Any",
-    "class": "UserSerializer"
-  },
-  "validate_old_password": {
-    "file": "backend/ats_app/serializers.py",
-    "line": 48,
-    "signature": "def validate_old_password(self, value) -> Any",
-    "class": "UserSerializer"
-  },
-  "validate_new_password": {
-    "file": "backend/ats_app/serializers.py",
-    "line": 54,
-    "signature": "def validate_new_password(self, value) -> Any",
-    "class": "UserSerializer"
-  },
-  "validate_latex_content": {
-    "file": "backend/ats_app/serializers.py",
-    "line": 117,
-    "signature": "def validate_latex_content(self, value) -> Any",
-    "class": "UserSerializer"
-  },
-  "_run_orchestrator_async": {
-    "file": "backend/ats_app/views.py",
-    "line": 26,
-    "signature": "def _run_orchestrator_async(process_run_id, user_id=None) -> Any",
-    "class": "JobViewSet"
-  },
-  "_resume_orchestrator_async": {
-    "file": "backend/ats_app/views.py",
-    "line": 42,
-    "signature": "def _resume_orchestrator_async(process_run_id) -> Any",
-    "class": "JobViewSet"
-  },
-  "_restart_orchestrator_async": {
-    "file": "backend/ats_app/views.py",
-    "line": 56,
-    "signature": "def _restart_orchestrator_async(process_run_id) -> Any",
-    "class": "JobViewSet"
-  },
-  "get_queryset": {
-    "file": "backend/ats_app/views.py",
-    "line": 105,
-    "signature": "def get_queryset(self) -> Any",
-    "class": "JobViewSet"
-  },
-  "get_serializer_class": {
-    "file": "backend/ats_app/views.py",
-    "line": 79,
-    "signature": "def get_serializer_class(self) -> Any",
-    "class": "JobViewSet"
-  },
-  "run_process": {
-    "file": "backend/ats_app/views.py",
-    "line": 85,
-    "signature": "def run_process(self, request, pk=None) -> Any",
-    "class": "JobViewSet"
-  },
-  "get_prompt": {
-    "file": "backend/ats_app/views.py",
-    "line": 110,
-    "signature": "def get_prompt(self, request, pk=None) -> Any",
-    "class": "JobViewSet",
-    "description": "Get the generated prompt from Agent 3 for manual LLM input."
-  },
-  "submit_manual_latex": {
-    "file": "backend/ats_app/views.py",
-    "line": 150,
-    "signature": "def submit_manual_latex(self, request, pk=None) -> Any",
-    "class": "JobViewSet",
-    "description": "Submit manually updated LaTeX from external LLM and continue process."
-  },
-  "continue_iterating": {
-    "file": "backend/ats_app/views.py",
-    "line": 209,
-    "signature": "def continue_iterating(self, request, pk=None) -> Any",
-    "class": "JobViewSet",
-    "description": "Trigger a new manual iteration after process completion."
-  },
-  "restart": {
-    "file": "backend/ats_app/views.py",
-    "line": 257,
-    "signature": "def restart(self, request, pk=None) -> Any",
-    "class": "JobViewSet",
-    "description": "Restart a failed process from the point of failure."
-  },
-  "force_complete": {
-    "file": "backend/ats_app/views.py",
-    "line": 294,
-    "signature": "def force_complete(self, request, pk=None) -> Any",
-    "class": "JobViewSet",
-    "description": "Force complete a process without running any agents."
-  },
   "generate": {
     "file": "backend/ats_app/services/llm_service.py",
     "line": 50,
@@ -522,46 +522,100 @@
     "class": null,
     "description": "Run administrative tasks."
   },
-  "NavLinks": {
-    "file": "frontend/src/App.tsx",
-    "line": 12,
-    "signature": "function NavLinks() : any",
+  "login": {
+    "file": "frontend/src/context/AuthContext.tsx",
+    "line": 90,
+    "signature": "const login = async (username: string, password: string) => any",
     "class": null
   },
-  "App": {
-    "file": "frontend/src/App.tsx",
-    "line": 104,
-    "signature": "function App() : any",
+  "logout": {
+    "file": "frontend/src/context/AuthContext.tsx",
+    "line": 116,
+    "signature": "const logout = async () => any",
     "class": null
   },
-  "isActive": {
-    "file": "frontend/src/App.tsx",
-    "line": 17,
-    "signature": "const isActive = (path: string) => any",
+  "getProfile": {
+    "file": "frontend/src/api/index.ts",
+    "line": 53,
+    "signature": "export const getProfile = () => any",
     "class": null
   },
-  "handleLogoutClick": {
-    "file": "frontend/src/App.tsx",
-    "line": 19,
-    "signature": "const handleLogoutClick = () => any",
+  "updateProfile": {
+    "file": "frontend/src/api/index.ts",
+    "line": 56,
+    "signature": "export const updateProfile = (data: { openrouter_api_key?: string; preferred_model?: string }) => any",
     "class": null
   },
-  "confirmLogout": {
-    "file": "frontend/src/App.tsx",
-    "line": 23,
-    "signature": "const confirmLogout = async () => any",
+  "register": {
+    "file": "frontend/src/context/AuthContext.tsx",
+    "line": 52,
+    "signature": "const register = async (username: string, email: string, password: string) => any",
     "class": null
   },
-  "cancelLogout": {
-    "file": "frontend/src/App.tsx",
-    "line": 33,
-    "signature": "const cancelLogout = () => any",
+  "createJob": {
+    "file": "frontend/src/api/index.ts",
+    "line": 62,
+    "signature": "export const createJob = (data: { title: string; description: string; latex_cv: string }) => any",
     "class": null
   },
-  "getUserInitials": {
-    "file": "frontend/src/App.tsx",
-    "line": 38,
-    "signature": "const getUserInitials = () => any",
+  "getJobs": {
+    "file": "frontend/src/api/index.ts",
+    "line": 68,
+    "signature": "export const getJobs = () => any",
+    "class": null
+  },
+  "getJob": {
+    "file": "frontend/src/api/index.ts",
+    "line": 70,
+    "signature": "export const getJob = (id: string) => any",
+    "class": null
+  },
+  "runProcess": {
+    "file": "frontend/src/api/index.ts",
+    "line": 72,
+    "signature": "export const runProcess = (jobId: string, maxRetries = 3) => any",
+    "class": null
+  },
+  "getProcessRuns": {
+    "file": "frontend/src/api/index.ts",
+    "line": 78,
+    "signature": "export const getProcessRuns = () => any",
+    "class": null
+  },
+  "getProcessRun": {
+    "file": "frontend/src/api/index.ts",
+    "line": 80,
+    "signature": "export const getProcessRun = (id: string) => any",
+    "class": null
+  },
+  "getPrompt": {
+    "file": "frontend/src/api/index.ts",
+    "line": 82,
+    "signature": "export const getPrompt = (id: string) => any",
+    "class": null
+  },
+  "submitManualLatex": {
+    "file": "frontend/src/api/index.ts",
+    "line": 85,
+    "signature": "export const submitManualLatex = (id: string, latexContent: string) => any",
+    "class": null
+  },
+  "continueIterating": {
+    "file": "frontend/src/api/index.ts",
+    "line": 88,
+    "signature": "export const continueIterating = (id: string) => any",
+    "class": null
+  },
+  "restartProcess": {
+    "file": "frontend/src/api/index.ts",
+    "line": 91,
+    "signature": "export const restartProcess = (id: string) => any",
+    "class": null
+  },
+  "forceComplete": {
+    "file": "frontend/src/api/index.ts",
+    "line": 94,
+    "signature": "export const forceComplete = (id: string) => any",
     "class": null
   },
   "JobForm": {
@@ -732,24 +786,6 @@
     "signature": "export const useAuth = () => any",
     "class": null
   },
-  "register": {
-    "file": "frontend/src/api/index.ts",
-    "line": 59,
-    "signature": "export const register = (username: string, email: string, password: string) => any",
-    "class": null
-  },
-  "login": {
-    "file": "frontend/src/api/index.ts",
-    "line": 47,
-    "signature": "export const login = (username: string, password: string) => any",
-    "class": null
-  },
-  "logout": {
-    "file": "frontend/src/api/index.ts",
-    "line": 50,
-    "signature": "export const logout = (refreshToken: string) => any",
-    "class": null
-  },
   "refreshToken": {
     "file": "frontend/src/context/AuthContext.tsx",
     "line": 143,
@@ -810,82 +846,46 @@
     "signature": "const fetchProfile = async () => any",
     "class": null
   },
-  "getProfile": {
-    "file": "frontend/src/api/index.ts",
-    "line": 53,
-    "signature": "export const getProfile = () => any",
+  "NavLinks": {
+    "file": "frontend/src/App.tsx",
+    "line": 12,
+    "signature": "function NavLinks() : any",
     "class": null
   },
-  "updateProfile": {
-    "file": "frontend/src/api/index.ts",
-    "line": 56,
-    "signature": "export const updateProfile = (data: { openrouter_api_key?: string; preferred_model?: string }) => any",
+  "App": {
+    "file": "frontend/src/App.tsx",
+    "line": 104,
+    "signature": "function App() : any",
     "class": null
   },
-  "createJob": {
-    "file": "frontend/src/api/index.ts",
-    "line": 62,
-    "signature": "export const createJob = (data: { title: string; description: string; latex_cv: string }) => any",
+  "isActive": {
+    "file": "frontend/src/App.tsx",
+    "line": 17,
+    "signature": "const isActive = (path: string) => any",
     "class": null
   },
-  "getJobs": {
-    "file": "frontend/src/api/index.ts",
-    "line": 68,
-    "signature": "export const getJobs = () => any",
+  "handleLogoutClick": {
+    "file": "frontend/src/App.tsx",
+    "line": 19,
+    "signature": "const handleLogoutClick = () => any",
     "class": null
   },
-  "getJob": {
-    "file": "frontend/src/api/index.ts",
-    "line": 70,
-    "signature": "export const getJob = (id: string) => any",
+  "confirmLogout": {
+    "file": "frontend/src/App.tsx",
+    "line": 23,
+    "signature": "const confirmLogout = async () => any",
     "class": null
   },
-  "runProcess": {
-    "file": "frontend/src/api/index.ts",
-    "line": 72,
-    "signature": "export const runProcess = (jobId: string, maxRetries = 3) => any",
+  "cancelLogout": {
+    "file": "frontend/src/App.tsx",
+    "line": 33,
+    "signature": "const cancelLogout = () => any",
     "class": null
   },
-  "getProcessRuns": {
-    "file": "frontend/src/api/index.ts",
-    "line": 78,
-    "signature": "export const getProcessRuns = () => any",
-    "class": null
-  },
-  "getProcessRun": {
-    "file": "frontend/src/api/index.ts",
-    "line": 80,
-    "signature": "export const getProcessRun = (id: string) => any",
-    "class": null
-  },
-  "getPrompt": {
-    "file": "frontend/src/api/index.ts",
-    "line": 82,
-    "signature": "export const getPrompt = (id: string) => any",
-    "class": null
-  },
-  "submitManualLatex": {
-    "file": "frontend/src/api/index.ts",
-    "line": 85,
-    "signature": "export const submitManualLatex = (id: string, latexContent: string) => any",
-    "class": null
-  },
-  "continueIterating": {
-    "file": "frontend/src/api/index.ts",
-    "line": 88,
-    "signature": "export const continueIterating = (id: string) => any",
-    "class": null
-  },
-  "restartProcess": {
-    "file": "frontend/src/api/index.ts",
-    "line": 91,
-    "signature": "export const restartProcess = (id: string) => any",
-    "class": null
-  },
-  "forceComplete": {
-    "file": "frontend/src/api/index.ts",
-    "line": 94,
-    "signature": "export const forceComplete = (id: string) => any",
+  "getUserInitials": {
+    "file": "frontend/src/App.tsx",
+    "line": 38,
+    "signature": "const getUserInitials = () => any",
     "class": null
   }
 }

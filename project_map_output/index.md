@@ -1,6 +1,6 @@
 # 🗂️ Project Master Map Index
 
-**Generated:** 2026-04-29T17:59:55
+**Generated:** 2026-04-29T18:16:27
 **Project Root:** `ATS-Agentic`
 
 ## 📊 Project Statistics
@@ -10,30 +10,60 @@
 | **Total Files Scanned** | 35 |
 | **Total Functions** | 179 |
 | **Languages** | JAVASCRIPT, PYTHON |
-| **Modules** | 4 |
+| **Modules** | 9 |
 
 ## 🏛️ Architectural Modules
 
-### 📦 Core Logic
-**Description:** Handles applicant tracking system operations and business rule processing.
-**Goal:** Implements ATS functionality like CV matching, keyword analysis, and application orchestration.
-**Files:** 15 | **Functions:** 102
-[📋 View Details](./module_001_core_logic.md)
+### 📦 Backend Application Core
+**Description:** Contains the main application logic, models, views, and authentication.
+**Goal:** Implements core ATS business logic and data management.
+**Files:** 6 | **Functions:** 27
+[📋 View Details](./module_001_backend_application_core.md)
 
-### 📦 Infrastructure
-**Description:** Manages data persistence, external service integrations, and project configuration.
-**Goal:** Provides database migrations, LLM service connectivity, and routing capabilities.
-**Files:** 8 | **Functions:** 11
-[📋 View Details](./module_002_infrastructure.md)
+### 📦 Backend Agents
+**Description:** Houses specialized agents for CV matching, keyword extraction, and evaluation.
+**Goal:** Provides intelligent processing for candidate screening and job matching.
+**Files:** 9 | **Functions:** 75
+[📋 View Details](./module_002_backend_agents.md)
 
-### 📦 UI/Templates
-**Description:** Renders user interface components and manages frontend state.
-**Goal:** Delivers responsive UI for job applications, profile management, and process tracking.
-**Files:** 11 | **Functions:** 50
-[📋 View Details](./module_003_ui/templates.md)
+### 📦 Backend Services
+**Description:** Includes external integrations like LLM service.
+**Goal:** Enables specialized computational tasks and third-party interactions.
+**Files:** 1 | **Functions:** 9
+[📋 View Details](./module_003_backend_services.md)
 
-### 📦 API Layer
-**Description:** Facilitates communication between frontend and backend services.
-**Goal:** Enables data exchange and authentication through RESTful endpoints.
+### 📦 Backend Infrastructure
+**Description:** Manages database migrations and project configuration.
+**Goal:** Supports structural integrity and deployment of the backend.
+**Files:** 7 | **Functions:** 2
+[📋 View Details](./module_004_backend_infrastructure.md)
+
+### 📦 Frontend API Layer
+**Description:** Handles API requests and responses to the backend.
+**Goal:** Facilitates communication between frontend and backend services.
 **Files:** 1 | **Functions:** 16
-[📋 View Details](./module_004_api_layer.md)
+[📋 View Details](./module_005_frontend_api_layer.md)
+
+### 📦 Frontend Components
+**Description:** Contains reusable UI elements like forms and trackers.
+**Goal:** Promotes consistent UI design and code reusability.
+**Files:** 7 | **Functions:** 28
+[📋 View Details](./module_006_frontend_components.md)
+
+### 📦 Frontend Context
+**Description:** Manages global state and authentication.
+**Goal:** Provides shared state management across the frontend.
+**Files:** 1 | **Functions:** 5
+[📋 View Details](./module_007_frontend_context.md)
+
+### 📦 Frontend Pages
+**Description:** Implements page-specific components and routing.
+**Goal:** Defines the structure and content of application views.
+**Files:** 2 | **Functions:** 10
+[📋 View Details](./module_008_frontend_pages.md)
+
+### 📦 Unclassified
+**Description:** Files not matched to any architectural module.
+**Goal:** Miscellaneous project functionality.
+**Files:** 1 | **Functions:** 7
+[📋 View Details](./module_009_unclassified.md)

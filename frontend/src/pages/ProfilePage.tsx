@@ -30,6 +30,10 @@ const ProfilePage: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+  const [showApiKeyModal, setShowApiKeyModal] = useState(false);
+  const [newApiKey, setNewApiKey] = useState('');
+  const [savingApiKey, setSavingApiKey] = useState(false);
+  const [apiKeyMessage, setApiKeyMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
   // Redirect to login if not authenticated
   useEffect(() => {
@@ -65,7 +69,7 @@ const ProfilePage: React.FC = () => {
     setMessage(null);
 
     try {
-      await updateProfile(profileData);
+      await updateProfile({preferred_model : profileData.preferred_model});
       setMessage({ type: 'success', text: 'Profile updated successfully!' });
     } catch (error) {
       console.error('Failed to update profile:', error);
@@ -73,6 +77,40 @@ const ProfilePage: React.FC = () => {
     } finally {
       setSaving(false);
     }
+  };
+
+  const handleUpdateApiKey = async () => {
+    if (!newApiKey.trim()) {
+      setApiKeyMessage({ type: 'error', text: 'API key cannot be empty' });
+      return;
+    }
+
+    setSavingApiKey(true);
+    setApiKeyMessage(null);
+
+    try {
+      await updateProfile({ openrouter_api_key: newApiKey });
+      setProfileData({ ...profileData, openrouter_api_key: newApiKey });
+      setApiKeyMessage({ type: 'success', text: 'API key updated successfully!' });
+      
+      // Close modal after successful update
+      setTimeout(() => {
+        setShowApiKeyModal(false);
+        setNewApiKey('');
+        setApiKeyMessage(null);
+      }, 2000);
+    } catch (error) {
+      console.error('Failed to update API key:', error);
+      setApiKeyMessage({ type: 'error', text: 'Failed to update API key' });
+    } finally {
+      setSavingApiKey(false);
+    }
+  };
+
+  const handleOpenApiKeyModal = () => {
+    setNewApiKey('');
+    setApiKeyMessage(null);
+    setShowApiKeyModal(true);
   };
 
   if (loading) {
@@ -169,6 +207,14 @@ const ProfilePage: React.FC = () => {
               <span className="field-warning">⚠️ API Key is required to use the system</span>
             )}
           </div>
+          <button
+            type="button"
+            onClick={handleOpenApiKeyModal}
+            className="btn-secondary"
+            style={{ marginTop: '0.5rem' }}
+          >
+            🔑 Update API Key
+          </button>
         </div>
 
         <div className="form-group">
@@ -200,6 +246,82 @@ const ProfilePage: React.FC = () => {
           {saving ? 'Saving...' : 'Save Profile'}
         </button>
       </form>
+
+      {/* API Key Update Modal */}
+      {showApiKeyModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h3>🔑 Update OpenRouter API Key</h3>
+              <button
+                type="button"
+                className="modal-close"
+                onClick={() => setShowApiKeyModal(false)}
+                aria-label="Close modal"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="modal-body">
+              {apiKeyMessage && (
+                <div className={apiKeyMessage.type} style={{ marginBottom: '1rem' }}>
+                  {apiKeyMessage.text}
+                </div>
+              )}
+              <div className="form-group">
+                <label htmlFor="new_api_key">New API Key</label>
+                <div className="password-input-wrapper">
+                  <span className="input-icon">🔑</span>
+                  <input
+                    id="new_api_key"
+                    type="password"
+                    value={newApiKey}
+                    onChange={(e) => setNewApiKey(e.target.value)}
+                    placeholder="sk-or-v1-..."
+                    className="form-input"
+                    autoFocus
+                  />
+                  <button
+                    type="button"
+                    className="password-toggle"
+                    onClick={() => {
+                      const input = document.getElementById('new_api_key') as HTMLInputElement;
+                      input.type = input.type === 'password' ? 'text' : 'password';
+                    }}
+                    aria-label="Toggle password visibility"
+                  >
+                    {newApiKey ? '👁️' : '👁️‍🗨️'}
+                  </button>
+                </div>
+                <div className="field-help">
+                  Get your API key from{' '}
+                  <a href="https://openrouter.ai/keys" target="_blank" rel="noopener noreferrer">
+                    OpenRouter
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                onClick={() => setShowApiKeyModal(false)}
+                className="btn-secondary"
+                disabled={savingApiKey}
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={handleUpdateApiKey}
+                className="btn-primary"
+                disabled={savingApiKey || !newApiKey.trim()}
+              >
+                {savingApiKey ? 'Updating...' : 'Update API Key'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

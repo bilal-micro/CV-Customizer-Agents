@@ -40,19 +40,19 @@ class UserProfileSerializer(serializers.ModelSerializer):
                 'allow_blank': True
             }
         }
-        
+
     def to_representation(self, instance):
         """تعديل شكل البيانات عند العرض فقط"""
         ret = super().to_representation(instance)
         key = ret.get('openrouter_api_key')
         
-        if key:
-            # خيار 1: إظهار أول جزء فقط sk-or-********
-            if len(key) > 10:
-                ret['openrouter_api_key'] = f"{key[:10]}{'*' * 15}"
-            else:
-                # خيار 2: لو المفتاح قصير، اظهر نجوم بس
-                ret['openrouter_api_key'] = '*' * 20
+        # if key:
+        #     # خيار 1: إظهار أول جزء فقط sk-or-********
+        #     if len(key) > 10:
+        #         ret['openrouter_api_key'] = f"{key[:10]}{'*' * 15}"
+        #     else:
+        #         # خيار 2: لو المفتاح قصير، اظهر نجوم بس
+        #         ret['openrouter_api_key'] = '*' * 20
         
         return ret
     
