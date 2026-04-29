@@ -102,24 +102,30 @@ const ProfilePage: React.FC = () => {
       <form onSubmit={handleSubmit} className="profile-form">
         <div className="form-group">
           <label htmlFor="username">Username</label>
-          <input
-            id="username"
-            type="text"
-            value={user?.username || ''}
-            disabled
-            className="disabled-field"
-          />
+          <div className="input-wrapper input-wrapper-disabled">
+            <span className="input-icon">👤</span>
+            <input
+              id="username"
+              type="text"
+              value={user?.username || ''}
+              disabled
+              className="form-input disabled-field"
+            />
+          </div>
         </div>
 
         <div className="form-group">
           <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            value={user?.email || ''}
-            disabled
-            className="disabled-field"
-          />
+          <div className="input-wrapper input-wrapper-disabled">
+            <span className="input-icon">📧</span>
+            <input
+              id="email"
+              type="email"
+              value={user?.email || ''}
+              disabled
+              className="form-input disabled-field"
+            />
+          </div>
         </div>
 
         <div className="form-group">
@@ -127,13 +133,28 @@ const ProfilePage: React.FC = () => {
             OpenRouter API Key
             <span className="label-hint">(Optional - Leave empty to use system default)</span>
           </label>
-          <input
-            id="openrouter_api_key"
-            type="password"
-            value={profileData.openrouter_api_key}
-            onChange={(e) => setProfileData({ ...profileData, openrouter_api_key: e.target.value })}
-            placeholder="sk-or-v1-..."
-          />
+          <div className="password-input-wrapper">
+            <span className="input-icon">🔑</span>
+            <input
+              id="openrouter_api_key"
+              type="password"
+              value={profileData.openrouter_api_key}
+              onChange={(e) => setProfileData({ ...profileData, openrouter_api_key: e.target.value })}
+              placeholder="sk-or-v1-..."
+              className="form-input"
+            />
+            <button
+              type="button"
+              className="password-toggle"
+              onClick={() => {
+                const input = document.getElementById('openrouter_api_key') as HTMLInputElement;
+                input.type = input.type === 'password' ? 'text' : 'password';
+              }}
+              aria-label="Toggle password visibility"
+            >
+              {profileData.openrouter_api_key ? '👁️' : '👁️‍🗨️'}
+            </button>
+          </div>
           <div className="field-help">
             Get your API key from{' '}
             <a href="https://openrouter.ai/keys" target="_blank" rel="noopener noreferrer">

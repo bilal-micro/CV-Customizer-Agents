@@ -1117,6 +1117,34 @@
   box-shadow: 0 0 0 4px var(--error-bg);
 }
 
+/* Input Wrapper with Icon */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper .form-input {
+  padding-left: 48px;
+}
+
+.input-wrapper-disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  font-size: 18px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.input-wrapper-disabled .input-icon {
+  opacity: 0.4;
+}
+
 /* Password Input Wrapper */
 .password-input-wrapper {
   position: relative;
@@ -1125,7 +1153,16 @@
 }
 
 .password-input-wrapper .form-input {
+  padding-left: 48px;
   padding-right: 50px;
+}
+
+.password-input-wrapper .input-icon {
+  position: absolute;
+  left: 14px;
+  font-size: 18px;
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 .password-toggle {
@@ -1136,13 +1173,14 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 20px;
-  padding: 4px;
+  font-size: 18px;
+  padding: 6px;
   border-radius: var(--radius);
   transition: all var(--transition-fast);
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 1;
 }
 
 .password-toggle:hover {
