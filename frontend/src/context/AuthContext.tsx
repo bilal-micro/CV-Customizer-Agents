@@ -115,6 +115,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const logout = async () => {
     const accessToken = localStorage.getItem('access_token');
+    const refreshToken = localStorage.getItem('refresh_token');
     
     try {
       await fetch('http://localhost:8000/api/auth/logout/', {
@@ -123,6 +124,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${accessToken}`,
         },
+        body: JSON.stringify({ refresh: refreshToken }),
       });
     } catch (error) {
       console.error('Logout error:', error);

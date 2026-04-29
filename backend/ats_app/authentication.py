@@ -78,14 +78,22 @@ def login_view(request):
 @permission_classes([IsAuthenticated])
 def logout_view(request):
     """
-    Logout user - clears tokens from client side
+    Logout user - blacklist the refresh token to invalidate it
     """
-    # Simply return success - the frontend handles token cleanup
-    # Server-side token blacklisting is optional for basic logout functionality
-    return Response(
-        {'message': 'Logged out successfully'},
-        status=status.HTTP_200_OK
-    )
+    try:
+        refresh_token = request.data.get('refresh')
+        if refresh_token:
+            token = RefreshToken(refresh_token)
+            token.blacklist()
+        return Response(
+            {'message': 'Logged out successfully'},
+            status=status.HTTP_200_OK
+        )
+    except Exception as e:
+        return Response(
+            {'error': 'Logout failed'},
+            status=status.HTTP_400_BAD_REQUEST
+        )
 
 
 @api_view(['GET', 'PUT'])

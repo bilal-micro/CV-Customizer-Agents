@@ -76,15 +76,25 @@ const ProfilePage: React.FC = () => {
   };
 
   if (loading) {
-    return <div className="loading-container animate-fade-in">Loading profile...</div>;
+    return (
+      <div className="loading-container animate-fade-in">
+        <div className="loading-spinner"></div>
+        <div className="loading-text">Loading profile...</div>
+      </div>
+    );
   }
 
   return (
-    <div className="profile-page animate-fade-in">
-      <h1>👤 User Profile</h1>
-      
+    <div className="main-content animate-fade-in">
+      <div className="process-header">
+        <h2>👤 User Profile</h2>
+        <div className="job-meta">
+          Manage your account settings and API preferences
+        </div>
+      </div>
+
       {message && (
-        <div className={`message ${message.type}`}>
+        <div className={message.type}>
           {message.text}
         </div>
       )}
@@ -124,12 +134,12 @@ const ProfilePage: React.FC = () => {
             onChange={(e) => setProfileData({ ...profileData, openrouter_api_key: e.target.value })}
             placeholder="sk-or-v1-..."
           />
-          <p className="field-help">
+          <div className="field-help">
             Get your API key from{' '}
             <a href="https://openrouter.ai/keys" target="_blank" rel="noopener noreferrer">
               OpenRouter
             </a>
-          </p>
+          </div>
         </div>
 
         <div className="form-group">
@@ -152,9 +162,9 @@ const ProfilePage: React.FC = () => {
               </option>
             ))}
           </datalist>
-          <p className="field-help">
+          <div className="field-help">
             Type a model name or select from suggestions. Supports any OpenRouter-compatible model.
-          </p>
+          </div>
         </div>
 
         <button type="submit" disabled={saving} className="btn-primary">

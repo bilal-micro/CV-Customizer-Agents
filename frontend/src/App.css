@@ -1809,3 +1809,51 @@
     padding: 12px;
   }
 }
+
+/* Profile Page Styles */
+.profile-form {
+  background: var(--surface);
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+.disabled-field {
+  background: var(--bg);
+  color: var(--text-light);
+  cursor: not-allowed;
+}
+
+.disabled-field:focus {
+  outline: none;
+  border-color: var(--border);
+  box-shadow: none;
+  transform: none;
+}
+
+.field-help {
+  font-size: 13px;
+  color: var(--text);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.field-help a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.field-help a:hover {
+  text-decoration: underline;
+  color: var(--primary-dark);
+}
+
+/* Responsive design for profile page */
+@media (max-width: 768px) {
+  .profile-form {
+    padding: 24px 20px;
+  }
+}
