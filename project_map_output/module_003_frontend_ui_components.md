@@ -1,25 +1,11 @@
-# 🗺️ Module: Frontend Core
+# 🗺️ Module: Frontend UI Components
 
-**Description:** Renders user interface components, pages, and state management.
-**Goal:** Delivers responsive UI for application interaction and data visualization.
-**Directories:** `frontend/src, frontend/src/components, frontend/src/pages, frontend/src/context`
-**Files:** 11 | **Functions:** 47
+**Description:** Houses reusable UI elements for forms, displays, and trackers.
+**Goal:** Provides interactive user interfaces for application interaction.
+**Directories:** `frontend/src/components`
+**Files:** 7 | **Functions:** 28
 
 [⬅️ Back to Index](./index.md)
-
----
-
-## 📄 File: `frontend/src/App.tsx`
-- **Language:** JAVASCRIPT
-- **Lines:** 61
-- **Functions:** 4
-
-| Function | Signature | Line | Description |
-|----------|-----------|------|-------------|
-| `NavLinks` | `function NavLinks() : any` | 11 |  |
-| `App` | `function App() : any` | 35 |  |
-| `isActive` | `const isActive = (path: string) => any` | 14 |  |
-| `handleLogout` | `const handleLogout = async () => any` | 16 |  |
 
 ---
 
@@ -118,50 +104,5 @@
 | `getPasswordStrength` | `const getPasswordStrength = (password: string) => { strength: string; color: string; percentage: number }` | 27 |  |
 | `validateForm` | `const validateForm = () => boolean` | 45 |  |
 | `handleSubmit` | `const handleSubmit = async (e: React.FormEvent) => any` | 83 |  |
-
----
-
-## 📄 File: `frontend/src/context/AuthContext.tsx`
-- **Language:** JAVASCRIPT
-- **Lines:** 179
-- **Functions:** 5
-
-| Function | Signature | Line | Description |
-|----------|-----------|------|-------------|
-| `useAuth` | `export const useAuth = () => any` | 23 |  |
-| `register` | `const register = async (username: string, email: string, password: string) => any` | 52 |  |
-| `login` | `const login = async (username: string, password: string) => any` | 90 |  |
-| `logout` | `const logout = async () => any` | 116 |  |
-| `refreshToken` | `const refreshToken = async () => any` | 142 |  |
-
----
-
-## 📄 File: `frontend/src/pages/ProcessDetail.tsx`
-- **Language:** JAVASCRIPT
-- **Lines:** 660
-- **Functions:** 8
-
-| Function | Signature | Line | Description |
-|----------|-----------|------|-------------|
-| `ProcessDetail` | `export function ProcessDetail() : any` | 7 |  |
-| `fetchPrompt` | `const fetchPrompt = async () => any` | 61 |  |
-| `handleSubmitLatex` | `const handleSubmitLatex = async () => any` | 84 |  |
-| `handleContinueIterating` | `const handleContinueIterating = async () => any` | 105 |  |
-| `handleRestart` | `const handleRestart = async () => any` | 125 |  |
-| `handleForceComplete` | `const handleForceComplete = async () => any` | 142 |  |
-| `getStatusIcon` | `const getStatusIcon = (status: string) => any` | 171 |  |
-| `getStatusColor` | `const getStatusColor = (status: string) => any` | 182 |  |
-
----
-
-## 📄 File: `frontend/src/pages/ProfilePage.tsx`
-- **Language:** JAVASCRIPT
-- **Lines:** 164
-- **Functions:** 2
-
-| Function | Signature | Line | Description |
-|----------|-----------|------|-------------|
-| `fetchProfile` | `const fetchProfile = async () => any` | 47 |  |
-| `handleSubmit` | `const handleSubmit = async (e: React.FormEvent) => any` | 62 |  |
 
 ---

@@ -1,9 +1,9 @@
-# 🗺️ Module: Frontend API
+# 🗺️ Module: Frontend State & API
 
-**Description:** Manages HTTP requests to backend services.
-**Goal:** Facilitates seamless data exchange between frontend and backend.
-**Directories:** `frontend/src/api`
-**Files:** 1 | **Functions:** 16
+**Description:** Manages authentication context and API communication.
+**Goal:** Handles user sessions and data exchange with the backend.
+**Directories:** `frontend/src/context, frontend/src/api`
+**Files:** 2 | **Functions:** 21
 
 [⬅️ Back to Index](./index.md)
 
@@ -32,5 +32,20 @@
 | `continueIterating` | `export const continueIterating = (id: string) => any` | 88 |  |
 | `restartProcess` | `export const restartProcess = (id: string) => any` | 91 |  |
 | `forceComplete` | `export const forceComplete = (id: string) => any` | 94 |  |
+
+---
+
+## 📄 File: `frontend/src/context/AuthContext.tsx`
+- **Language:** JAVASCRIPT
+- **Lines:** 187
+- **Functions:** 5
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `useAuth` | `export const useAuth = () => any` | 23 |  |
+| `register` | `const register = async (username: string, email: string, password: string) => any` | 52 |  |
+| `login` | `const login = async (username: string, password: string) => any` | 90 |  |
+| `logout` | `const logout = async () => any` | 116 |  |
+| `refreshToken` | `const refreshToken = async () => any` | 150 |  |
 
 ---

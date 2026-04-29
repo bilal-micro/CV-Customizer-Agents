@@ -1,9 +1,9 @@
-# 🗺️ Module: Backend Agents
+# 🗺️ Module: Unclassified
 
-**Description:** Specialized components for CV analysis, keyword matching, and evaluation.
-**Goal:** Automates resume screening and candidate matching processes.
-**Directories:** `backend/ats_app/agents`
-**Files:** 9 | **Functions:** 70
+**Description:** Files not matched to any architectural module.
+**Goal:** Miscellaneous project functionality.
+**Directories:** `backend/ats_app/services, backend/ats_app/agents, frontend/src, backend, backend/ats_app/migrations`
+**Files:** 16 | **Functions:** 87
 
 [⬅️ Back to Index](./index.md)
 
@@ -175,5 +175,77 @@
 | `trigger_manual_iteration` | `def trigger_manual_iteration(self, process_run: ProcessRun) -> bool` | 573 |  |
 | `_fail_process` | `def _fail_process(self, process_run: ProcessRun, reason: str) -> None` | 620 |  |
 | `restart_from_failure` | `def restart_from_failure(self, process_run: ProcessRun) -> None` | 626 |  |
+
+---
+
+## 📄 File: `backend/ats_app/migrations/0001_initial.py`
+- **Language:** PYTHON
+- **Lines:** 63
+- **Classes:** `Migration` (line 8)
+- **Functions:** 0
+
+## 📄 File: `backend/ats_app/migrations/0002_processrun_iteration_count_and_more.py`
+- **Language:** PYTHON
+- **Lines:** 49
+- **Classes:** `Migration` (line 6)
+- **Functions:** 0
+
+## 📄 File: `backend/ats_app/migrations/0003_alter_processrun_max_iterations.py`
+- **Language:** PYTHON
+- **Lines:** 19
+- **Classes:** `Migration` (line 6)
+- **Functions:** 0
+
+## 📄 File: `backend/ats_app/migrations/0004_processrun_original_latex.py`
+- **Language:** PYTHON
+- **Lines:** 19
+- **Classes:** `Migration` (line 6)
+- **Functions:** 0
+
+## 📄 File: `backend/ats_app/services/llm_service.py`
+- **Language:** PYTHON
+- **Lines:** 417
+- **Classes:** `LLMService` (line 11)
+- **Functions:** 9
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `__init__` | `def __init__(self) -> Any` | 12 |  |
+| `generate` | `def generate(self, prompt: str, system: str = "", temperature: float = None) -> str` | 25 |  |
+| `_generate_ollama` | `def _generate_ollama(self, prompt: str, system: str = "", temperature: float = None) -> str` | 31 |  |
+| `_generate_openrouter` | `def _generate_openrouter(self, prompt: str, system: str = "", temperature: float = None) -> str` | 61 |  |
+| `_sanitize_json_string` | `def _sanitize_json_string(self, raw: str) -> str` | 116 |  |
+| `_is_truncated_json` | `def _is_truncated_json(self, json_str: str) -> bool` | 131 |  |
+| `_complete_truncated_json` | `def _complete_truncated_json(self, json_str: str) -> str` | 167 |  |
+| `_ensure_dict_result` | `def _ensure_dict_result(self, result) -> dict` | 224 | Ensure the result is always a dict. |
+| `generate_json` | `def generate_json(self, prompt: str, system: str = "", temperature: float = None) -> dict` | 246 |  |
+
+---
+
+## 📄 File: `backend/manage.py`
+- **Language:** PYTHON
+- **Lines:** 23
+- **Functions:** 1
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `main` | `def main() -> Any` | 7 | Run administrative tasks. |
+
+---
+
+## 📄 File: `frontend/src/App.tsx`
+- **Language:** JAVASCRIPT
+- **Lines:** 130
+- **Functions:** 7
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `NavLinks` | `function NavLinks() : any` | 12 |  |
+| `App` | `function App() : any` | 104 |  |
+| `isActive` | `const isActive = (path: string) => any` | 17 |  |
+| `handleLogoutClick` | `const handleLogoutClick = () => any` | 19 |  |
+| `confirmLogout` | `const confirmLogout = async () => any` | 23 |  |
+| `cancelLogout` | `const cancelLogout = () => any` | 33 |  |
+| `getUserInitials` | `const getUserInitials = () => any` | 38 |  |
 
 ---

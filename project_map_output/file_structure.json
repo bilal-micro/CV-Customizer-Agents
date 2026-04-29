@@ -56,6 +56,12 @@
           "type": "file",
           "path": "ExecutionSummary/Commit_2026-04-29_14-47-19_0f986f2c.md",
           "size_bytes": 12771
+        },
+        {
+          "name": "Commit_2026-04-29_15-16-24_867226e3.md",
+          "type": "file",
+          "path": "ExecutionSummary/Commit_2026-04-29_15-16-24_867226e3.md",
+          "size_bytes": 12501
         }
       ]
     },
@@ -1019,7 +1025,7 @@
                   "type": "file",
                   "path": "frontend/src/context/AuthContext.tsx",
                   "language": "javascript",
-                  "total_lines": 179,
+                  "total_lines": 187,
                   "function_count": 5,
                   "classes": [],
                   "functions": [
@@ -1068,7 +1074,7 @@
                   "type": "file",
                   "path": "frontend/src/pages/ProfilePage.tsx",
                   "language": "javascript",
-                  "total_lines": 164,
+                  "total_lines": 168,
                   "function_count": 2,
                   "classes": [],
                   "functions": [
@@ -1103,28 +1109,31 @@
               "name": "App.css",
               "type": "file",
               "path": "frontend/src/App.css",
-              "size_bytes": 28969
+              "size_bytes": 32857
             },
             {
               "name": "App.tsx",
               "type": "file",
               "path": "frontend/src/App.tsx",
               "language": "javascript",
-              "total_lines": 61,
-              "function_count": 4,
+              "total_lines": 130,
+              "function_count": 7,
               "classes": [],
               "functions": [
                 "NavLinks",
                 "App",
                 "isActive",
-                "handleLogout"
+                "handleLogoutClick",
+                "confirmLogout",
+                "cancelLogout",
+                "getUserInitials"
               ]
             },
             {
               "name": "index.css",
               "type": "file",
               "path": "frontend/src/index.css",
-              "size_bytes": 3494
+              "size_bytes": 3565
             },
             {
               "name": "main.tsx",
@@ -1255,5 +1264,5 @@
     }
   ],
   "total_directories": 21,
-  "total_files": 115
+  "total_files": 116
 }

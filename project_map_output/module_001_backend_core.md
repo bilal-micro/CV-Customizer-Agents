@@ -1,7 +1,7 @@
 # 🗺️ Module: Backend Core
 
-**Description:** Contains main application logic, models, views, and serializers.
-**Goal:** Implements core business logic for applicant tracking and matching.
+**Description:** Contains application logic, AI agents, data models, and Django-specific components.
+**Goal:** Processes job applications, extracts keywords, and matches candidates to job requirements.
 **Directories:** `backend/ats_app`
 **Files:** 6 | **Functions:** 27
 

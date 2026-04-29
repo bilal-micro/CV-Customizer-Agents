@@ -1,6 +1,6 @@
 # 🗂️ Project Master Map Index
 
-**Generated:** 2026-04-29T14:53:53
+**Generated:** 2026-04-29T15:18:12
 **Project Root:** `ATS-Agentic`
 
 ## 📊 Project Statistics
@@ -8,44 +8,44 @@
 | Metric | Value |
 |--------|-------|
 | **Total Files Scanned** | 34 |
-| **Total Functions** | 171 |
+| **Total Functions** | 174 |
 | **Languages** | JAVASCRIPT, PYTHON |
 | **Modules** | 6 |
 
 ## 🏛️ Architectural Modules
 
 ### 📦 Backend Core
-**Description:** Contains main application logic, models, views, and serializers.
-**Goal:** Implements core business logic for applicant tracking and matching.
+**Description:** Contains application logic, AI agents, data models, and Django-specific components.
+**Goal:** Processes job applications, extracts keywords, and matches candidates to job requirements.
 **Files:** 6 | **Functions:** 27
 [📋 View Details](./module_001_backend_core.md)
 
-### 📦 Backend Agents
-**Description:** Specialized components for CV analysis, keyword matching, and evaluation.
-**Goal:** Automates resume screening and candidate matching processes.
-**Files:** 9 | **Functions:** 70
-[📋 View Details](./module_002_backend_agents.md)
-
-### 📦 Backend Services
-**Description:** Provides external integrations like LLM services.
-**Goal:** Enables AI-powered text processing and analysis capabilities.
-**Files:** 1 | **Functions:** 9
-[📋 View Details](./module_003_backend_services.md)
-
 ### 📦 Backend Infrastructure
-**Description:** Handles project configuration, URL routing, and database migrations.
-**Goal:** Ensures proper backend setup and data schema management.
-**Files:** 6 | **Functions:** 2
-[📋 View Details](./module_004_backend_infrastructure.md)
+**Description:** Configures Django project settings, routing, and server initialization.
+**Goal:** Sets up the backend server architecture and URL routing.
+**Files:** 1 | **Functions:** 1
+[📋 View Details](./module_002_backend_infrastructure.md)
 
-### 📦 Frontend Core
-**Description:** Renders user interface components, pages, and state management.
-**Goal:** Delivers responsive UI for application interaction and data visualization.
-**Files:** 11 | **Functions:** 47
-[📋 View Details](./module_005_frontend_core.md)
+### 📦 Frontend UI Components
+**Description:** Houses reusable UI elements for forms, displays, and trackers.
+**Goal:** Provides interactive user interfaces for application interaction.
+**Files:** 7 | **Functions:** 28
+[📋 View Details](./module_003_frontend_ui_components.md)
 
-### 📦 Frontend API
-**Description:** Manages HTTP requests to backend services.
-**Goal:** Facilitates seamless data exchange between frontend and backend.
-**Files:** 1 | **Functions:** 16
-[📋 View Details](./module_006_frontend_api.md)
+### 📦 Frontend Pages
+**Description:** Contains page-level components for application navigation and content display.
+**Goal:** Defines the primary user interface layout and navigation structure.
+**Files:** 2 | **Functions:** 10
+[📋 View Details](./module_004_frontend_pages.md)
+
+### 📦 Frontend State & API
+**Description:** Manages authentication context and API communication.
+**Goal:** Handles user sessions and data exchange with the backend.
+**Files:** 2 | **Functions:** 21
+[📋 View Details](./module_005_frontend_state_&_api.md)
+
+### 📦 Unclassified
+**Description:** Files not matched to any architectural module.
+**Goal:** Miscellaneous project functionality.
+**Files:** 16 | **Functions:** 87
+[📋 View Details](./module_006_unclassified.md)
