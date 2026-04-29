@@ -1,0 +1,1241 @@
+{
+  "name": "ATS-Agentic",
+  "type": "directory",
+  "path": ".",
+  "children": [
+    {
+      "name": "Docs",
+      "type": "directory",
+      "path": "Docs",
+      "children": [
+        {
+          "name": "00_MASTER_INDEX.md",
+          "type": "file",
+          "path": "Docs/00_MASTER_INDEX.md",
+          "size_bytes": 14262
+        },
+        {
+          "name": "backend_agents.md",
+          "type": "file",
+          "path": "Docs/backend_agents.md",
+          "size_bytes": 11354
+        },
+        {
+          "name": "backend_api.md",
+          "type": "file",
+          "path": "Docs/backend_api.md",
+          "size_bytes": 8476
+        },
+        {
+          "name": "backend_models.md",
+          "type": "file",
+          "path": "Docs/backend_models.md",
+          "size_bytes": 5665
+        },
+        {
+          "name": "frontend.md",
+          "type": "file",
+          "path": "Docs/frontend.md",
+          "size_bytes": 10319
+        }
+      ]
+    },
+    {
+      "name": "Plans",
+      "type": "directory",
+      "path": "Plans",
+      "children": [
+        {
+          "name": "2026-04-17_17:36_EXECUTION_SUMMARY.md",
+          "type": "file",
+          "path": "Plans/2026-04-17_17:36_EXECUTION_SUMMARY.md",
+          "size_bytes": 9116
+        },
+        {
+          "name": "2026-04-18_13:16_CV_UPDATER_IMPROVEMENTS_SUMMARY.md",
+          "type": "file",
+          "path": "Plans/2026-04-18_13:16_CV_UPDATER_IMPROVEMENTS_SUMMARY.md",
+          "size_bytes": 4054
+        },
+        {
+          "name": "2026-04-18_14:00_CV_UPDATER_SKILL_TRANSLATION_UPDATE.md",
+          "type": "file",
+          "path": "Plans/2026-04-18_14:00_CV_UPDATER_SKILL_TRANSLATION_UPDATE.md",
+          "size_bytes": 5690
+        },
+        {
+          "name": "2026-04-18_15:38_KEYWORD_MATCHER_EXTRACTION.md",
+          "type": "file",
+          "path": "Plans/2026-04-18_15:38_KEYWORD_MATCHER_EXTRACTION.md",
+          "size_bytes": 7405
+        },
+        {
+          "name": "2026-04-18_16:01_AGENT4_FEEDBACK_INTEGRATION.md",
+          "type": "file",
+          "path": "Plans/2026-04-18_16:01_AGENT4_FEEDBACK_INTEGRATION.md",
+          "size_bytes": 9246
+        },
+        {
+          "name": "2026-04-18_18:18_ORCHESTRATION_SIMPLIFICATION_EXECUTION_SUMMARY.md",
+          "type": "file",
+          "path": "Plans/2026-04-18_18:18_ORCHESTRATION_SIMPLIFICATION_EXECUTION_SUMMARY.md",
+          "size_bytes": 13770
+        },
+        {
+          "name": "2026-04-18_18:58_DOCUMENTATION_COMPLETION_SUMMARY.md",
+          "type": "file",
+          "path": "Plans/2026-04-18_18:58_DOCUMENTATION_COMPLETION_SUMMARY.md",
+          "size_bytes": 12139
+        },
+        {
+          "name": "2026-04-18_19:38_DIAGRAM_IMPROVEMENTS_SUMMARY.md",
+          "type": "file",
+          "path": "Plans/2026-04-18_19:38_DIAGRAM_IMPROVEMENTS_SUMMARY.md",
+          "size_bytes": 3895
+        },
+        {
+          "name": "2026-04-18_21:16_KEYWORD_MATCHER_ENHANCEMENTS_EXECUTION_SUMMARY.md",
+          "type": "file",
+          "path": "Plans/2026-04-18_21:16_KEYWORD_MATCHER_ENHANCEMENTS_EXECUTION_SUMMARY.md",
+          "size_bytes": 9279
+        },
+        {
+          "name": "2026-04-18_21:34_KEYWORD_MATCHER_ACCURACY_IMPROVEMENTS_SUMMARY.md",
+          "type": "file",
+          "path": "Plans/2026-04-18_21:34_KEYWORD_MATCHER_ACCURACY_IMPROVEMENTS_SUMMARY.md",
+          "size_bytes": 11770
+        },
+        {
+          "name": "2026-04-18_21:46_KEYWORD_EXTRACTION_DISPLAY_FIX_SUMMARY.md",
+          "type": "file",
+          "path": "Plans/2026-04-18_21:46_KEYWORD_EXTRACTION_DISPLAY_FIX_SUMMARY.md",
+          "size_bytes": 12317
+        },
+        {
+          "name": "2026-04-18_22:34_CV_MATCHER_DISPLAY_FIX_EXECUTION_SUMMARY.md",
+          "type": "file",
+          "path": "Plans/2026-04-18_22:34_CV_MATCHER_DISPLAY_FIX_EXECUTION_SUMMARY.md",
+          "size_bytes": 7061
+        },
+        {
+          "name": "2026-04-19_19:34_RESTART_FAILED_PROCESS_FEATURE_SUMMARY.md",
+          "type": "file",
+          "path": "Plans/2026-04-19_19:34_RESTART_FAILED_PROCESS_FEATURE_SUMMARY.md",
+          "size_bytes": 12651
+        },
+        {
+          "name": "2026-04-19_20_45_PROJECT_PREPARATION_EXECUTION_SUMMARY.md",
+          "type": "file",
+          "path": "Plans/2026-04-19_20_45_PROJECT_PREPARATION_EXECUTION_SUMMARY.md",
+          "size_bytes": 5715
+        },
+        {
+          "name": "2026-04-19_20_45_PROJECT_PREPARATION_TODO_PLAN.md",
+          "type": "file",
+          "path": "Plans/2026-04-19_20_45_PROJECT_PREPARATION_TODO_PLAN.md",
+          "size_bytes": 3844
+        },
+        {
+          "name": "2026-04-20_14:20_EXECUTION_SUMMARY.md",
+          "type": "file",
+          "path": "Plans/2026-04-20_14:20_EXECUTION_SUMMARY.md",
+          "size_bytes": 5200
+        },
+        {
+          "name": "2026-04-20_15:00_EXECUTION_SUMMARY.md",
+          "type": "file",
+          "path": "Plans/2026-04-20_15:00_EXECUTION_SUMMARY.md",
+          "size_bytes": 5979
+        },
+        {
+          "name": "2026-04-20_16:06_EXECUTION_SUMMARY.md",
+          "type": "file",
+          "path": "Plans/2026-04-20_16:06_EXECUTION_SUMMARY.md",
+          "size_bytes": 9149
+        },
+        {
+          "name": "2026-04-20_16:10_EXECUTION_SUMMARY.md",
+          "type": "file",
+          "path": "Plans/2026-04-20_16:10_EXECUTION_SUMMARY.md",
+          "size_bytes": 4076
+        },
+        {
+          "name": "2026-04-20_16:16_TODO_PLAN.md",
+          "type": "file",
+          "path": "Plans/2026-04-20_16:16_TODO_PLAN.md",
+          "size_bytes": 12675
+        },
+        {
+          "name": "2026-04-20_16:21_EXECUTION_SUMMARY.md",
+          "type": "file",
+          "path": "Plans/2026-04-20_16:21_EXECUTION_SUMMARY.md",
+          "size_bytes": 10257
+        },
+        {
+          "name": "2026-04-29_01_59_TODO_PLAN.md",
+          "type": "file",
+          "path": "Plans/2026-04-29_01_59_TODO_PLAN.md",
+          "size_bytes": 7334
+        },
+        {
+          "name": "2026-04-29_02_39_TODO_PLAN.md",
+          "type": "file",
+          "path": "Plans/2026-04-29_02_39_TODO_PLAN.md",
+          "size_bytes": 3843
+        }
+      ]
+    },
+    {
+      "name": "Scopes",
+      "type": "directory",
+      "path": "Scopes",
+      "children": [
+        {
+          "name": "00_MASTER_INDEX.md",
+          "type": "file",
+          "path": "Scopes/00_MASTER_INDEX.md",
+          "size_bytes": 1553
+        },
+        {
+          "name": "scope_2026_04_19_20_40_project_preparation.md",
+          "type": "file",
+          "path": "Scopes/scope_2026_04_19_20_40_project_preparation.md",
+          "size_bytes": 7695
+        },
+        {
+          "name": "scope_2026_04_19_21_08_documentation_setup.md",
+          "type": "file",
+          "path": "Scopes/scope_2026_04_19_21_08_documentation_setup.md",
+          "size_bytes": 4849
+        },
+        {
+          "name": "scope_2026_04_20_14_16_json_parsing_fix.md",
+          "type": "file",
+          "path": "Scopes/scope_2026_04_20_14_16_json_parsing_fix.md",
+          "size_bytes": 4238
+        },
+        {
+          "name": "scope_2026_04_20_16_14_force_complete_feature.md",
+          "type": "file",
+          "path": "Scopes/scope_2026_04_20_16_14_force_complete_feature.md",
+          "size_bytes": 11411
+        },
+        {
+          "name": "scope_2026_04_29_01_53_add_login_option_to_frontend_and_backend_with_user.md",
+          "type": "file",
+          "path": "Scopes/scope_2026_04_29_01_53_add_login_option_to_frontend_and_backend_with_user.md",
+          "size_bytes": 10502
+        },
+        {
+          "name": "scope_2026_04_29_02_36_enhance_frontend_registration_and_login_functional.md",
+          "type": "file",
+          "path": "Scopes/scope_2026_04_29_02_36_enhance_frontend_registration_and_login_functional.md",
+          "size_bytes": 2903
+        }
+      ]
+    },
+    {
+      "name": "backend",
+      "type": "directory",
+      "path": "backend",
+      "children": [
+        {
+          "name": "ats_app",
+          "type": "directory",
+          "path": "backend/ats_app",
+          "children": [
+            {
+              "name": "agents",
+              "type": "directory",
+              "path": "backend/ats_app/agents",
+              "children": [
+                {
+                  "name": "__init__.py",
+                  "type": "file",
+                  "path": "backend/ats_app/agents/__init__.py",
+                  "language": "python",
+                  "size_bytes": 0
+                },
+                {
+                  "name": "ats_rater.py",
+                  "type": "file",
+                  "path": "backend/ats_app/agents/ats_rater.py",
+                  "language": "python",
+                  "total_lines": 118,
+                  "function_count": 3,
+                  "classes": [
+                    "ATSRaterAgent"
+                  ],
+                  "functions": [
+                    "run",
+                    "evaluate_results",
+                    "get_feedback_for_iteration"
+                  ]
+                },
+                {
+                  "name": "cv_matcher.py",
+                  "type": "file",
+                  "path": "backend/ats_app/agents/cv_matcher.py",
+                  "language": "python",
+                  "total_lines": 314,
+                  "function_count": 4,
+                  "classes": [
+                    "SectionAnalyzerAgent",
+                    "AnalysisSynthesizerAgent",
+                    "CVMatcherAgent"
+                  ],
+                  "functions": [
+                    "run",
+                    "run",
+                    "__init__",
+                    "run"
+                  ]
+                },
+                {
+                  "name": "cv_updater.py",
+                  "type": "file",
+                  "path": "backend/ats_app/agents/cv_updater.py",
+                  "language": "python",
+                  "total_lines": 215,
+                  "function_count": 2,
+                  "classes": [
+                    "CVUpdaterAgent"
+                  ],
+                  "functions": [
+                    "generate_prompt",
+                    "validate_manual_latex"
+                  ]
+                },
+                {
+                  "name": "keyword_extractor.py",
+                  "type": "file",
+                  "path": "backend/ats_app/agents/keyword_extractor.py",
+                  "language": "python",
+                  "total_lines": 121,
+                  "function_count": 2,
+                  "classes": [
+                    "KeywordExtractorAgent"
+                  ],
+                  "functions": [
+                    "run",
+                    "_log_extraction_summary"
+                  ]
+                },
+                {
+                  "name": "keyword_gap_analyzer.py",
+                  "type": "file",
+                  "path": "backend/ats_app/agents/keyword_gap_analyzer.py",
+                  "language": "python",
+                  "total_lines": 284,
+                  "function_count": 9,
+                  "classes": [
+                    "KeywordGapAnalyzerAgent"
+                  ],
+                  "functions": [
+                    "__init__",
+                    "analyze_gaps",
+                    "_format_keywords_for_llm",
+                    "_format_match_results_for_llm",
+                    "_format_section_analysis_for_llm",
+                    "_format_prioritization_for_llm",
+                    "get_immediate_actions",
+                    "get_critical_gaps",
+                    "get_section_recommendations"
+                  ]
+                },
+                {
+                  "name": "keyword_matcher.py",
+                  "type": "file",
+                  "path": "backend/ats_app/agents/keyword_matcher.py",
+                  "language": "python",
+                  "total_lines": 624,
+                  "function_count": 16,
+                  "classes": [
+                    "EnhancedKeywordMatcherAgent"
+                  ],
+                  "functions": [
+                    "__init__",
+                    "_flatten_keywords",
+                    "match_keywords",
+                    "_detect_sections",
+                    "_find_keyword_location",
+                    "_find_nearest_section",
+                    "_find_similar_match",
+                    "_is_false_positive",
+                    "_extract_context",
+                    "_calculate_effectiveness_score",
+                    "_determine_usage_quality",
+                    "_get_priority_impact",
+                    "_get_suggested_location",
+                    "_check_synonyms",
+                    "_check_quantifications",
+                    "get_keyword_effectiveness_summary"
+                  ]
+                },
+                {
+                  "name": "keyword_prioritizer.py",
+                  "type": "file",
+                  "path": "backend/ats_app/agents/keyword_prioritizer.py",
+                  "language": "python",
+                  "total_lines": 237,
+                  "function_count": 7,
+                  "classes": [
+                    "KeywordPrioritizerAgent"
+                  ],
+                  "functions": [
+                    "__init__",
+                    "prioritize",
+                    "_format_keywords_for_llm",
+                    "_format_match_results_for_llm",
+                    "_format_section_analysis_for_llm",
+                    "get_top_priorities",
+                    "get_critical_gaps"
+                  ]
+                },
+                {
+                  "name": "match_evaluator.py",
+                  "type": "file",
+                  "path": "backend/ats_app/agents/match_evaluator.py",
+                  "language": "python",
+                  "total_lines": 235,
+                  "function_count": 6,
+                  "classes": [
+                    "MatchEvaluatorAgent"
+                  ],
+                  "functions": [
+                    "run",
+                    "_format_keywords_for_llm",
+                    "_format_match_results_for_llm",
+                    "_format_section_analysis_for_llm",
+                    "get_match_quality_assessment",
+                    "_get_quality_level"
+                  ]
+                },
+                {
+                  "name": "orchestrator.py",
+                  "type": "file",
+                  "path": "backend/ats_app/agents/orchestrator.py",
+                  "language": "python",
+                  "total_lines": 731,
+                  "function_count": 21,
+                  "classes": [
+                    "OrchestratorAgent"
+                  ],
+                  "functions": [
+                    "__init__",
+                    "start_process",
+                    "_run_iteration_loop",
+                    "resume_after_manual_input",
+                    "_continue_to_next_iteration",
+                    "_execute_keyword_extraction",
+                    "_execute_cv_matching",
+                    "_execute_cv_update_stage",
+                    "_execute_ats_rating",
+                    "_execute_stage",
+                    "_evaluate_results",
+                    "_prepare_feedback_for_next_iteration",
+                    "_get_stage_result_safely",
+                    "_get_or_create_stage",
+                    "_should_retry_stage",
+                    "_rate_stage_result",
+                    "_get_stage_notes",
+                    "_complete_process",
+                    "trigger_manual_iteration",
+                    "_fail_process",
+                    "restart_from_failure"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "migrations",
+              "type": "directory",
+              "path": "backend/ats_app/migrations",
+              "children": [
+                {
+                  "name": "0001_initial.py",
+                  "type": "file",
+                  "path": "backend/ats_app/migrations/0001_initial.py",
+                  "language": "python",
+                  "total_lines": 63,
+                  "function_count": 0,
+                  "classes": [
+                    "Migration"
+                  ],
+                  "functions": []
+                },
+                {
+                  "name": "0002_processrun_iteration_count_and_more.py",
+                  "type": "file",
+                  "path": "backend/ats_app/migrations/0002_processrun_iteration_count_and_more.py",
+                  "language": "python",
+                  "total_lines": 49,
+                  "function_count": 0,
+                  "classes": [
+                    "Migration"
+                  ],
+                  "functions": []
+                },
+                {
+                  "name": "0003_alter_processrun_max_iterations.py",
+                  "type": "file",
+                  "path": "backend/ats_app/migrations/0003_alter_processrun_max_iterations.py",
+                  "language": "python",
+                  "total_lines": 19,
+                  "function_count": 0,
+                  "classes": [
+                    "Migration"
+                  ],
+                  "functions": []
+                },
+                {
+                  "name": "0004_processrun_original_latex.py",
+                  "type": "file",
+                  "path": "backend/ats_app/migrations/0004_processrun_original_latex.py",
+                  "language": "python",
+                  "total_lines": 19,
+                  "function_count": 0,
+                  "classes": [
+                    "Migration"
+                  ],
+                  "functions": []
+                },
+                {
+                  "name": "0005_job_user_processrun_user_userprofile.py",
+                  "type": "file",
+                  "path": "backend/ats_app/migrations/0005_job_user_processrun_user_userprofile.py",
+                  "language": "python",
+                  "size_bytes": 1911
+                },
+                {
+                  "name": "__init__.py",
+                  "type": "file",
+                  "path": "backend/ats_app/migrations/__init__.py",
+                  "language": "python",
+                  "size_bytes": 0
+                }
+              ]
+            },
+            {
+              "name": "services",
+              "type": "directory",
+              "path": "backend/ats_app/services",
+              "children": [
+                {
+                  "name": "__init__.py",
+                  "type": "file",
+                  "path": "backend/ats_app/services/__init__.py",
+                  "language": "python",
+                  "size_bytes": 0
+                },
+                {
+                  "name": "llm_service.py",
+                  "type": "file",
+                  "path": "backend/ats_app/services/llm_service.py",
+                  "language": "python",
+                  "total_lines": 417,
+                  "function_count": 9,
+                  "classes": [
+                    "LLMService"
+                  ],
+                  "functions": [
+                    "__init__",
+                    "generate",
+                    "_generate_ollama",
+                    "_generate_openrouter",
+                    "_sanitize_json_string",
+                    "_is_truncated_json",
+                    "_complete_truncated_json",
+                    "_ensure_dict_result",
+                    "generate_json"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "utils",
+              "type": "directory",
+              "path": "backend/ats_app/utils",
+              "children": []
+            },
+            {
+              "name": "__init__.py",
+              "type": "file",
+              "path": "backend/ats_app/__init__.py",
+              "language": "python",
+              "size_bytes": 0
+            },
+            {
+              "name": "admin.py",
+              "type": "file",
+              "path": "backend/ats_app/admin.py",
+              "language": "python",
+              "total_lines": 36,
+              "function_count": 0,
+              "classes": [
+                "StageResultInline",
+                "ProcessRunInline",
+                "JobAdmin",
+                "ProcessRunAdmin",
+                "StageResultAdmin"
+              ],
+              "functions": []
+            },
+            {
+              "name": "apps.py",
+              "type": "file",
+              "path": "backend/ats_app/apps.py",
+              "language": "python",
+              "total_lines": 6,
+              "function_count": 0,
+              "classes": [
+                "AtsAppConfig"
+              ],
+              "functions": []
+            },
+            {
+              "name": "authentication.py",
+              "type": "file",
+              "path": "backend/ats_app/authentication.py",
+              "language": "python",
+              "total_lines": 136,
+              "function_count": 5,
+              "classes": [],
+              "functions": [
+                "register_view",
+                "login_view",
+                "logout_view",
+                "profile_view",
+                "change_password_view"
+              ]
+            },
+            {
+              "name": "models.py",
+              "type": "file",
+              "path": "backend/ats_app/models.py",
+              "language": "python",
+              "total_lines": 112,
+              "function_count": 4,
+              "classes": [
+                "UserProfile",
+                "Meta",
+                "Job",
+                "Meta",
+                "ProcessRun",
+                "Meta",
+                "StageResult",
+                "Meta"
+              ],
+              "functions": [
+                "__str__",
+                "__str__",
+                "__str__",
+                "__str__"
+              ]
+            },
+            {
+              "name": "serializers.py",
+              "type": "file",
+              "path": "backend/ats_app/serializers.py",
+              "language": "python",
+              "total_lines": 129,
+              "function_count": 6,
+              "classes": [
+                "UserSerializer",
+                "Meta",
+                "UserProfileSerializer",
+                "Meta",
+                "LoginSerializer",
+                "PasswordChangeSerializer",
+                "StageResultSerializer",
+                "Meta",
+                "ProcessRunSerializer",
+                "Meta",
+                "JobSerializer",
+                "Meta",
+                "JobCreateSerializer",
+                "Meta",
+                "ProcessRunCreateSerializer",
+                "Meta",
+                "ManualLatexSubmissionSerializer"
+              ],
+              "functions": [
+                "create",
+                "validate_old_password",
+                "validate_new_password",
+                "create",
+                "create",
+                "validate_latex_content"
+              ]
+            },
+            {
+              "name": "tests.py",
+              "type": "file",
+              "path": "backend/ats_app/tests.py",
+              "language": "python",
+              "size_bytes": 60
+            },
+            {
+              "name": "urls.py",
+              "type": "file",
+              "path": "backend/ats_app/urls.py",
+              "language": "python",
+              "size_bytes": 568
+            },
+            {
+              "name": "views.py",
+              "type": "file",
+              "path": "backend/ats_app/views.py",
+              "language": "python",
+              "total_lines": 328,
+              "function_count": 12,
+              "classes": [
+                "JobViewSet",
+                "ProcessRunViewSet",
+                "StageResultViewSet"
+              ],
+              "functions": [
+                "_run_orchestrator_async",
+                "_resume_orchestrator_async",
+                "_restart_orchestrator_async",
+                "get_queryset",
+                "get_serializer_class",
+                "run_process",
+                "get_queryset",
+                "get_prompt",
+                "submit_manual_latex",
+                "continue_iterating",
+                "restart",
+                "force_complete"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ats_project",
+          "type": "directory",
+          "path": "backend/ats_project",
+          "children": [
+            {
+              "name": "__init__.py",
+              "type": "file",
+              "path": "backend/ats_project/__init__.py",
+              "language": "python",
+              "size_bytes": 0
+            },
+            {
+              "name": "asgi.py",
+              "type": "file",
+              "path": "backend/ats_project/asgi.py",
+              "language": "python",
+              "size_bytes": 399
+            },
+            {
+              "name": "settings.py",
+              "type": "file",
+              "path": "backend/ats_project/settings.py",
+              "language": "python",
+              "size_bytes": 5113
+            },
+            {
+              "name": "urls.py",
+              "type": "file",
+              "path": "backend/ats_project/urls.py",
+              "language": "python",
+              "total_lines": 43,
+              "function_count": 1,
+              "classes": [],
+              "functions": [
+                "health_check"
+              ]
+            },
+            {
+              "name": "wsgi.py",
+              "type": "file",
+              "path": "backend/ats_project/wsgi.py",
+              "language": "python",
+              "size_bytes": 399
+            }
+          ]
+        },
+        {
+          "name": ".env",
+          "type": "file",
+          "path": "backend/.env",
+          "size_bytes": 145
+        },
+        {
+          "name": "db.sqlite3",
+          "type": "file",
+          "path": "backend/db.sqlite3",
+          "size_bytes": 2838528
+        },
+        {
+          "name": "manage.py",
+          "type": "file",
+          "path": "backend/manage.py",
+          "language": "python",
+          "total_lines": 23,
+          "function_count": 1,
+          "classes": [],
+          "functions": [
+            "main"
+          ]
+        },
+        {
+          "name": "requirements.txt",
+          "type": "file",
+          "path": "backend/requirements.txt",
+          "size_bytes": 123
+        }
+      ]
+    },
+    {
+      "name": "frontend",
+      "type": "directory",
+      "path": "frontend",
+      "children": [
+        {
+          "name": "public",
+          "type": "directory",
+          "path": "frontend/public",
+          "children": [
+            {
+              "name": "favicon.svg",
+              "type": "file",
+              "path": "frontend/public/favicon.svg",
+              "size_bytes": 9522
+            },
+            {
+              "name": "icons.svg",
+              "type": "file",
+              "path": "frontend/public/icons.svg",
+              "size_bytes": 5031
+            }
+          ]
+        },
+        {
+          "name": "src",
+          "type": "directory",
+          "path": "frontend/src",
+          "children": [
+            {
+              "name": "api",
+              "type": "directory",
+              "path": "frontend/src/api",
+              "children": [
+                {
+                  "name": "index.ts",
+                  "type": "file",
+                  "path": "frontend/src/api/index.ts",
+                  "language": "javascript",
+                  "total_lines": 96,
+                  "function_count": 16,
+                  "classes": [],
+                  "functions": [
+                    "login",
+                    "logout",
+                    "getProfile",
+                    "updateProfile",
+                    "register",
+                    "createJob",
+                    "getJobs",
+                    "getJob",
+                    "runProcess",
+                    "getProcessRuns",
+                    "getProcessRun",
+                    "getPrompt",
+                    "submitManualLatex",
+                    "continueIterating",
+                    "restartProcess",
+                    "forceComplete"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "assets",
+              "type": "directory",
+              "path": "frontend/src/assets",
+              "children": [
+                {
+                  "name": "hero.png",
+                  "type": "file",
+                  "path": "frontend/src/assets/hero.png",
+                  "size_bytes": 44919
+                },
+                {
+                  "name": "react.svg",
+                  "type": "file",
+                  "path": "frontend/src/assets/react.svg",
+                  "size_bytes": 4126
+                },
+                {
+                  "name": "vite.svg",
+                  "type": "file",
+                  "path": "frontend/src/assets/vite.svg",
+                  "size_bytes": 8709
+                }
+              ]
+            },
+            {
+              "name": "components",
+              "type": "directory",
+              "path": "frontend/src/components",
+              "children": [
+                {
+                  "name": "JobForm.tsx",
+                  "type": "file",
+                  "path": "frontend/src/components/JobForm.tsx",
+                  "language": "javascript",
+                  "total_lines": 249,
+                  "function_count": 3,
+                  "classes": [],
+                  "functions": [
+                    "JobForm",
+                    "checkHealth",
+                    "getCharCounterClass"
+                  ]
+                },
+                {
+                  "name": "KeywordDetails.tsx",
+                  "type": "file",
+                  "path": "frontend/src/components/KeywordDetails.tsx",
+                  "language": "javascript",
+                  "total_lines": 163,
+                  "function_count": 6,
+                  "classes": [],
+                  "functions": [
+                    "MatchedKeywordCard",
+                    "MissingKeywordCard",
+                    "KeywordDetails",
+                    "getEffectivenessColor",
+                    "getEffectivenessLabel",
+                    "getPriorityColor"
+                  ]
+                },
+                {
+                  "name": "KeywordExtractionDisplay.tsx",
+                  "type": "file",
+                  "path": "frontend/src/components/KeywordExtractionDisplay.tsx",
+                  "language": "javascript",
+                  "total_lines": 137,
+                  "function_count": 7,
+                  "classes": [],
+                  "functions": [
+                    "getPriorityIcon",
+                    "getPriorityLabel",
+                    "getConfidenceColor",
+                    "getCategoryIcon",
+                    "getKeywordText",
+                    "KeywordCard",
+                    "KeywordExtractionDisplay"
+                  ]
+                },
+                {
+                  "name": "LoginForm.tsx",
+                  "type": "file",
+                  "path": "frontend/src/components/LoginForm.tsx",
+                  "language": "javascript",
+                  "total_lines": 61,
+                  "function_count": 1,
+                  "classes": [],
+                  "functions": [
+                    "handleSubmit"
+                  ]
+                },
+                {
+                  "name": "ProcessList.tsx",
+                  "type": "file",
+                  "path": "frontend/src/components/ProcessList.tsx",
+                  "language": "javascript",
+                  "total_lines": 86,
+                  "function_count": 1,
+                  "classes": [],
+                  "functions": [
+                    "ProcessList"
+                  ]
+                },
+                {
+                  "name": "ProcessTracker.tsx",
+                  "type": "file",
+                  "path": "frontend/src/components/ProcessTracker.tsx",
+                  "language": "javascript",
+                  "total_lines": 483,
+                  "function_count": 7,
+                  "classes": [],
+                  "functions": [
+                    "RatingBar",
+                    "KeywordList",
+                    "ProcessTracker",
+                    "formatKeyword",
+                    "getProgressPercentage",
+                    "getSectionIcon",
+                    "getRelevanceColor"
+                  ]
+                },
+                {
+                  "name": "RegistrationForm.tsx",
+                  "type": "file",
+                  "path": "frontend/src/components/RegistrationForm.tsx",
+                  "language": "javascript",
+                  "total_lines": 191,
+                  "function_count": 4,
+                  "classes": [],
+                  "functions": [
+                    "validateEmail",
+                    "getPasswordStrength",
+                    "validateForm",
+                    "handleSubmit"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "context",
+              "type": "directory",
+              "path": "frontend/src/context",
+              "children": [
+                {
+                  "name": "AuthContext.tsx",
+                  "type": "file",
+                  "path": "frontend/src/context/AuthContext.tsx",
+                  "language": "javascript",
+                  "total_lines": 179,
+                  "function_count": 5,
+                  "classes": [],
+                  "functions": [
+                    "useAuth",
+                    "register",
+                    "login",
+                    "logout",
+                    "refreshToken"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "pages",
+              "type": "directory",
+              "path": "frontend/src/pages",
+              "children": [
+                {
+                  "name": "LoginPage.tsx",
+                  "type": "file",
+                  "path": "frontend/src/pages/LoginPage.tsx",
+                  "language": "javascript",
+                  "size_bytes": 784
+                },
+                {
+                  "name": "ProcessDetail.tsx",
+                  "type": "file",
+                  "path": "frontend/src/pages/ProcessDetail.tsx",
+                  "language": "javascript",
+                  "total_lines": 660,
+                  "function_count": 8,
+                  "classes": [],
+                  "functions": [
+                    "ProcessDetail",
+                    "fetchPrompt",
+                    "handleSubmitLatex",
+                    "handleContinueIterating",
+                    "handleRestart",
+                    "handleForceComplete",
+                    "getStatusIcon",
+                    "getStatusColor"
+                  ]
+                },
+                {
+                  "name": "ProfilePage.tsx",
+                  "type": "file",
+                  "path": "frontend/src/pages/ProfilePage.tsx",
+                  "language": "javascript",
+                  "total_lines": 164,
+                  "function_count": 2,
+                  "classes": [],
+                  "functions": [
+                    "fetchProfile",
+                    "handleSubmit"
+                  ]
+                },
+                {
+                  "name": "RegisterPage.tsx",
+                  "type": "file",
+                  "path": "frontend/src/pages/RegisterPage.tsx",
+                  "language": "javascript",
+                  "size_bytes": 825
+                }
+              ]
+            },
+            {
+              "name": "types",
+              "type": "directory",
+              "path": "frontend/src/types",
+              "children": [
+                {
+                  "name": "index.ts",
+                  "type": "file",
+                  "path": "frontend/src/types/index.ts",
+                  "language": "javascript",
+                  "size_bytes": 1746
+                }
+              ]
+            },
+            {
+              "name": "App.css",
+              "type": "file",
+              "path": "frontend/src/App.css",
+              "size_bytes": 22575
+            },
+            {
+              "name": "App.tsx",
+              "type": "file",
+              "path": "frontend/src/App.tsx",
+              "language": "javascript",
+              "total_lines": 61,
+              "function_count": 4,
+              "classes": [],
+              "functions": [
+                "NavLinks",
+                "App",
+                "isActive",
+                "handleLogout"
+              ]
+            },
+            {
+              "name": "index.css",
+              "type": "file",
+              "path": "frontend/src/index.css",
+              "size_bytes": 3494
+            },
+            {
+              "name": "main.tsx",
+              "type": "file",
+              "path": "frontend/src/main.tsx",
+              "language": "javascript",
+              "size_bytes": 226
+            }
+          ]
+        },
+        {
+          "name": ".gitignore",
+          "type": "file",
+          "path": "frontend/.gitignore",
+          "size_bytes": 253
+        },
+        {
+          "name": "README.md",
+          "type": "file",
+          "path": "frontend/README.md",
+          "size_bytes": 2425
+        },
+        {
+          "name": "eslint.config.js",
+          "type": "file",
+          "path": "frontend/eslint.config.js",
+          "language": "javascript",
+          "size_bytes": 616
+        },
+        {
+          "name": "index.html",
+          "type": "file",
+          "path": "frontend/index.html",
+          "size_bytes": 360
+        },
+        {
+          "name": "package-lock.json",
+          "type": "file",
+          "path": "frontend/package-lock.json",
+          "size_bytes": 131738
+        },
+        {
+          "name": "package.json",
+          "type": "file",
+          "path": "frontend/package.json",
+          "size_bytes": 768
+        },
+        {
+          "name": "tsconfig.app.json",
+          "type": "file",
+          "path": "frontend/tsconfig.app.json",
+          "size_bytes": 633
+        },
+        {
+          "name": "tsconfig.json",
+          "type": "file",
+          "path": "frontend/tsconfig.json",
+          "size_bytes": 119
+        },
+        {
+          "name": "tsconfig.node.json",
+          "type": "file",
+          "path": "frontend/tsconfig.node.json",
+          "size_bytes": 591
+        },
+        {
+          "name": "vite.config.ts",
+          "type": "file",
+          "path": "frontend/vite.config.ts",
+          "language": "javascript",
+          "size_bytes": 264
+        }
+      ]
+    },
+    {
+      "name": ".gitignore",
+      "type": "file",
+      "path": ".gitignore",
+      "size_bytes": 1918
+    },
+    {
+      "name": "README.md",
+      "type": "file",
+      "path": "README.md",
+      "size_bytes": 7789
+    },
+    {
+      "name": "SETUP_STATUS.md",
+      "type": "file",
+      "path": "SETUP_STATUS.md",
+      "size_bytes": 6341
+    },
+    {
+      "name": "alaemtyaz.json",
+      "type": "file",
+      "path": "alaemtyaz.json",
+      "size_bytes": 61822
+    },
+    {
+      "name": "latex.txt",
+      "type": "file",
+      "path": "latex.txt",
+      "size_bytes": 8057
+    },
+    {
+      "name": "start.sh",
+      "type": "file",
+      "path": "start.sh",
+      "size_bytes": 484
+    },
+    {
+      "name": "state_transitions.excalidraw.json",
+      "type": "file",
+      "path": "state_transitions.excalidraw.json",
+      "size_bytes": 17429
+    },
+    {
+      "name": "workflow_detailed.excalidraw.json",
+      "type": "file",
+      "path": "workflow_detailed.excalidraw.json",
+      "size_bytes": 19571
+    },
+    {
+      "name": "workflow_simple.excalidraw.json",
+      "type": "file",
+      "path": "workflow_simple.excalidraw.json",
+      "size_bytes": 16629
+    }
+  ],
+  "total_directories": 20,
+  "total_files": 113
+}

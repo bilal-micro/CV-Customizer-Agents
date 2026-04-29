@@ -1,0 +1,1764 @@
+{
+  "metadata": {
+    "project_name": "ATS-Agentic",
+    "scan_date": "2026-04-29T02:48:53",
+    "total_files": 34,
+    "total_functions": 172,
+    "languages": [
+      "javascript",
+      "python"
+    ],
+    "language_stats": {
+      "python": 22,
+      "javascript": 12
+    },
+    "modules_count": 9
+  },
+  "modules": [
+    {
+      "id": "module_001",
+      "name": "Backend Core",
+      "description": "Contains Django application setup, models, views, serializers, and authentication logic.",
+      "goal": "To define the application data structure, handle API requests, and manage user authentication.",
+      "directories": [
+        "backend",
+        "backend/ats_app"
+      ],
+      "file_count": 7,
+      "function_count": 28,
+      "files": [
+        {
+          "path": "backend/ats_app/admin.py",
+          "language": "python",
+          "total_lines": 36,
+          "classes": [
+            {
+              "name": "StageResultInline",
+              "line": 6
+            },
+            {
+              "name": "ProcessRunInline",
+              "line": 12
+            },
+            {
+              "name": "JobAdmin",
+              "line": 19
+            },
+            {
+              "name": "ProcessRunAdmin",
+              "line": 26
+            },
+            {
+              "name": "StageResultAdmin",
+              "line": 33
+            }
+          ],
+          "function_count": 0,
+          "functions": []
+        },
+        {
+          "path": "backend/ats_app/apps.py",
+          "language": "python",
+          "total_lines": 6,
+          "classes": [
+            {
+              "name": "AtsAppConfig",
+              "line": 4
+            }
+          ],
+          "function_count": 0,
+          "functions": []
+        },
+        {
+          "path": "backend/ats_app/authentication.py",
+          "language": "python",
+          "total_lines": 136,
+          "classes": [],
+          "function_count": 5,
+          "functions": [
+            {
+              "name": "register_view",
+              "signature": "def register_view(request) -> Any",
+              "line_number": 23,
+              "description": "Register a new user",
+              "params_raw": "request"
+            },
+            {
+              "name": "login_view",
+              "signature": "def login_view(request) -> Any",
+              "line_number": 42,
+              "description": "Login user and return JWT tokens",
+              "params_raw": "request"
+            },
+            {
+              "name": "logout_view",
+              "signature": "def logout_view(request) -> Any",
+              "line_number": 74,
+              "description": "Logout user by blacklisting refresh token",
+              "params_raw": "request"
+            },
+            {
+              "name": "profile_view",
+              "signature": "def profile_view(request) -> Any",
+              "line_number": 96,
+              "description": "Get or update user profile",
+              "params_raw": "request"
+            },
+            {
+              "name": "change_password_view",
+              "signature": "def change_password_view(request) -> Any",
+              "line_number": 123,
+              "description": "Change user password",
+              "params_raw": "request"
+            }
+          ]
+        },
+        {
+          "path": "backend/ats_app/models.py",
+          "language": "python",
+          "total_lines": 112,
+          "classes": [
+            {
+              "name": "UserProfile",
+              "line": 8
+            },
+            {
+              "name": "Meta",
+              "line": 26
+            },
+            {
+              "name": "Job",
+              "line": 34
+            },
+            {
+              "name": "Meta",
+              "line": 42
+            },
+            {
+              "name": "ProcessRun",
+              "line": 49
+            },
+            {
+              "name": "Meta",
+              "line": 71
+            },
+            {
+              "name": "StageResult",
+              "line": 78
+            },
+            {
+              "name": "Meta",
+              "line": 106
+            }
+          ],
+          "function_count": 4,
+          "functions": [
+            {
+              "name": "__str__",
+              "signature": "def __str__(self) -> Any",
+              "line_number": 30,
+              "params_raw": "self"
+            },
+            {
+              "name": "__str__",
+              "signature": "def __str__(self) -> Any",
+              "line_number": 45,
+              "params_raw": "self"
+            },
+            {
+              "name": "__str__",
+              "signature": "def __str__(self) -> Any",
+              "line_number": 74,
+              "params_raw": "self"
+            },
+            {
+              "name": "__str__",
+              "signature": "def __str__(self) -> Any",
+              "line_number": 110,
+              "params_raw": "self"
+            }
+          ]
+        },
+        {
+          "path": "backend/ats_app/serializers.py",
+          "language": "python",
+          "total_lines": 129,
+          "classes": [
+            {
+              "name": "UserSerializer",
+              "line": 9
+            },
+            {
+              "name": "Meta",
+              "line": 13
+            },
+            {
+              "name": "UserProfileSerializer",
+              "line": 27
+            },
+            {
+              "name": "Meta",
+              "line": 29
+            },
+            {
+              "name": "LoginSerializer",
+              "line": 37
+            },
+            {
+              "name": "PasswordChangeSerializer",
+              "line": 43
+            },
+            {
+              "name": "StageResultSerializer",
+              "line": 61
+            },
+            {
+              "name": "Meta",
+              "line": 62
+            },
+            {
+              "name": "ProcessRunSerializer",
+              "line": 67
+            },
+            {
+              "name": "Meta",
+              "line": 71
+            },
+            {
+              "name": "JobSerializer",
+              "line": 79
+            },
+            {
+              "name": "Meta",
+              "line": 83
+            },
+            {
+              "name": "JobCreateSerializer",
+              "line": 91
+            },
+            {
+              "name": "Meta",
+              "line": 92
+            },
+            {
+              "name": "ProcessRunCreateSerializer",
+              "line": 102
+            },
+            {
+              "name": "Meta",
+              "line": 103
+            },
+            {
+              "name": "ManualLatexSubmissionSerializer",
+              "line": 114
+            }
+          ],
+          "function_count": 6,
+          "functions": [
+            {
+              "name": "create",
+              "signature": "def create(self, validated_data) -> Any",
+              "line_number": 20,
+              "params_raw": "self, validated_data"
+            },
+            {
+              "name": "validate_old_password",
+              "signature": "def validate_old_password(self, value) -> Any",
+              "line_number": 48,
+              "params_raw": "self, value"
+            },
+            {
+              "name": "validate_new_password",
+              "signature": "def validate_new_password(self, value) -> Any",
+              "line_number": 54,
+              "params_raw": "self, value"
+            },
+            {
+              "name": "create",
+              "signature": "def create(self, validated_data) -> Any",
+              "line_number": 96,
+              "params_raw": "self, validated_data"
+            },
+            {
+              "name": "create",
+              "signature": "def create(self, validated_data) -> Any",
+              "line_number": 107,
+              "params_raw": "self, validated_data"
+            },
+            {
+              "name": "validate_latex_content",
+              "signature": "def validate_latex_content(self, value) -> Any",
+              "line_number": 117,
+              "params_raw": "self, value"
+            }
+          ]
+        },
+        {
+          "path": "backend/ats_app/views.py",
+          "language": "python",
+          "total_lines": 328,
+          "classes": [
+            {
+              "name": "JobViewSet",
+              "line": 70
+            },
+            {
+              "name": "ProcessRunViewSet",
+              "line": 99
+            },
+            {
+              "name": "StageResultViewSet",
+              "line": 325
+            }
+          ],
+          "function_count": 12,
+          "functions": [
+            {
+              "name": "_run_orchestrator_async",
+              "signature": "def _run_orchestrator_async(process_run_id, user_id=None) -> Any",
+              "line_number": 26,
+              "params_raw": "process_run_id, user_id=None"
+            },
+            {
+              "name": "_resume_orchestrator_async",
+              "signature": "def _resume_orchestrator_async(process_run_id) -> Any",
+              "line_number": 42,
+              "params_raw": "process_run_id"
+            },
+            {
+              "name": "_restart_orchestrator_async",
+              "signature": "def _restart_orchestrator_async(process_run_id) -> Any",
+              "line_number": 56,
+              "params_raw": "process_run_id"
+            },
+            {
+              "name": "get_queryset",
+              "signature": "def get_queryset(self) -> Any",
+              "line_number": 74,
+              "params_raw": "self"
+            },
+            {
+              "name": "get_serializer_class",
+              "signature": "def get_serializer_class(self) -> Any",
+              "line_number": 78,
+              "params_raw": "self"
+            },
+            {
+              "name": "run_process",
+              "signature": "def run_process(self, request, pk=None) -> Any",
+              "line_number": 84,
+              "params_raw": "self, request, pk=None"
+            },
+            {
+              "name": "get_queryset",
+              "signature": "def get_queryset(self) -> Any",
+              "line_number": 103,
+              "params_raw": "self"
+            },
+            {
+              "name": "get_prompt",
+              "signature": "def get_prompt(self, request, pk=None) -> Any",
+              "line_number": 108,
+              "description": "Get the generated prompt from Agent 3 for manual LLM input.",
+              "params_raw": "self, request, pk=None"
+            },
+            {
+              "name": "submit_manual_latex",
+              "signature": "def submit_manual_latex(self, request, pk=None) -> Any",
+              "line_number": 148,
+              "description": "Submit manually updated LaTeX from external LLM and continue process.",
+              "params_raw": "self, request, pk=None"
+            },
+            {
+              "name": "continue_iterating",
+              "signature": "def continue_iterating(self, request, pk=None) -> Any",
+              "line_number": 207,
+              "description": "Trigger a new manual iteration after process completion.",
+              "params_raw": "self, request, pk=None"
+            },
+            {
+              "name": "restart",
+              "signature": "def restart(self, request, pk=None) -> Any",
+              "line_number": 255,
+              "description": "Restart a failed process from the point of failure.",
+              "params_raw": "self, request, pk=None"
+            },
+            {
+              "name": "force_complete",
+              "signature": "def force_complete(self, request, pk=None) -> Any",
+              "line_number": 292,
+              "description": "Force complete a process without running any agents.",
+              "params_raw": "self, request, pk=None"
+            }
+          ]
+        },
+        {
+          "path": "backend/manage.py",
+          "language": "python",
+          "total_lines": 23,
+          "classes": [],
+          "function_count": 1,
+          "functions": [
+            {
+              "name": "main",
+              "signature": "def main() -> Any",
+              "line_number": 7,
+              "description": "Run administrative tasks."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "module_002",
+      "name": "AI Agents",
+      "description": "Implements specialized agents for candidate evaluation, keyword processing, and matching.",
+      "goal": "To automate resume screening, keyword extraction, and candidate scoring for efficiency.",
+      "directories": [
+        "backend/ats_app/agents"
+      ],
+      "file_count": 9,
+      "function_count": 70,
+      "files": [
+        {
+          "path": "backend/ats_app/agents/ats_rater.py",
+          "language": "python",
+          "total_lines": 118,
+          "classes": [
+            {
+              "name": "ATSRaterAgent",
+              "line": 45
+            }
+          ],
+          "function_count": 3,
+          "functions": [
+            {
+              "name": "run",
+              "signature": "def run(self, job_title: str, job_description: str, latex_cv: str, match_rate: float) -> dict",
+              "line_number": 46,
+              "params_raw": "self, job_title: str, job_description: str, latex_cv: str, match_rate: float",
+              "return_type": "dict"
+            },
+            {
+              "name": "evaluate_results",
+              "signature": "def evaluate_results(self, result: dict, match_rate: float) -> tuple[bool, dict]",
+              "line_number": 56,
+              "params_raw": "self, result: dict, match_rate: float",
+              "return_type": "tuple[bool, dict]"
+            },
+            {
+              "name": "get_feedback_for_iteration",
+              "signature": "def get_feedback_for_iteration(self, result: dict, match_rate: float) -> dict",
+              "line_number": 95,
+              "params_raw": "self, result: dict, match_rate: float",
+              "return_type": "dict"
+            }
+          ]
+        },
+        {
+          "path": "backend/ats_app/agents/cv_matcher.py",
+          "language": "python",
+          "total_lines": 314,
+          "classes": [
+            {
+              "name": "SectionAnalyzerAgent",
+              "line": 90
+            },
+            {
+              "name": "AnalysisSynthesizerAgent",
+              "line": 154
+            },
+            {
+              "name": "CVMatcherAgent",
+              "line": 183
+            }
+          ],
+          "function_count": 4,
+          "functions": [
+            {
+              "name": "run",
+              "signature": "def run(self, job_title: str, keywords: dict, latex_cv: str) -> dict",
+              "line_number": 91,
+              "params_raw": "self, job_title: str, keywords: dict, latex_cv: str",
+              "return_type": "dict"
+            },
+            {
+              "name": "run",
+              "signature": "def run(self, job_title: str, match_rate: float, keyword_results: dict,               section_analysis: dict, strengths: list, weaknesses: list,               detailed_feedback: str = \"\") -> dict",
+              "line_number": 155,
+              "params_raw": "self, job_title: str, match_rate: float, keyword_results: dict, \n             section_analysis: dict, strengths: list, weaknesses: list, \n             detailed_feedback: str = \"\"",
+              "return_type": "dict"
+            },
+            {
+              "name": "__init__",
+              "signature": "def __init__(self, include_advanced_analysis: bool = False) -> Any",
+              "line_number": 184,
+              "params_raw": "self, include_advanced_analysis: bool = False"
+            },
+            {
+              "name": "run",
+              "signature": "def run(self, job_title: str, keywords: dict, latex_cv: str) -> dict",
+              "line_number": 209,
+              "params_raw": "self, job_title: str, keywords: dict, latex_cv: str",
+              "return_type": "dict"
+            }
+          ]
+        },
+        {
+          "path": "backend/ats_app/agents/cv_updater.py",
+          "language": "python",
+          "total_lines": 215,
+          "classes": [
+            {
+              "name": "CVUpdaterAgent",
+              "line": 143
+            }
+          ],
+          "function_count": 2,
+          "functions": [
+            {
+              "name": "generate_prompt",
+              "signature": "def generate_prompt(self, job_title: str, keywords: dict, matching_analysis: dict,                          latex_cv: str, iteration_number: int = 1, feedback: dict = None) -> str",
+              "line_number": 144,
+              "params_raw": "self, job_title: str, keywords: dict, matching_analysis: dict, \n                        latex_cv: str, iteration_number: int = 1, feedback: dict = None",
+              "return_type": "str"
+            },
+            {
+              "name": "validate_manual_latex",
+              "signature": "def validate_manual_latex(self, latex_content: str) -> dict",
+              "line_number": 188,
+              "params_raw": "self, latex_content: str",
+              "return_type": "dict"
+            }
+          ]
+        },
+        {
+          "path": "backend/ats_app/agents/keyword_extractor.py",
+          "language": "python",
+          "total_lines": 121,
+          "classes": [
+            {
+              "name": "KeywordExtractorAgent",
+              "line": 74
+            }
+          ],
+          "function_count": 2,
+          "functions": [
+            {
+              "name": "run",
+              "signature": "def run(self, job_title: str, job_description: str) -> dict",
+              "line_number": 75,
+              "params_raw": "self, job_title: str, job_description: str",
+              "return_type": "dict"
+            },
+            {
+              "name": "_log_extraction_summary",
+              "signature": "def _log_extraction_summary(self, result: dict) -> None",
+              "line_number": 100,
+              "params_raw": "self, result: dict",
+              "return_type": "None"
+            }
+          ]
+        },
+        {
+          "path": "backend/ats_app/agents/keyword_gap_analyzer.py",
+          "language": "python",
+          "total_lines": 284,
+          "classes": [
+            {
+              "name": "KeywordGapAnalyzerAgent",
+              "line": 111
+            }
+          ],
+          "function_count": 9,
+          "functions": [
+            {
+              "name": "__init__",
+              "signature": "def __init__(self) -> Any",
+              "line_number": 117,
+              "description": "Initialize keyword gap analyzer.",
+              "params_raw": "self"
+            },
+            {
+              "name": "analyze_gaps",
+              "signature": "def analyze_gaps(self, job_title: str, keywords: Dict, match_results: Dict,                      section_analysis: Dict, prioritization: Dict) -> Dict",
+              "line_number": 121,
+              "params_raw": "self, job_title: str, keywords: Dict, match_results: Dict,\n                     section_analysis: Dict, prioritization: Dict",
+              "return_type": "Dict"
+            },
+            {
+              "name": "_format_keywords_for_llm",
+              "signature": "def _format_keywords_for_llm(self, keywords: Dict) -> str",
+              "line_number": 158,
+              "params_raw": "self, keywords: Dict",
+              "return_type": "str"
+            },
+            {
+              "name": "_format_match_results_for_llm",
+              "signature": "def _format_match_results_for_llm(self, match_results: Dict) -> str",
+              "line_number": 178,
+              "params_raw": "self, match_results: Dict",
+              "return_type": "str"
+            },
+            {
+              "name": "_format_section_analysis_for_llm",
+              "signature": "def _format_section_analysis_for_llm(self, section_analysis: Dict) -> str",
+              "line_number": 198,
+              "params_raw": "self, section_analysis: Dict",
+              "return_type": "str"
+            },
+            {
+              "name": "_format_prioritization_for_llm",
+              "signature": "def _format_prioritization_for_llm(self, prioritization: Dict) -> str",
+              "line_number": 215,
+              "params_raw": "self, prioritization: Dict",
+              "return_type": "str"
+            },
+            {
+              "name": "get_immediate_actions",
+              "signature": "def get_immediate_actions(self, gap_analysis: Dict) -> List[str]",
+              "line_number": 241,
+              "params_raw": "self, gap_analysis: Dict",
+              "return_type": "List[str]"
+            },
+            {
+              "name": "get_critical_gaps",
+              "signature": "def get_critical_gaps(self, gap_analysis: Dict) -> List[Dict]",
+              "line_number": 256,
+              "params_raw": "self, gap_analysis: Dict",
+              "return_type": "List[Dict]"
+            },
+            {
+              "name": "get_section_recommendations",
+              "signature": "def get_section_recommendations(self, gap_analysis: Dict) -> Dict[str, Dict]",
+              "line_number": 271,
+              "params_raw": "self, gap_analysis: Dict",
+              "return_type": "Dict[str, Dict]"
+            }
+          ]
+        },
+        {
+          "path": "backend/ats_app/agents/keyword_matcher.py",
+          "language": "python",
+          "total_lines": 624,
+          "classes": [
+            {
+              "name": "EnhancedKeywordMatcherAgent",
+              "line": 56
+            }
+          ],
+          "function_count": 16,
+          "functions": [
+            {
+              "name": "__init__",
+              "signature": "def __init__(self) -> Any",
+              "line_number": 63,
+              "description": "Initialize enhanced keyword matcher.",
+              "params_raw": "self"
+            },
+            {
+              "name": "_flatten_keywords",
+              "signature": "def _flatten_keywords(self, keywords: Dict) -> List[Dict]",
+              "line_number": 67,
+              "params_raw": "self, keywords: Dict",
+              "return_type": "List[Dict]"
+            },
+            {
+              "name": "match_keywords",
+              "signature": "def match_keywords(self, job_title: str, keywords: Dict, latex_cv: str) -> Dict",
+              "line_number": 101,
+              "params_raw": "self, job_title: str, keywords: Dict, latex_cv: str",
+              "return_type": "Dict"
+            },
+            {
+              "name": "_detect_sections",
+              "signature": "def _detect_sections(self, latex_cv: str) -> Dict[str, int]",
+              "line_number": 195,
+              "params_raw": "self, latex_cv: str",
+              "return_type": "Dict[str, int]"
+            },
+            {
+              "name": "_find_keyword_location",
+              "signature": "def _find_keyword_location(self, latex_cv: str, keyword: str, sections: Dict[str, int]) -> str",
+              "line_number": 228,
+              "params_raw": "self, latex_cv: str, keyword: str, sections: Dict[str, int]",
+              "return_type": "str"
+            },
+            {
+              "name": "_find_nearest_section",
+              "signature": "def _find_nearest_section(self, line_num: int, sections: Dict[str, int]) -> str",
+              "line_number": 254,
+              "params_raw": "self, line_num: int, sections: Dict[str, int]",
+              "return_type": "str"
+            },
+            {
+              "name": "_find_similar_match",
+              "signature": "def _find_similar_match(self, keyword: str, latex_cv: str, keyword_item: Dict) -> Optional[Dict]",
+              "line_number": 275,
+              "params_raw": "self, keyword: str, latex_cv: str, keyword_item: Dict",
+              "return_type": "Optional[Dict]"
+            },
+            {
+              "name": "_is_false_positive",
+              "signature": "def _is_false_positive(self, keyword: str, matched_text: str) -> bool",
+              "line_number": 364,
+              "params_raw": "self, keyword: str, matched_text: str",
+              "return_type": "bool"
+            },
+            {
+              "name": "_extract_context",
+              "signature": "def _extract_context(self, latex_cv: str, keyword: str, context_length: int = 50) -> str",
+              "line_number": 392,
+              "params_raw": "self, latex_cv: str, keyword: str, context_length: int = 50",
+              "return_type": "str"
+            },
+            {
+              "name": "_calculate_effectiveness_score",
+              "signature": "def _calculate_effectiveness_score(self, latex_cv_lower: str, keyword_lower: str,                                        location: str, sections: Dict[str, int]) -> float",
+              "line_number": 427,
+              "params_raw": "self, latex_cv_lower: str, keyword_lower: str, \n                                      location: str, sections: Dict[str, int]",
+              "return_type": "float"
+            },
+            {
+              "name": "_determine_usage_quality",
+              "signature": "def _determine_usage_quality(self, location: str, sections: Dict[str, int],                                   keyword_item: Dict) -> str",
+              "line_number": 461,
+              "params_raw": "self, location: str, sections: Dict[str, int], \n                                 keyword_item: Dict",
+              "return_type": "str"
+            },
+            {
+              "name": "_get_priority_impact",
+              "signature": "def _get_priority_impact(self, priority: int) -> str",
+              "line_number": 494,
+              "params_raw": "self, priority: int",
+              "return_type": "str"
+            },
+            {
+              "name": "_get_suggested_location",
+              "signature": "def _get_suggested_location(self, category: str) -> str",
+              "line_number": 511,
+              "params_raw": "self, category: str",
+              "return_type": "str"
+            },
+            {
+              "name": "_check_synonyms",
+              "signature": "def _check_synonyms(self, keyword: str, latex_cv_lower: str) -> Optional[str]",
+              "line_number": 532,
+              "params_raw": "self, keyword: str, latex_cv_lower: str",
+              "return_type": "Optional[str]"
+            },
+            {
+              "name": "_check_quantifications",
+              "signature": "def _check_quantifications(self, keyword: str, latex_cv_lower: str) -> Optional[str]",
+              "line_number": 555,
+              "params_raw": "self, keyword: str, latex_cv_lower: str",
+              "return_type": "Optional[str]"
+            },
+            {
+              "name": "get_keyword_effectiveness_summary",
+              "signature": "def get_keyword_effectiveness_summary(self, match_result: Dict) -> Dict",
+              "line_number": 590,
+              "params_raw": "self, match_result: Dict",
+              "return_type": "Dict"
+            }
+          ]
+        },
+        {
+          "path": "backend/ats_app/agents/keyword_prioritizer.py",
+          "language": "python",
+          "total_lines": 237,
+          "classes": [
+            {
+              "name": "KeywordPrioritizerAgent",
+              "line": 90
+            }
+          ],
+          "function_count": 7,
+          "functions": [
+            {
+              "name": "__init__",
+              "signature": "def __init__(self) -> Any",
+              "line_number": 96,
+              "description": "Initialize keyword prioritizer.",
+              "params_raw": "self"
+            },
+            {
+              "name": "prioritize",
+              "signature": "def prioritize(self, job_title: str, keywords: Dict, match_results: Dict,                     section_analysis: Dict) -> Dict",
+              "line_number": 100,
+              "params_raw": "self, job_title: str, keywords: Dict, match_results: Dict, \n                   section_analysis: Dict",
+              "return_type": "Dict"
+            },
+            {
+              "name": "_format_keywords_for_llm",
+              "signature": "def _format_keywords_for_llm(self, keywords: Dict) -> str",
+              "line_number": 133,
+              "params_raw": "self, keywords: Dict",
+              "return_type": "str"
+            },
+            {
+              "name": "_format_match_results_for_llm",
+              "signature": "def _format_match_results_for_llm(self, match_results: Dict) -> str",
+              "line_number": 153,
+              "params_raw": "self, match_results: Dict",
+              "return_type": "str"
+            },
+            {
+              "name": "_format_section_analysis_for_llm",
+              "signature": "def _format_section_analysis_for_llm(self, section_analysis: Dict) -> str",
+              "line_number": 186,
+              "params_raw": "self, section_analysis: Dict",
+              "return_type": "str"
+            },
+            {
+              "name": "get_top_priorities",
+              "signature": "def get_top_priorities(self, prioritization: Dict, limit: int = 5) -> List[Dict]",
+              "line_number": 203,
+              "params_raw": "self, prioritization: Dict, limit: int = 5",
+              "return_type": "List[Dict]"
+            },
+            {
+              "name": "get_critical_gaps",
+              "signature": "def get_critical_gaps(self, prioritization: Dict) -> List[Dict]",
+              "line_number": 225,
+              "params_raw": "self, prioritization: Dict",
+              "return_type": "List[Dict]"
+            }
+          ]
+        },
+        {
+          "path": "backend/ats_app/agents/match_evaluator.py",
+          "language": "python",
+          "total_lines": 235,
+          "classes": [
+            {
+              "name": "MatchEvaluatorAgent",
+              "line": 77
+            }
+          ],
+          "function_count": 6,
+          "functions": [
+            {
+              "name": "run",
+              "signature": "def run(self, job_title: str, keywords: Dict, match_results: Dict,              section_analysis: Dict, latex_cv: str) -> Dict",
+              "line_number": 83,
+              "params_raw": "self, job_title: str, keywords: Dict, match_results: Dict,\n             section_analysis: Dict, latex_cv: str",
+              "return_type": "Dict"
+            },
+            {
+              "name": "_format_keywords_for_llm",
+              "signature": "def _format_keywords_for_llm(self, keywords: Dict) -> str",
+              "line_number": 126,
+              "params_raw": "self, keywords: Dict",
+              "return_type": "str"
+            },
+            {
+              "name": "_format_match_results_for_llm",
+              "signature": "def _format_match_results_for_llm(self, match_results: Dict) -> str",
+              "line_number": 145,
+              "params_raw": "self, match_results: Dict",
+              "return_type": "str"
+            },
+            {
+              "name": "_format_section_analysis_for_llm",
+              "signature": "def _format_section_analysis_for_llm(self, section_analysis: Dict) -> str",
+              "line_number": 177,
+              "params_raw": "self, section_analysis: Dict",
+              "return_type": "str"
+            },
+            {
+              "name": "get_match_quality_assessment",
+              "signature": "def get_match_quality_assessment(self, evaluation: Dict) -> Dict",
+              "line_number": 201,
+              "params_raw": "self, evaluation: Dict",
+              "return_type": "Dict"
+            },
+            {
+              "name": "_get_quality_level",
+              "signature": "def _get_quality_level(self, match_rate: float) -> str",
+              "line_number": 224,
+              "params_raw": "self, match_rate: float",
+              "return_type": "str"
+            }
+          ]
+        },
+        {
+          "path": "backend/ats_app/agents/orchestrator.py",
+          "language": "python",
+          "total_lines": 731,
+          "classes": [
+            {
+              "name": "OrchestratorAgent",
+              "line": 20
+            }
+          ],
+          "function_count": 21,
+          "functions": [
+            {
+              "name": "__init__",
+              "signature": "def __init__(self, user=None) -> Any",
+              "line_number": 35,
+              "params_raw": "self, user=None"
+            },
+            {
+              "name": "start_process",
+              "signature": "def start_process(self, process_run: ProcessRun) -> None",
+              "line_number": 58,
+              "params_raw": "self, process_run: ProcessRun",
+              "return_type": "None"
+            },
+            {
+              "name": "_run_iteration_loop",
+              "signature": "def _run_iteration_loop(self, process_run: ProcessRun, job: Job,                             keywords: dict, current_latex: str) -> None",
+              "line_number": 109,
+              "params_raw": "self, process_run: ProcessRun, job: Job, \n                           keywords: dict, current_latex: str",
+              "return_type": "None"
+            },
+            {
+              "name": "resume_after_manual_input",
+              "signature": "def resume_after_manual_input(self, process_run: ProcessRun) -> None",
+              "line_number": 153,
+              "params_raw": "self, process_run: ProcessRun",
+              "return_type": "None"
+            },
+            {
+              "name": "_continue_to_next_iteration",
+              "signature": "def _continue_to_next_iteration(self, process_run: ProcessRun, job: Job,                                   keywords: dict, latex_cv: str, feedback: dict) -> None",
+              "line_number": 251,
+              "params_raw": "self, process_run: ProcessRun, job: Job,\n                                  keywords: dict, latex_cv: str, feedback: dict",
+              "return_type": "None"
+            },
+            {
+              "name": "_execute_keyword_extraction",
+              "signature": "def _execute_keyword_extraction(self, process_run: ProcessRun, job: Job) -> dict",
+              "line_number": 294,
+              "params_raw": "self, process_run: ProcessRun, job: Job",
+              "return_type": "dict"
+            },
+            {
+              "name": "_execute_cv_matching",
+              "signature": "def _execute_cv_matching(self, process_run: ProcessRun, job: Job,                            keywords: dict, latex_cv: str) -> dict",
+              "line_number": 301,
+              "params_raw": "self, process_run: ProcessRun, job: Job,\n                           keywords: dict, latex_cv: str",
+              "return_type": "dict"
+            },
+            {
+              "name": "_execute_cv_update_stage",
+              "signature": "def _execute_cv_update_stage(self, process_run: ProcessRun, job: Job,                                 keywords: dict, latex_cv: str,                                 iteration: int = 1, feedback: dict = None) -> str",
+              "line_number": 309,
+              "params_raw": "self, process_run: ProcessRun, job: Job,\n                                keywords: dict, latex_cv: str,\n                                iteration: int = 1, feedback: dict = None",
+              "return_type": "str"
+            },
+            {
+              "name": "_execute_ats_rating",
+              "signature": "def _execute_ats_rating(self, process_run: ProcessRun, job: Job,                            latex_cv: str, match_result: dict) -> dict",
+              "line_number": 363,
+              "params_raw": "self, process_run: ProcessRun, job: Job,\n                           latex_cv: str, match_result: dict",
+              "return_type": "dict"
+            },
+            {
+              "name": "_execute_stage",
+              "signature": "def _execute_stage(self, process_run: ProcessRun, stage_name: str,                      stage_func) -> dict",
+              "line_number": 374,
+              "params_raw": "self, process_run: ProcessRun, stage_name: str,\n                     stage_func",
+              "return_type": "dict"
+            },
+            {
+              "name": "_evaluate_results",
+              "signature": "def _evaluate_results(self, match_result: dict, rating_result: dict) -> dict",
+              "line_number": 436,
+              "params_raw": "self, match_result: dict, rating_result: dict",
+              "return_type": "dict"
+            },
+            {
+              "name": "_prepare_feedback_for_next_iteration",
+              "signature": "def _prepare_feedback_for_next_iteration(self, process_run: ProcessRun, rating_result: dict,                                          match_result: dict,                                           evaluation: dict) -> dict",
+              "line_number": 459,
+              "params_raw": "self, process_run: ProcessRun, rating_result: dict,\n                                         match_result: dict, \n                                         evaluation: dict",
+              "return_type": "dict"
+            },
+            {
+              "name": "_get_stage_result_safely",
+              "signature": "def _get_stage_result_safely(self, process_run: ProcessRun, stage_name: str) -> Any",
+              "line_number": 492,
+              "params_raw": "self, process_run: ProcessRun, stage_name: str"
+            },
+            {
+              "name": "_get_or_create_stage",
+              "signature": "def _get_or_create_stage(self, process_run: ProcessRun, stage_name: str) -> StageResult",
+              "line_number": 519,
+              "params_raw": "self, process_run: ProcessRun, stage_name: str",
+              "return_type": "StageResult"
+            },
+            {
+              "name": "_should_retry_stage",
+              "signature": "def _should_retry_stage(self, stage: str, result: dict) -> bool",
+              "line_number": 527,
+              "params_raw": "self, stage: str, result: dict",
+              "return_type": "bool"
+            },
+            {
+              "name": "_rate_stage_result",
+              "signature": "def _rate_stage_result(self, stage: str, result: dict) -> float",
+              "line_number": 541,
+              "params_raw": "self, stage: str, result: dict",
+              "return_type": "float"
+            },
+            {
+              "name": "_get_stage_notes",
+              "signature": "def _get_stage_notes(self, stage: str, result: dict) -> str",
+              "line_number": 555,
+              "params_raw": "self, stage: str, result: dict",
+              "return_type": "str"
+            },
+            {
+              "name": "_complete_process",
+              "signature": "def _complete_process(self, process_run: ProcessRun, reason: str) -> None",
+              "line_number": 567,
+              "params_raw": "self, process_run: ProcessRun, reason: str",
+              "return_type": "None"
+            },
+            {
+              "name": "trigger_manual_iteration",
+              "signature": "def trigger_manual_iteration(self, process_run: ProcessRun) -> bool",
+              "line_number": 573,
+              "params_raw": "self, process_run: ProcessRun",
+              "return_type": "bool"
+            },
+            {
+              "name": "_fail_process",
+              "signature": "def _fail_process(self, process_run: ProcessRun, reason: str) -> None",
+              "line_number": 620,
+              "params_raw": "self, process_run: ProcessRun, reason: str",
+              "return_type": "None"
+            },
+            {
+              "name": "restart_from_failure",
+              "signature": "def restart_from_failure(self, process_run: ProcessRun) -> None",
+              "line_number": 626,
+              "params_raw": "self, process_run: ProcessRun",
+              "return_type": "None"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "module_003",
+      "name": "Services",
+      "description": "Provides reusable services like LLM integration and shared business logic.",
+      "goal": "To enable external service integrations and encapsulate common application utilities.",
+      "directories": [
+        "backend/ats_app/services"
+      ],
+      "file_count": 1,
+      "function_count": 9,
+      "files": [
+        {
+          "path": "backend/ats_app/services/llm_service.py",
+          "language": "python",
+          "total_lines": 417,
+          "classes": [
+            {
+              "name": "LLMService",
+              "line": 11
+            }
+          ],
+          "function_count": 9,
+          "functions": [
+            {
+              "name": "__init__",
+              "signature": "def __init__(self) -> Any",
+              "line_number": 12,
+              "params_raw": "self"
+            },
+            {
+              "name": "generate",
+              "signature": "def generate(self, prompt: str, system: str = \"\", temperature: float = None) -> str",
+              "line_number": 25,
+              "params_raw": "self, prompt: str, system: str = \"\", temperature: float = None",
+              "return_type": "str"
+            },
+            {
+              "name": "_generate_ollama",
+              "signature": "def _generate_ollama(self, prompt: str, system: str = \"\", temperature: float = None) -> str",
+              "line_number": 31,
+              "params_raw": "self, prompt: str, system: str = \"\", temperature: float = None",
+              "return_type": "str"
+            },
+            {
+              "name": "_generate_openrouter",
+              "signature": "def _generate_openrouter(self, prompt: str, system: str = \"\", temperature: float = None) -> str",
+              "line_number": 61,
+              "params_raw": "self, prompt: str, system: str = \"\", temperature: float = None",
+              "return_type": "str"
+            },
+            {
+              "name": "_sanitize_json_string",
+              "signature": "def _sanitize_json_string(self, raw: str) -> str",
+              "line_number": 116,
+              "params_raw": "self, raw: str",
+              "return_type": "str"
+            },
+            {
+              "name": "_is_truncated_json",
+              "signature": "def _is_truncated_json(self, json_str: str) -> bool",
+              "line_number": 131,
+              "params_raw": "self, json_str: str",
+              "return_type": "bool"
+            },
+            {
+              "name": "_complete_truncated_json",
+              "signature": "def _complete_truncated_json(self, json_str: str) -> str",
+              "line_number": 167,
+              "params_raw": "self, json_str: str",
+              "return_type": "str"
+            },
+            {
+              "name": "_ensure_dict_result",
+              "signature": "def _ensure_dict_result(self, result) -> dict",
+              "line_number": 224,
+              "description": "Ensure the result is always a dict.",
+              "params_raw": "self, result",
+              "return_type": "dict"
+            },
+            {
+              "name": "generate_json",
+              "signature": "def generate_json(self, prompt: str, system: str = \"\", temperature: float = None) -> dict",
+              "line_number": 246,
+              "params_raw": "self, prompt: str, system: str = \"\", temperature: float = None",
+              "return_type": "dict"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "module_004",
+      "name": "Database Migrations",
+      "description": "Manages database schema changes and version control.",
+      "goal": "To maintain data integrity and support database evolution as the application grows.",
+      "directories": [
+        "backend/ats_app/migrations"
+      ],
+      "file_count": 4,
+      "function_count": 0,
+      "files": [
+        {
+          "path": "backend/ats_app/migrations/0001_initial.py",
+          "language": "python",
+          "total_lines": 63,
+          "classes": [
+            {
+              "name": "Migration",
+              "line": 8
+            }
+          ],
+          "function_count": 0,
+          "functions": []
+        },
+        {
+          "path": "backend/ats_app/migrations/0002_processrun_iteration_count_and_more.py",
+          "language": "python",
+          "total_lines": 49,
+          "classes": [
+            {
+              "name": "Migration",
+              "line": 6
+            }
+          ],
+          "function_count": 0,
+          "functions": []
+        },
+        {
+          "path": "backend/ats_app/migrations/0003_alter_processrun_max_iterations.py",
+          "language": "python",
+          "total_lines": 19,
+          "classes": [
+            {
+              "name": "Migration",
+              "line": 6
+            }
+          ],
+          "function_count": 0,
+          "functions": []
+        },
+        {
+          "path": "backend/ats_app/migrations/0004_processrun_original_latex.py",
+          "language": "python",
+          "total_lines": 19,
+          "classes": [
+            {
+              "name": "Migration",
+              "line": 6
+            }
+          ],
+          "function_count": 0,
+          "functions": []
+        }
+      ]
+    },
+    {
+      "id": "module_005",
+      "name": "Frontend Core",
+      "description": "Provides the main application entry point and structure.",
+      "goal": "To initialize the React application and manage the overall UI framework.",
+      "directories": [
+        "frontend/src"
+      ],
+      "file_count": 1,
+      "function_count": 4,
+      "files": [
+        {
+          "path": "frontend/src/App.tsx",
+          "language": "javascript",
+          "total_lines": 61,
+          "classes": [],
+          "function_count": 4,
+          "functions": [
+            {
+              "name": "NavLinks",
+              "signature": "function NavLinks() : any",
+              "line_number": 11
+            },
+            {
+              "name": "App",
+              "signature": "function App() : any",
+              "line_number": 35
+            },
+            {
+              "name": "isActive",
+              "signature": "const isActive = (path: string) => any",
+              "line_number": 14,
+              "params_raw": "path: string"
+            },
+            {
+              "name": "handleLogout",
+              "signature": "const handleLogout = async () => any",
+              "line_number": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "module_006",
+      "name": "UI Components",
+      "description": "Builds reusable UI elements for forms, displays, and page layouts.",
+      "goal": "To create a consistent and modular user interface for better maintainability.",
+      "directories": [
+        "frontend/src/components",
+        "frontend/src/pages"
+      ],
+      "file_count": 9,
+      "function_count": 39,
+      "files": [
+        {
+          "path": "frontend/src/components/JobForm.tsx",
+          "language": "javascript",
+          "total_lines": 249,
+          "classes": [],
+          "function_count": 3,
+          "functions": [
+            {
+              "name": "JobForm",
+              "signature": "export function JobForm() : any",
+              "line_number": 6
+            },
+            {
+              "name": "checkHealth",
+              "signature": "const checkHealth = async () => any",
+              "line_number": 27
+            },
+            {
+              "name": "getCharCounterClass",
+              "signature": "const getCharCounterClass = (current: number, max: number) => any",
+              "line_number": 124,
+              "params_raw": "current: number, max: number"
+            }
+          ]
+        },
+        {
+          "path": "frontend/src/components/KeywordDetails.tsx",
+          "language": "javascript",
+          "total_lines": 163,
+          "classes": [],
+          "function_count": 6,
+          "functions": [
+            {
+              "name": "MatchedKeywordCard",
+              "signature": "function MatchedKeywordCard({ keyword }: { keyword: MatchedKeyword }) : any",
+              "line_number": 8,
+              "params_raw": "{ keyword }: { keyword: MatchedKeyword }"
+            },
+            {
+              "name": "MissingKeywordCard",
+              "signature": "function MissingKeywordCard({ keyword }: { keyword: MissingKeyword }) : any",
+              "line_number": 80,
+              "params_raw": "{ keyword }: { keyword: MissingKeyword }"
+            },
+            {
+              "name": "KeywordDetails",
+              "signature": "export function KeywordDetails({ matchedKeywords, missingKeywords }: KeywordDetailsProps) : any",
+              "line_number": 127,
+              "params_raw": "{ matchedKeywords, missingKeywords }: KeywordDetailsProps"
+            },
+            {
+              "name": "getEffectivenessColor",
+              "signature": "const getEffectivenessColor = (score: number) => any",
+              "line_number": 11,
+              "params_raw": "score: number"
+            },
+            {
+              "name": "getEffectivenessLabel",
+              "signature": "const getEffectivenessLabel = (score: number) => any",
+              "line_number": 17,
+              "params_raw": "score: number"
+            },
+            {
+              "name": "getPriorityColor",
+              "signature": "const getPriorityColor = (impact: string) => any",
+              "line_number": 89,
+              "params_raw": "impact: string"
+            }
+          ]
+        },
+        {
+          "path": "frontend/src/components/KeywordExtractionDisplay.tsx",
+          "language": "javascript",
+          "total_lines": 137,
+          "classes": [],
+          "function_count": 7,
+          "functions": [
+            {
+              "name": "getPriorityIcon",
+              "signature": "function getPriorityIcon(priority: number) : string",
+              "line_number": 9,
+              "params_raw": "priority: number",
+              "return_type": "string"
+            },
+            {
+              "name": "getPriorityLabel",
+              "signature": "function getPriorityLabel(priority: number) : string",
+              "line_number": 15,
+              "params_raw": "priority: number",
+              "return_type": "string"
+            },
+            {
+              "name": "getConfidenceColor",
+              "signature": "function getConfidenceColor(confidence: number) : string",
+              "line_number": 21,
+              "params_raw": "confidence: number",
+              "return_type": "string"
+            },
+            {
+              "name": "getCategoryIcon",
+              "signature": "function getCategoryIcon(category: string) : string",
+              "line_number": 27,
+              "params_raw": "category: string",
+              "return_type": "string"
+            },
+            {
+              "name": "getKeywordText",
+              "signature": "function getKeywordText(item: ExtractedKeyword) : string",
+              "line_number": 51,
+              "params_raw": "item: ExtractedKeyword",
+              "return_type": "string"
+            },
+            {
+              "name": "KeywordCard",
+              "signature": "function KeywordCard({ item, category }: { item: ExtractedKeyword; category?: string }) : any",
+              "line_number": 55,
+              "params_raw": "{ item, category }: { item: ExtractedKeyword; category?: string }"
+            },
+            {
+              "name": "KeywordExtractionDisplay",
+              "signature": "export function KeywordExtractionDisplay({ items, label, category }: KeywordExtractionDisplayProps) : any",
+              "line_number": 119,
+              "params_raw": "{ items, label, category }: KeywordExtractionDisplayProps"
+            }
+          ]
+        },
+        {
+          "path": "frontend/src/components/LoginForm.tsx",
+          "language": "javascript",
+          "total_lines": 61,
+          "classes": [],
+          "function_count": 1,
+          "functions": [
+            {
+              "name": "handleSubmit",
+              "signature": "const handleSubmit = async (e: React.FormEvent) => any",
+              "line_number": 11,
+              "params_raw": "e: React.FormEvent"
+            }
+          ]
+        },
+        {
+          "path": "frontend/src/components/ProcessList.tsx",
+          "language": "javascript",
+          "total_lines": 86,
+          "classes": [],
+          "function_count": 1,
+          "functions": [
+            {
+              "name": "ProcessList",
+              "signature": "export function ProcessList() : any",
+              "line_number": 7
+            }
+          ]
+        },
+        {
+          "path": "frontend/src/components/ProcessTracker.tsx",
+          "language": "javascript",
+          "total_lines": 483,
+          "classes": [],
+          "function_count": 7,
+          "functions": [
+            {
+              "name": "RatingBar",
+              "signature": "function RatingBar({ value, label }: { value: number | null; label: string }) : any",
+              "line_number": 26,
+              "params_raw": "{ value, label }: { value: number | null; label: string }"
+            },
+            {
+              "name": "KeywordList",
+              "signature": "function KeywordList({ items, label, category }: { items: KeywordItem[]; label: string; category?: string }) : any",
+              "line_number": 50,
+              "params_raw": "{ items, label, category }: { items: KeywordItem[]; label: string; category?: string }"
+            },
+            {
+              "name": "ProcessTracker",
+              "signature": "export function ProcessTracker({ stages }: { stages: StageResult[] }) : any",
+              "line_number": 94,
+              "params_raw": "{ stages }: { stages: StageResult[] }"
+            },
+            {
+              "name": "formatKeyword",
+              "signature": "const formatKeyword = (item: KeywordItem) => string",
+              "line_number": 53,
+              "params_raw": "item: KeywordItem",
+              "return_type": "string"
+            },
+            {
+              "name": "getProgressPercentage",
+              "signature": "const getProgressPercentage = () => any",
+              "line_number": 95
+            },
+            {
+              "name": "getSectionIcon",
+              "signature": "const getSectionIcon = (name: string) => any",
+              "line_number": 167,
+              "params_raw": "name: string"
+            },
+            {
+              "name": "getRelevanceColor",
+              "signature": "const getRelevanceColor = (relevance: number) => any",
+              "line_number": 178,
+              "params_raw": "relevance: number"
+            }
+          ]
+        },
+        {
+          "path": "frontend/src/components/RegistrationForm.tsx",
+          "language": "javascript",
+          "total_lines": 191,
+          "classes": [],
+          "function_count": 4,
+          "functions": [
+            {
+              "name": "validateEmail",
+              "signature": "const validateEmail = (email: string) => boolean",
+              "line_number": 20,
+              "params_raw": "email: string",
+              "return_type": "boolean"
+            },
+            {
+              "name": "getPasswordStrength",
+              "signature": "const getPasswordStrength = (password: string) => { strength: string; color: string }",
+              "line_number": 25,
+              "params_raw": "password: string",
+              "return_type": "{ strength: string; color: string }"
+            },
+            {
+              "name": "validateForm",
+              "signature": "const validateForm = () => boolean",
+              "line_number": 32,
+              "return_type": "boolean"
+            },
+            {
+              "name": "handleSubmit",
+              "signature": "const handleSubmit = async (e: React.FormEvent) => any",
+              "line_number": 70,
+              "params_raw": "e: React.FormEvent"
+            }
+          ]
+        },
+        {
+          "path": "frontend/src/pages/ProcessDetail.tsx",
+          "language": "javascript",
+          "total_lines": 660,
+          "classes": [],
+          "function_count": 8,
+          "functions": [
+            {
+              "name": "ProcessDetail",
+              "signature": "export function ProcessDetail() : any",
+              "line_number": 7
+            },
+            {
+              "name": "fetchPrompt",
+              "signature": "const fetchPrompt = async () => any",
+              "line_number": 61
+            },
+            {
+              "name": "handleSubmitLatex",
+              "signature": "const handleSubmitLatex = async () => any",
+              "line_number": 84
+            },
+            {
+              "name": "handleContinueIterating",
+              "signature": "const handleContinueIterating = async () => any",
+              "line_number": 105
+            },
+            {
+              "name": "handleRestart",
+              "signature": "const handleRestart = async () => any",
+              "line_number": 125
+            },
+            {
+              "name": "handleForceComplete",
+              "signature": "const handleForceComplete = async () => any",
+              "line_number": 142
+            },
+            {
+              "name": "getStatusIcon",
+              "signature": "const getStatusIcon = (status: string) => any",
+              "line_number": 171,
+              "params_raw": "status: string"
+            },
+            {
+              "name": "getStatusColor",
+              "signature": "const getStatusColor = (status: string) => any",
+              "line_number": 182,
+              "params_raw": "status: string"
+            }
+          ]
+        },
+        {
+          "path": "frontend/src/pages/ProfilePage.tsx",
+          "language": "javascript",
+          "total_lines": 164,
+          "classes": [],
+          "function_count": 2,
+          "functions": [
+            {
+              "name": "fetchProfile",
+              "signature": "const fetchProfile = async () => any",
+              "line_number": 47
+            },
+            {
+              "name": "handleSubmit",
+              "signature": "const handleSubmit = async (e: React.FormEvent) => any",
+              "line_number": 62,
+              "params_raw": "e: React.FormEvent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "module_007",
+      "name": "State Management",
+      "description": "Handles global application state and user authentication context.",
+      "goal": "To enable centralized state sharing and secure user session management.",
+      "directories": [
+        "frontend/src/context"
+      ],
+      "file_count": 1,
+      "function_count": 5,
+      "files": [
+        {
+          "path": "frontend/src/context/AuthContext.tsx",
+          "language": "javascript",
+          "total_lines": 179,
+          "classes": [],
+          "function_count": 5,
+          "functions": [
+            {
+              "name": "useAuth",
+              "signature": "export const useAuth = () => any",
+              "line_number": 23
+            },
+            {
+              "name": "register",
+              "signature": "const register = async (username: string, email: string, password: string) => any",
+              "line_number": 52,
+              "params_raw": "username: string, email: string, password: string"
+            },
+            {
+              "name": "login",
+              "signature": "const login = async (username: string, password: string) => any",
+              "line_number": 90,
+              "params_raw": "username: string, password: string"
+            },
+            {
+              "name": "logout",
+              "signature": "const logout = async () => any",
+              "line_number": 116
+            },
+            {
+              "name": "refreshToken",
+              "signature": "const refreshToken = async () => any",
+              "line_number": 142
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "module_008",
+      "name": "API Integration",
+      "description": "Manages communication between frontend and backend services.",
+      "goal": "To provide a clean interface for data exchange and API request handling.",
+      "directories": [
+        "frontend/src/api"
+      ],
+      "file_count": 1,
+      "function_count": 16,
+      "files": [
+        {
+          "path": "frontend/src/api/index.ts",
+          "language": "javascript",
+          "total_lines": 96,
+          "classes": [],
+          "function_count": 16,
+          "functions": [
+            {
+              "name": "login",
+              "signature": "export const login = (username: string, password: string) => any",
+              "line_number": 47,
+              "params_raw": "username: string, password: string"
+            },
+            {
+              "name": "logout",
+              "signature": "export const logout = (refreshToken: string) => any",
+              "line_number": 50,
+              "params_raw": "refreshToken: string"
+            },
+            {
+              "name": "getProfile",
+              "signature": "export const getProfile = () => any",
+              "line_number": 53
+            },
+            {
+              "name": "updateProfile",
+              "signature": "export const updateProfile = (data: { openrouter_api_key?: string; preferred_model?: string }) => any",
+              "line_number": 56,
+              "params_raw": "data: { openrouter_api_key?: string; preferred_model?: string }"
+            },
+            {
+              "name": "register",
+              "signature": "export const register = (username: string, email: string, password: string) => any",
+              "line_number": 59,
+              "params_raw": "username: string, email: string, password: string"
+            },
+            {
+              "name": "createJob",
+              "signature": "export const createJob = (data: { title: string; description: string; latex_cv: string }) => any",
+              "line_number": 62,
+              "params_raw": "data: { title: string; description: string; latex_cv: string }"
+            },
+            {
+              "name": "getJobs",
+              "signature": "export const getJobs = () => any",
+              "line_number": 68
+            },
+            {
+              "name": "getJob",
+              "signature": "export const getJob = (id: string) => any",
+              "line_number": 70,
+              "params_raw": "id: string"
+            },
+            {
+              "name": "runProcess",
+              "signature": "export const runProcess = (jobId: string, maxRetries = 3) => any",
+              "line_number": 72,
+              "params_raw": "jobId: string, maxRetries = 3"
+            },
+            {
+              "name": "getProcessRuns",
+              "signature": "export const getProcessRuns = () => any",
+              "line_number": 78
+            },
+            {
+              "name": "getProcessRun",
+              "signature": "export const getProcessRun = (id: string) => any",
+              "line_number": 80,
+              "params_raw": "id: string"
+            },
+            {
+              "name": "getPrompt",
+              "signature": "export const getPrompt = (id: string) => any",
+              "line_number": 82,
+              "params_raw": "id: string"
+            },
+            {
+              "name": "submitManualLatex",
+              "signature": "export const submitManualLatex = (id: string, latexContent: string) => any",
+              "line_number": 85,
+              "params_raw": "id: string, latexContent: string"
+            },
+            {
+              "name": "continueIterating",
+              "signature": "export const continueIterating = (id: string) => any",
+              "line_number": 88,
+              "params_raw": "id: string"
+            },
+            {
+              "name": "restartProcess",
+              "signature": "export const restartProcess = (id: string) => any",
+              "line_number": 91,
+              "params_raw": "id: string"
+            },
+            {
+              "name": "forceComplete",
+              "signature": "export const forceComplete = (id: string) => any",
+              "line_number": 94,
+              "params_raw": "id: string"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "module_009",
+      "name": "Unclassified",
+      "description": "Files not matched to any architectural module.",
+      "goal": "Miscellaneous project functionality.",
+      "directories": [
+        "backend/ats_project"
+      ],
+      "file_count": 1,
+      "function_count": 1,
+      "files": [
+        {
+          "path": "backend/ats_project/urls.py",
+          "language": "python",
+          "total_lines": 43,
+          "classes": [],
+          "function_count": 1,
+          "functions": [
+            {
+              "name": "health_check",
+              "signature": "def health_check(request) -> Any",
+              "line_number": 11,
+              "description": "Health check endpoint that doesn't require authentication",
+              "params_raw": "request"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

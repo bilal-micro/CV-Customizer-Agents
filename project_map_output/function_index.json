@@ -1,0 +1,878 @@
+{
+  "register_view": {
+    "file": "backend/ats_app/authentication.py",
+    "line": 23,
+    "signature": "def register_view(request) -> Any",
+    "class": null,
+    "description": "Register a new user"
+  },
+  "login_view": {
+    "file": "backend/ats_app/authentication.py",
+    "line": 42,
+    "signature": "def login_view(request) -> Any",
+    "class": null,
+    "description": "Login user and return JWT tokens"
+  },
+  "logout_view": {
+    "file": "backend/ats_app/authentication.py",
+    "line": 74,
+    "signature": "def logout_view(request) -> Any",
+    "class": null,
+    "description": "Logout user by blacklisting refresh token"
+  },
+  "profile_view": {
+    "file": "backend/ats_app/authentication.py",
+    "line": 96,
+    "signature": "def profile_view(request) -> Any",
+    "class": null,
+    "description": "Get or update user profile"
+  },
+  "change_password_view": {
+    "file": "backend/ats_app/authentication.py",
+    "line": 123,
+    "signature": "def change_password_view(request) -> Any",
+    "class": null,
+    "description": "Change user password"
+  },
+  "__str__": {
+    "file": "backend/ats_app/models.py",
+    "line": 110,
+    "signature": "def __str__(self) -> Any",
+    "class": "UserProfile"
+  },
+  "create": {
+    "file": "backend/ats_app/serializers.py",
+    "line": 107,
+    "signature": "def create(self, validated_data) -> Any",
+    "class": "UserSerializer"
+  },
+  "validate_old_password": {
+    "file": "backend/ats_app/serializers.py",
+    "line": 48,
+    "signature": "def validate_old_password(self, value) -> Any",
+    "class": "UserSerializer"
+  },
+  "validate_new_password": {
+    "file": "backend/ats_app/serializers.py",
+    "line": 54,
+    "signature": "def validate_new_password(self, value) -> Any",
+    "class": "UserSerializer"
+  },
+  "validate_latex_content": {
+    "file": "backend/ats_app/serializers.py",
+    "line": 117,
+    "signature": "def validate_latex_content(self, value) -> Any",
+    "class": "UserSerializer"
+  },
+  "_run_orchestrator_async": {
+    "file": "backend/ats_app/views.py",
+    "line": 26,
+    "signature": "def _run_orchestrator_async(process_run_id, user_id=None) -> Any",
+    "class": "JobViewSet"
+  },
+  "_resume_orchestrator_async": {
+    "file": "backend/ats_app/views.py",
+    "line": 42,
+    "signature": "def _resume_orchestrator_async(process_run_id) -> Any",
+    "class": "JobViewSet"
+  },
+  "_restart_orchestrator_async": {
+    "file": "backend/ats_app/views.py",
+    "line": 56,
+    "signature": "def _restart_orchestrator_async(process_run_id) -> Any",
+    "class": "JobViewSet"
+  },
+  "get_queryset": {
+    "file": "backend/ats_app/views.py",
+    "line": 103,
+    "signature": "def get_queryset(self) -> Any",
+    "class": "JobViewSet"
+  },
+  "get_serializer_class": {
+    "file": "backend/ats_app/views.py",
+    "line": 78,
+    "signature": "def get_serializer_class(self) -> Any",
+    "class": "JobViewSet"
+  },
+  "run_process": {
+    "file": "backend/ats_app/views.py",
+    "line": 84,
+    "signature": "def run_process(self, request, pk=None) -> Any",
+    "class": "JobViewSet"
+  },
+  "get_prompt": {
+    "file": "backend/ats_app/views.py",
+    "line": 108,
+    "signature": "def get_prompt(self, request, pk=None) -> Any",
+    "class": "JobViewSet",
+    "description": "Get the generated prompt from Agent 3 for manual LLM input."
+  },
+  "submit_manual_latex": {
+    "file": "backend/ats_app/views.py",
+    "line": 148,
+    "signature": "def submit_manual_latex(self, request, pk=None) -> Any",
+    "class": "JobViewSet",
+    "description": "Submit manually updated LaTeX from external LLM and continue process."
+  },
+  "continue_iterating": {
+    "file": "backend/ats_app/views.py",
+    "line": 207,
+    "signature": "def continue_iterating(self, request, pk=None) -> Any",
+    "class": "JobViewSet",
+    "description": "Trigger a new manual iteration after process completion."
+  },
+  "restart": {
+    "file": "backend/ats_app/views.py",
+    "line": 255,
+    "signature": "def restart(self, request, pk=None) -> Any",
+    "class": "JobViewSet",
+    "description": "Restart a failed process from the point of failure."
+  },
+  "force_complete": {
+    "file": "backend/ats_app/views.py",
+    "line": 292,
+    "signature": "def force_complete(self, request, pk=None) -> Any",
+    "class": "JobViewSet",
+    "description": "Force complete a process without running any agents."
+  },
+  "main": {
+    "file": "backend/manage.py",
+    "line": 7,
+    "signature": "def main() -> Any",
+    "class": null,
+    "description": "Run administrative tasks."
+  },
+  "run": {
+    "file": "backend/ats_app/agents/match_evaluator.py",
+    "line": 83,
+    "signature": "def run(self, job_title: str, keywords: Dict, match_results: Dict,              section_analysis: Dict, latex_cv: str) -> Dict",
+    "class": "MatchEvaluatorAgent"
+  },
+  "evaluate_results": {
+    "file": "backend/ats_app/agents/ats_rater.py",
+    "line": 56,
+    "signature": "def evaluate_results(self, result: dict, match_rate: float) -> tuple[bool, dict]",
+    "class": "ATSRaterAgent"
+  },
+  "get_feedback_for_iteration": {
+    "file": "backend/ats_app/agents/ats_rater.py",
+    "line": 95,
+    "signature": "def get_feedback_for_iteration(self, result: dict, match_rate: float) -> dict",
+    "class": "ATSRaterAgent"
+  },
+  "__init__": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 12,
+    "signature": "def __init__(self) -> Any",
+    "class": "LLMService"
+  },
+  "generate_prompt": {
+    "file": "backend/ats_app/agents/cv_updater.py",
+    "line": 144,
+    "signature": "def generate_prompt(self, job_title: str, keywords: dict, matching_analysis: dict,                          latex_cv: str, iteration_number: int = 1, feedback: dict = None) -> str",
+    "class": "CVUpdaterAgent"
+  },
+  "validate_manual_latex": {
+    "file": "backend/ats_app/agents/cv_updater.py",
+    "line": 188,
+    "signature": "def validate_manual_latex(self, latex_content: str) -> dict",
+    "class": "CVUpdaterAgent"
+  },
+  "_log_extraction_summary": {
+    "file": "backend/ats_app/agents/keyword_extractor.py",
+    "line": 100,
+    "signature": "def _log_extraction_summary(self, result: dict) -> None",
+    "class": "KeywordExtractorAgent"
+  },
+  "analyze_gaps": {
+    "file": "backend/ats_app/agents/keyword_gap_analyzer.py",
+    "line": 121,
+    "signature": "def analyze_gaps(self, job_title: str, keywords: Dict, match_results: Dict,                      section_analysis: Dict, prioritization: Dict) -> Dict",
+    "class": "KeywordGapAnalyzerAgent"
+  },
+  "_format_keywords_for_llm": {
+    "file": "backend/ats_app/agents/match_evaluator.py",
+    "line": 126,
+    "signature": "def _format_keywords_for_llm(self, keywords: Dict) -> str",
+    "class": "MatchEvaluatorAgent"
+  },
+  "_format_match_results_for_llm": {
+    "file": "backend/ats_app/agents/match_evaluator.py",
+    "line": 145,
+    "signature": "def _format_match_results_for_llm(self, match_results: Dict) -> str",
+    "class": "MatchEvaluatorAgent"
+  },
+  "_format_section_analysis_for_llm": {
+    "file": "backend/ats_app/agents/match_evaluator.py",
+    "line": 177,
+    "signature": "def _format_section_analysis_for_llm(self, section_analysis: Dict) -> str",
+    "class": "MatchEvaluatorAgent"
+  },
+  "_format_prioritization_for_llm": {
+    "file": "backend/ats_app/agents/keyword_gap_analyzer.py",
+    "line": 215,
+    "signature": "def _format_prioritization_for_llm(self, prioritization: Dict) -> str",
+    "class": "KeywordGapAnalyzerAgent"
+  },
+  "get_immediate_actions": {
+    "file": "backend/ats_app/agents/keyword_gap_analyzer.py",
+    "line": 241,
+    "signature": "def get_immediate_actions(self, gap_analysis: Dict) -> List[str]",
+    "class": "KeywordGapAnalyzerAgent"
+  },
+  "get_critical_gaps": {
+    "file": "backend/ats_app/agents/keyword_prioritizer.py",
+    "line": 225,
+    "signature": "def get_critical_gaps(self, prioritization: Dict) -> List[Dict]",
+    "class": "KeywordPrioritizerAgent"
+  },
+  "get_section_recommendations": {
+    "file": "backend/ats_app/agents/keyword_gap_analyzer.py",
+    "line": 271,
+    "signature": "def get_section_recommendations(self, gap_analysis: Dict) -> Dict[str, Dict]",
+    "class": "KeywordGapAnalyzerAgent"
+  },
+  "_flatten_keywords": {
+    "file": "backend/ats_app/agents/keyword_matcher.py",
+    "line": 67,
+    "signature": "def _flatten_keywords(self, keywords: Dict) -> List[Dict]",
+    "class": "EnhancedKeywordMatcherAgent"
+  },
+  "match_keywords": {
+    "file": "backend/ats_app/agents/keyword_matcher.py",
+    "line": 101,
+    "signature": "def match_keywords(self, job_title: str, keywords: Dict, latex_cv: str) -> Dict",
+    "class": "EnhancedKeywordMatcherAgent"
+  },
+  "_detect_sections": {
+    "file": "backend/ats_app/agents/keyword_matcher.py",
+    "line": 195,
+    "signature": "def _detect_sections(self, latex_cv: str) -> Dict[str, int]",
+    "class": "EnhancedKeywordMatcherAgent"
+  },
+  "_find_keyword_location": {
+    "file": "backend/ats_app/agents/keyword_matcher.py",
+    "line": 228,
+    "signature": "def _find_keyword_location(self, latex_cv: str, keyword: str, sections: Dict[str, int]) -> str",
+    "class": "EnhancedKeywordMatcherAgent"
+  },
+  "_find_nearest_section": {
+    "file": "backend/ats_app/agents/keyword_matcher.py",
+    "line": 254,
+    "signature": "def _find_nearest_section(self, line_num: int, sections: Dict[str, int]) -> str",
+    "class": "EnhancedKeywordMatcherAgent"
+  },
+  "_find_similar_match": {
+    "file": "backend/ats_app/agents/keyword_matcher.py",
+    "line": 275,
+    "signature": "def _find_similar_match(self, keyword: str, latex_cv: str, keyword_item: Dict) -> Optional[Dict]",
+    "class": "EnhancedKeywordMatcherAgent"
+  },
+  "_is_false_positive": {
+    "file": "backend/ats_app/agents/keyword_matcher.py",
+    "line": 364,
+    "signature": "def _is_false_positive(self, keyword: str, matched_text: str) -> bool",
+    "class": "EnhancedKeywordMatcherAgent"
+  },
+  "_extract_context": {
+    "file": "backend/ats_app/agents/keyword_matcher.py",
+    "line": 392,
+    "signature": "def _extract_context(self, latex_cv: str, keyword: str, context_length: int = 50) -> str",
+    "class": "EnhancedKeywordMatcherAgent"
+  },
+  "_calculate_effectiveness_score": {
+    "file": "backend/ats_app/agents/keyword_matcher.py",
+    "line": 427,
+    "signature": "def _calculate_effectiveness_score(self, latex_cv_lower: str, keyword_lower: str,                                        location: str, sections: Dict[str, int]) -> float",
+    "class": "EnhancedKeywordMatcherAgent"
+  },
+  "_determine_usage_quality": {
+    "file": "backend/ats_app/agents/keyword_matcher.py",
+    "line": 461,
+    "signature": "def _determine_usage_quality(self, location: str, sections: Dict[str, int],                                   keyword_item: Dict) -> str",
+    "class": "EnhancedKeywordMatcherAgent"
+  },
+  "_get_priority_impact": {
+    "file": "backend/ats_app/agents/keyword_matcher.py",
+    "line": 494,
+    "signature": "def _get_priority_impact(self, priority: int) -> str",
+    "class": "EnhancedKeywordMatcherAgent"
+  },
+  "_get_suggested_location": {
+    "file": "backend/ats_app/agents/keyword_matcher.py",
+    "line": 511,
+    "signature": "def _get_suggested_location(self, category: str) -> str",
+    "class": "EnhancedKeywordMatcherAgent"
+  },
+  "_check_synonyms": {
+    "file": "backend/ats_app/agents/keyword_matcher.py",
+    "line": 532,
+    "signature": "def _check_synonyms(self, keyword: str, latex_cv_lower: str) -> Optional[str]",
+    "class": "EnhancedKeywordMatcherAgent"
+  },
+  "_check_quantifications": {
+    "file": "backend/ats_app/agents/keyword_matcher.py",
+    "line": 555,
+    "signature": "def _check_quantifications(self, keyword: str, latex_cv_lower: str) -> Optional[str]",
+    "class": "EnhancedKeywordMatcherAgent"
+  },
+  "get_keyword_effectiveness_summary": {
+    "file": "backend/ats_app/agents/keyword_matcher.py",
+    "line": 590,
+    "signature": "def get_keyword_effectiveness_summary(self, match_result: Dict) -> Dict",
+    "class": "EnhancedKeywordMatcherAgent"
+  },
+  "prioritize": {
+    "file": "backend/ats_app/agents/keyword_prioritizer.py",
+    "line": 100,
+    "signature": "def prioritize(self, job_title: str, keywords: Dict, match_results: Dict,                     section_analysis: Dict) -> Dict",
+    "class": "KeywordPrioritizerAgent"
+  },
+  "get_top_priorities": {
+    "file": "backend/ats_app/agents/keyword_prioritizer.py",
+    "line": 203,
+    "signature": "def get_top_priorities(self, prioritization: Dict, limit: int = 5) -> List[Dict]",
+    "class": "KeywordPrioritizerAgent"
+  },
+  "get_match_quality_assessment": {
+    "file": "backend/ats_app/agents/match_evaluator.py",
+    "line": 201,
+    "signature": "def get_match_quality_assessment(self, evaluation: Dict) -> Dict",
+    "class": "MatchEvaluatorAgent"
+  },
+  "_get_quality_level": {
+    "file": "backend/ats_app/agents/match_evaluator.py",
+    "line": 224,
+    "signature": "def _get_quality_level(self, match_rate: float) -> str",
+    "class": "MatchEvaluatorAgent"
+  },
+  "start_process": {
+    "file": "backend/ats_app/agents/orchestrator.py",
+    "line": 58,
+    "signature": "def start_process(self, process_run: ProcessRun) -> None",
+    "class": "OrchestratorAgent"
+  },
+  "_run_iteration_loop": {
+    "file": "backend/ats_app/agents/orchestrator.py",
+    "line": 109,
+    "signature": "def _run_iteration_loop(self, process_run: ProcessRun, job: Job,                             keywords: dict, current_latex: str) -> None",
+    "class": "OrchestratorAgent"
+  },
+  "resume_after_manual_input": {
+    "file": "backend/ats_app/agents/orchestrator.py",
+    "line": 153,
+    "signature": "def resume_after_manual_input(self, process_run: ProcessRun) -> None",
+    "class": "OrchestratorAgent"
+  },
+  "_continue_to_next_iteration": {
+    "file": "backend/ats_app/agents/orchestrator.py",
+    "line": 251,
+    "signature": "def _continue_to_next_iteration(self, process_run: ProcessRun, job: Job,                                   keywords: dict, latex_cv: str, feedback: dict) -> None",
+    "class": "OrchestratorAgent"
+  },
+  "_execute_keyword_extraction": {
+    "file": "backend/ats_app/agents/orchestrator.py",
+    "line": 294,
+    "signature": "def _execute_keyword_extraction(self, process_run: ProcessRun, job: Job) -> dict",
+    "class": "OrchestratorAgent"
+  },
+  "_execute_cv_matching": {
+    "file": "backend/ats_app/agents/orchestrator.py",
+    "line": 301,
+    "signature": "def _execute_cv_matching(self, process_run: ProcessRun, job: Job,                            keywords: dict, latex_cv: str) -> dict",
+    "class": "OrchestratorAgent"
+  },
+  "_execute_cv_update_stage": {
+    "file": "backend/ats_app/agents/orchestrator.py",
+    "line": 309,
+    "signature": "def _execute_cv_update_stage(self, process_run: ProcessRun, job: Job,                                 keywords: dict, latex_cv: str,                                 iteration: int = 1, feedback: dict = None) -> str",
+    "class": "OrchestratorAgent"
+  },
+  "_execute_ats_rating": {
+    "file": "backend/ats_app/agents/orchestrator.py",
+    "line": 363,
+    "signature": "def _execute_ats_rating(self, process_run: ProcessRun, job: Job,                            latex_cv: str, match_result: dict) -> dict",
+    "class": "OrchestratorAgent"
+  },
+  "_execute_stage": {
+    "file": "backend/ats_app/agents/orchestrator.py",
+    "line": 374,
+    "signature": "def _execute_stage(self, process_run: ProcessRun, stage_name: str,                      stage_func) -> dict",
+    "class": "OrchestratorAgent"
+  },
+  "_evaluate_results": {
+    "file": "backend/ats_app/agents/orchestrator.py",
+    "line": 436,
+    "signature": "def _evaluate_results(self, match_result: dict, rating_result: dict) -> dict",
+    "class": "OrchestratorAgent"
+  },
+  "_prepare_feedback_for_next_iteration": {
+    "file": "backend/ats_app/agents/orchestrator.py",
+    "line": 459,
+    "signature": "def _prepare_feedback_for_next_iteration(self, process_run: ProcessRun, rating_result: dict,                                          match_result: dict,                                           evaluation: dict) -> dict",
+    "class": "OrchestratorAgent"
+  },
+  "_get_stage_result_safely": {
+    "file": "backend/ats_app/agents/orchestrator.py",
+    "line": 492,
+    "signature": "def _get_stage_result_safely(self, process_run: ProcessRun, stage_name: str) -> Any",
+    "class": "OrchestratorAgent"
+  },
+  "_get_or_create_stage": {
+    "file": "backend/ats_app/agents/orchestrator.py",
+    "line": 519,
+    "signature": "def _get_or_create_stage(self, process_run: ProcessRun, stage_name: str) -> StageResult",
+    "class": "OrchestratorAgent"
+  },
+  "_should_retry_stage": {
+    "file": "backend/ats_app/agents/orchestrator.py",
+    "line": 527,
+    "signature": "def _should_retry_stage(self, stage: str, result: dict) -> bool",
+    "class": "OrchestratorAgent"
+  },
+  "_rate_stage_result": {
+    "file": "backend/ats_app/agents/orchestrator.py",
+    "line": 541,
+    "signature": "def _rate_stage_result(self, stage: str, result: dict) -> float",
+    "class": "OrchestratorAgent"
+  },
+  "_get_stage_notes": {
+    "file": "backend/ats_app/agents/orchestrator.py",
+    "line": 555,
+    "signature": "def _get_stage_notes(self, stage: str, result: dict) -> str",
+    "class": "OrchestratorAgent"
+  },
+  "_complete_process": {
+    "file": "backend/ats_app/agents/orchestrator.py",
+    "line": 567,
+    "signature": "def _complete_process(self, process_run: ProcessRun, reason: str) -> None",
+    "class": "OrchestratorAgent"
+  },
+  "trigger_manual_iteration": {
+    "file": "backend/ats_app/agents/orchestrator.py",
+    "line": 573,
+    "signature": "def trigger_manual_iteration(self, process_run: ProcessRun) -> bool",
+    "class": "OrchestratorAgent"
+  },
+  "_fail_process": {
+    "file": "backend/ats_app/agents/orchestrator.py",
+    "line": 620,
+    "signature": "def _fail_process(self, process_run: ProcessRun, reason: str) -> None",
+    "class": "OrchestratorAgent"
+  },
+  "restart_from_failure": {
+    "file": "backend/ats_app/agents/orchestrator.py",
+    "line": 626,
+    "signature": "def restart_from_failure(self, process_run: ProcessRun) -> None",
+    "class": "OrchestratorAgent"
+  },
+  "generate": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 25,
+    "signature": "def generate(self, prompt: str, system: str = \"\", temperature: float = None) -> str",
+    "class": "LLMService"
+  },
+  "_generate_ollama": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 31,
+    "signature": "def _generate_ollama(self, prompt: str, system: str = \"\", temperature: float = None) -> str",
+    "class": "LLMService"
+  },
+  "_generate_openrouter": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 61,
+    "signature": "def _generate_openrouter(self, prompt: str, system: str = \"\", temperature: float = None) -> str",
+    "class": "LLMService"
+  },
+  "_sanitize_json_string": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 116,
+    "signature": "def _sanitize_json_string(self, raw: str) -> str",
+    "class": "LLMService"
+  },
+  "_is_truncated_json": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 131,
+    "signature": "def _is_truncated_json(self, json_str: str) -> bool",
+    "class": "LLMService"
+  },
+  "_complete_truncated_json": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 167,
+    "signature": "def _complete_truncated_json(self, json_str: str) -> str",
+    "class": "LLMService"
+  },
+  "_ensure_dict_result": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 224,
+    "signature": "def _ensure_dict_result(self, result) -> dict",
+    "class": "LLMService",
+    "description": "Ensure the result is always a dict."
+  },
+  "generate_json": {
+    "file": "backend/ats_app/services/llm_service.py",
+    "line": 246,
+    "signature": "def generate_json(self, prompt: str, system: str = \"\", temperature: float = None) -> dict",
+    "class": "LLMService"
+  },
+  "NavLinks": {
+    "file": "frontend/src/App.tsx",
+    "line": 11,
+    "signature": "function NavLinks() : any",
+    "class": null
+  },
+  "App": {
+    "file": "frontend/src/App.tsx",
+    "line": 35,
+    "signature": "function App() : any",
+    "class": null
+  },
+  "isActive": {
+    "file": "frontend/src/App.tsx",
+    "line": 14,
+    "signature": "const isActive = (path: string) => any",
+    "class": null
+  },
+  "handleLogout": {
+    "file": "frontend/src/App.tsx",
+    "line": 16,
+    "signature": "const handleLogout = async () => any",
+    "class": null
+  },
+  "JobForm": {
+    "file": "frontend/src/components/JobForm.tsx",
+    "line": 6,
+    "signature": "export function JobForm() : any",
+    "class": null
+  },
+  "checkHealth": {
+    "file": "frontend/src/components/JobForm.tsx",
+    "line": 27,
+    "signature": "const checkHealth = async () => any",
+    "class": null
+  },
+  "getCharCounterClass": {
+    "file": "frontend/src/components/JobForm.tsx",
+    "line": 124,
+    "signature": "const getCharCounterClass = (current: number, max: number) => any",
+    "class": null
+  },
+  "MatchedKeywordCard": {
+    "file": "frontend/src/components/KeywordDetails.tsx",
+    "line": 8,
+    "signature": "function MatchedKeywordCard({ keyword }: { keyword: MatchedKeyword }) : any",
+    "class": null
+  },
+  "MissingKeywordCard": {
+    "file": "frontend/src/components/KeywordDetails.tsx",
+    "line": 80,
+    "signature": "function MissingKeywordCard({ keyword }: { keyword: MissingKeyword }) : any",
+    "class": null
+  },
+  "KeywordDetails": {
+    "file": "frontend/src/components/KeywordDetails.tsx",
+    "line": 127,
+    "signature": "export function KeywordDetails({ matchedKeywords, missingKeywords }: KeywordDetailsProps) : any",
+    "class": null
+  },
+  "getEffectivenessColor": {
+    "file": "frontend/src/components/KeywordDetails.tsx",
+    "line": 11,
+    "signature": "const getEffectivenessColor = (score: number) => any",
+    "class": null
+  },
+  "getEffectivenessLabel": {
+    "file": "frontend/src/components/KeywordDetails.tsx",
+    "line": 17,
+    "signature": "const getEffectivenessLabel = (score: number) => any",
+    "class": null
+  },
+  "getPriorityColor": {
+    "file": "frontend/src/components/KeywordDetails.tsx",
+    "line": 89,
+    "signature": "const getPriorityColor = (impact: string) => any",
+    "class": null
+  },
+  "getPriorityIcon": {
+    "file": "frontend/src/components/KeywordExtractionDisplay.tsx",
+    "line": 9,
+    "signature": "function getPriorityIcon(priority: number) : string",
+    "class": null
+  },
+  "getPriorityLabel": {
+    "file": "frontend/src/components/KeywordExtractionDisplay.tsx",
+    "line": 15,
+    "signature": "function getPriorityLabel(priority: number) : string",
+    "class": null
+  },
+  "getConfidenceColor": {
+    "file": "frontend/src/components/KeywordExtractionDisplay.tsx",
+    "line": 21,
+    "signature": "function getConfidenceColor(confidence: number) : string",
+    "class": null
+  },
+  "getCategoryIcon": {
+    "file": "frontend/src/components/KeywordExtractionDisplay.tsx",
+    "line": 27,
+    "signature": "function getCategoryIcon(category: string) : string",
+    "class": null
+  },
+  "getKeywordText": {
+    "file": "frontend/src/components/KeywordExtractionDisplay.tsx",
+    "line": 51,
+    "signature": "function getKeywordText(item: ExtractedKeyword) : string",
+    "class": null
+  },
+  "KeywordCard": {
+    "file": "frontend/src/components/KeywordExtractionDisplay.tsx",
+    "line": 55,
+    "signature": "function KeywordCard({ item, category }: { item: ExtractedKeyword; category?: string }) : any",
+    "class": null
+  },
+  "KeywordExtractionDisplay": {
+    "file": "frontend/src/components/KeywordExtractionDisplay.tsx",
+    "line": 119,
+    "signature": "export function KeywordExtractionDisplay({ items, label, category }: KeywordExtractionDisplayProps) : any",
+    "class": null
+  },
+  "handleSubmit": {
+    "file": "frontend/src/pages/ProfilePage.tsx",
+    "line": 62,
+    "signature": "const handleSubmit = async (e: React.FormEvent) => any",
+    "class": null
+  },
+  "ProcessList": {
+    "file": "frontend/src/components/ProcessList.tsx",
+    "line": 7,
+    "signature": "export function ProcessList() : any",
+    "class": null
+  },
+  "RatingBar": {
+    "file": "frontend/src/components/ProcessTracker.tsx",
+    "line": 26,
+    "signature": "function RatingBar({ value, label }: { value: number | null; label: string }) : any",
+    "class": null
+  },
+  "KeywordList": {
+    "file": "frontend/src/components/ProcessTracker.tsx",
+    "line": 50,
+    "signature": "function KeywordList({ items, label, category }: { items: KeywordItem[]; label: string; category?: string }) : any",
+    "class": null
+  },
+  "ProcessTracker": {
+    "file": "frontend/src/components/ProcessTracker.tsx",
+    "line": 94,
+    "signature": "export function ProcessTracker({ stages }: { stages: StageResult[] }) : any",
+    "class": null
+  },
+  "formatKeyword": {
+    "file": "frontend/src/components/ProcessTracker.tsx",
+    "line": 53,
+    "signature": "const formatKeyword = (item: KeywordItem) => string",
+    "class": null
+  },
+  "getProgressPercentage": {
+    "file": "frontend/src/components/ProcessTracker.tsx",
+    "line": 95,
+    "signature": "const getProgressPercentage = () => any",
+    "class": null
+  },
+  "getSectionIcon": {
+    "file": "frontend/src/components/ProcessTracker.tsx",
+    "line": 167,
+    "signature": "const getSectionIcon = (name: string) => any",
+    "class": null
+  },
+  "getRelevanceColor": {
+    "file": "frontend/src/components/ProcessTracker.tsx",
+    "line": 178,
+    "signature": "const getRelevanceColor = (relevance: number) => any",
+    "class": null
+  },
+  "validateEmail": {
+    "file": "frontend/src/components/RegistrationForm.tsx",
+    "line": 20,
+    "signature": "const validateEmail = (email: string) => boolean",
+    "class": null
+  },
+  "getPasswordStrength": {
+    "file": "frontend/src/components/RegistrationForm.tsx",
+    "line": 25,
+    "signature": "const getPasswordStrength = (password: string) => { strength: string; color: string }",
+    "class": null
+  },
+  "validateForm": {
+    "file": "frontend/src/components/RegistrationForm.tsx",
+    "line": 32,
+    "signature": "const validateForm = () => boolean",
+    "class": null
+  },
+  "ProcessDetail": {
+    "file": "frontend/src/pages/ProcessDetail.tsx",
+    "line": 7,
+    "signature": "export function ProcessDetail() : any",
+    "class": null
+  },
+  "fetchPrompt": {
+    "file": "frontend/src/pages/ProcessDetail.tsx",
+    "line": 61,
+    "signature": "const fetchPrompt = async () => any",
+    "class": null
+  },
+  "handleSubmitLatex": {
+    "file": "frontend/src/pages/ProcessDetail.tsx",
+    "line": 84,
+    "signature": "const handleSubmitLatex = async () => any",
+    "class": null
+  },
+  "handleContinueIterating": {
+    "file": "frontend/src/pages/ProcessDetail.tsx",
+    "line": 105,
+    "signature": "const handleContinueIterating = async () => any",
+    "class": null
+  },
+  "handleRestart": {
+    "file": "frontend/src/pages/ProcessDetail.tsx",
+    "line": 125,
+    "signature": "const handleRestart = async () => any",
+    "class": null
+  },
+  "handleForceComplete": {
+    "file": "frontend/src/pages/ProcessDetail.tsx",
+    "line": 142,
+    "signature": "const handleForceComplete = async () => any",
+    "class": null
+  },
+  "getStatusIcon": {
+    "file": "frontend/src/pages/ProcessDetail.tsx",
+    "line": 171,
+    "signature": "const getStatusIcon = (status: string) => any",
+    "class": null
+  },
+  "getStatusColor": {
+    "file": "frontend/src/pages/ProcessDetail.tsx",
+    "line": 182,
+    "signature": "const getStatusColor = (status: string) => any",
+    "class": null
+  },
+  "fetchProfile": {
+    "file": "frontend/src/pages/ProfilePage.tsx",
+    "line": 47,
+    "signature": "const fetchProfile = async () => any",
+    "class": null
+  },
+  "useAuth": {
+    "file": "frontend/src/context/AuthContext.tsx",
+    "line": 23,
+    "signature": "export const useAuth = () => any",
+    "class": null
+  },
+  "register": {
+    "file": "frontend/src/api/index.ts",
+    "line": 59,
+    "signature": "export const register = (username: string, email: string, password: string) => any",
+    "class": null
+  },
+  "login": {
+    "file": "frontend/src/api/index.ts",
+    "line": 47,
+    "signature": "export const login = (username: string, password: string) => any",
+    "class": null
+  },
+  "logout": {
+    "file": "frontend/src/api/index.ts",
+    "line": 50,
+    "signature": "export const logout = (refreshToken: string) => any",
+    "class": null
+  },
+  "refreshToken": {
+    "file": "frontend/src/context/AuthContext.tsx",
+    "line": 142,
+    "signature": "const refreshToken = async () => any",
+    "class": null
+  },
+  "getProfile": {
+    "file": "frontend/src/api/index.ts",
+    "line": 53,
+    "signature": "export const getProfile = () => any",
+    "class": null
+  },
+  "updateProfile": {
+    "file": "frontend/src/api/index.ts",
+    "line": 56,
+    "signature": "export const updateProfile = (data: { openrouter_api_key?: string; preferred_model?: string }) => any",
+    "class": null
+  },
+  "createJob": {
+    "file": "frontend/src/api/index.ts",
+    "line": 62,
+    "signature": "export const createJob = (data: { title: string; description: string; latex_cv: string }) => any",
+    "class": null
+  },
+  "getJobs": {
+    "file": "frontend/src/api/index.ts",
+    "line": 68,
+    "signature": "export const getJobs = () => any",
+    "class": null
+  },
+  "getJob": {
+    "file": "frontend/src/api/index.ts",
+    "line": 70,
+    "signature": "export const getJob = (id: string) => any",
+    "class": null
+  },
+  "runProcess": {
+    "file": "frontend/src/api/index.ts",
+    "line": 72,
+    "signature": "export const runProcess = (jobId: string, maxRetries = 3) => any",
+    "class": null
+  },
+  "getProcessRuns": {
+    "file": "frontend/src/api/index.ts",
+    "line": 78,
+    "signature": "export const getProcessRuns = () => any",
+    "class": null
+  },
+  "getProcessRun": {
+    "file": "frontend/src/api/index.ts",
+    "line": 80,
+    "signature": "export const getProcessRun = (id: string) => any",
+    "class": null
+  },
+  "getPrompt": {
+    "file": "frontend/src/api/index.ts",
+    "line": 82,
+    "signature": "export const getPrompt = (id: string) => any",
+    "class": null
+  },
+  "submitManualLatex": {
+    "file": "frontend/src/api/index.ts",
+    "line": 85,
+    "signature": "export const submitManualLatex = (id: string, latexContent: string) => any",
+    "class": null
+  },
+  "continueIterating": {
+    "file": "frontend/src/api/index.ts",
+    "line": 88,
+    "signature": "export const continueIterating = (id: string) => any",
+    "class": null
+  },
+  "restartProcess": {
+    "file": "frontend/src/api/index.ts",
+    "line": 91,
+    "signature": "export const restartProcess = (id: string) => any",
+    "class": null
+  },
+  "forceComplete": {
+    "file": "frontend/src/api/index.ts",
+    "line": 94,
+    "signature": "export const forceComplete = (id: string) => any",
+    "class": null
+  },
+  "health_check": {
+    "file": "backend/ats_project/urls.py",
+    "line": 11,
+    "signature": "def health_check(request) -> Any",
+    "class": null
+  }
+}
