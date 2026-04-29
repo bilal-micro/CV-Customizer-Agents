@@ -103,6 +103,197 @@ The frontend will be available at `http://localhost:5173`
 ollama run llama3.1
 ```
 
+## 🐳 Docker Deployment
+
+### Prerequisites
+
+Before running with Docker, ensure you have the following installed:
+
+- Docker (version 20.10 or higher)
+- Docker Compose (version 2.0 or higher)
+- Ollama (with llama3.1 model installed) running on your host machine
+
+### Quick Start with Docker Compose
+
+This is the recommended method for running the entire application stack.
+
+#### 1. Clone and Configure
+
+```bash
+# Clone the repository
+git clone <your-repository-url>
+cd ATS-Agentic
+
+# Copy environment variables template
+cp .env.example .env
+
+# Edit .env file with your configuration (optional for development)
+nano .env
+```
+
+#### 2. Start Ollama
+
+Make sure Ollama is running on your host machine:
+
+```bash
+# In a separate terminal, start Ollama with llama3.1
+ollama run llama3.1
+```
+
+**Important**: The backend container connects to Ollama via `http://host.docker.internal:11434`. This works on:
+- Docker Desktop (Windows/Mac): Supported out of the box
+- Linux: Requires Docker 20.10+ with `--add-host=host.docker.internal:host-gateway` flag
+
+For Linux, you may need to update the docker-compose.yml backend service:
+
+```yaml
+services:
+  backend:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+```
+
+#### 3. Build and Start Services
+
+```bash
+# Build and start all services
+docker-compose up --build
+
+# Or run in detached mode
+docker-compose up -d --build
+```
+
+This will start three services:
+- **Frontend**: React application on `http://localhost:3000`
+- **Backend**: Django API on `http://localhost:8000`
+- **Database**: PostgreSQL on `localhost:5432`
+
+#### 4. Verify Services
+
+Check that all services are running:
+
+```bash
+# View running containers
+docker-compose ps
+
+# View logs for all services
+docker-compose logs -f
+
+# View logs for specific service
+docker-compose logs -f backend
+docker-compose logs -f frontend
+```
+
+#### 5. Access the Application
+
+Open your browser and navigate to:
+- **Frontend**: http://localhost:3000
+- **Backend API**: http://localhost:8000
+- **API Documentation**: http://localhost:8000/admin/ (after creating superuser)
+
+### Docker Commands Reference
+
+```bash
+# Start all services
+docker-compose up -d
+
+# Stop all services
+docker-compose down
+
+# Stop and remove volumes (including database)
+docker-compose down -v
+
+# Rebuild specific service
+docker-compose build backend
+docker-compose build frontend
+
+# View logs
+docker-compose logs -f [service_name]
+
+# Execute commands in containers
+docker-compose exec backend python manage.py shell
+docker-compose exec backend python manage.py migrate
+docker-compose exec backend python manage.py createsuperuser
+
+# Restart services
+docker-compose restart [service_name]
+
+# Check resource usage
+docker stats
+```
+
+### Development with Docker
+
+For development, you can mount local directories to enable live reloading:
+
+```bash
+# The docker-compose.yml already includes volume mounts
+# Changes to backend/ and frontend/ directories will be reflected in containers
+```
+
+Backend development server supports auto-reload when mounted as a volume.
+
+### Production Considerations
+
+For production deployment, consider:
+
+1. **Use production-ready database**: The current setup uses PostgreSQL in a container
+2. **Enable HTTPS**: Use a reverse proxy (nginx/traefik) with SSL certificates
+3. **Environment variables**: Set `DEBUG=False` and use a strong `SECRET_KEY`
+4. **Static files**: Configure Django to serve static files via nginx
+5. **Health checks**: Ensure all health checks pass before routing traffic
+6. **Resource limits**: Set appropriate memory and CPU limits in docker-compose.yml
+7. **Logging**: Configure centralized logging (ELK stack, CloudWatch, etc.)
+
+### Troubleshooting Docker Issues
+
+**Container fails to start**
+```bash
+# Check logs
+docker-compose logs [service_name]
+
+# Rebuild from scratch
+docker-compose down -v
+docker-compose up --build
+```
+
+**Cannot connect to Ollama**
+- Ensure Ollama is running on host: `ollama run llama3.1`
+- Check backend container can reach host.docker.internal
+- On Linux, add extra_hosts configuration (see above)
+
+**Port conflicts**
+- Change port mappings in docker-compose.yml if ports 3000, 8000, or 5432 are in use
+- Example: change `"3000:80"` to `"8080:80"` for frontend
+
+**Database connection errors**
+- Check PostgreSQL container is running: `docker-compose ps db`
+- Verify database credentials in .env file
+- Try restarting: `docker-compose restart db`
+
+### Docker Architecture
+
+```
+┌─────────────┐         ┌─────────────┐
+│   Browser   │────────▶│   Frontend  │
+│  (Port 80)  │         │   (nginx)   │
+└─────────────┘         └──────┬──────┘
+                              │
+                              ▼
+                       ┌─────────────┐
+                       │   Backend   │
+                       │  (Django)   │
+                       └──────┬──────┘
+                              │
+                              ▼
+                       ┌─────────────┐         ┌─────────────┐
+                       │  Database   │◀────────│   Ollama    │
+                       │ (Postgres)  │         │  (External) │
+                       └─────────────┘         └─────────────┘
+```
+
+All containers communicate via the `ats-network` bridge network. The frontend proxies API requests to the backend, which connects to both the database and the external Ollama service.
+
 ## 📁 Project Structure
 
 ```
@@ -287,4 +478,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 **Version**: 1.0.0  
-**Last Updated**: April 19, 2026
+**Last Updated**: April 30, 2026
