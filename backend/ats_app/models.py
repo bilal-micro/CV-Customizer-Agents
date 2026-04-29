@@ -12,13 +12,15 @@ class UserProfile(models.Model):
         max_length=500,
         blank=True,
         null=True,
-        help_text="Your OpenRouter API key (optional - will use default if not provided)"
+        default='',
+        help_text="Your OpenRouter API key (required). Get it from https://openrouter.ai/keys"
     )
     preferred_model = models.CharField(
         max_length=200,
         blank=True,
         null=True,
-        help_text="Your preferred OpenRouter model (optional - will use default if not provided)"
+        default='',
+        help_text="Your preferred OpenRouter model (required). Available models at https://openrouter.ai/models"
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

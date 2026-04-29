@@ -83,17 +83,17 @@ SIMPLE_JWT = {
 }
 
 # LLM Provider Configuration
-LLM_PROVIDER = 'openrouter'  # Options: 'ollama' or 'openrouter'
+LLM_PROVIDER = 'openrouter'  # Options: 'openrouter' (Ollama support deprecated)
 
-# Ollama Settings
-OLLAMA_BASE_URL = 'http://localhost:11434'
-OLLAMA_MODEL = 'llama3.1'
-OLLAMA_MAX_TOKENS = 32768  # Maximum tokens for LLM responses (prevents truncation)
+# Ollama Settings (DEPRECATED - Support will be removed in future version)
+# OLLAMA_BASE_URL = 'http://localhost:11434'
+# OLLAMA_MODEL = 'llama3.1'
+# OLLAMA_MAX_TOKENS = 32768
 
-# OpenRouter Settings
+# OpenRouter Settings (User-provided values required)
 OPENROUTER_BASE_URL = 'https://openrouter.ai/api/v1'
-OPENROUTER_MODEL = 'z-ai/glm-4.5-air:free'
-OPENROUTER_API_KEY = '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'  # Add your OpenRouter API key here
+OPENROUTER_MODEL = ''  # Required: User must provide their preferred model
+OPENROUTER_API_KEY = ''  # Required: User must provide their API key during registration
 OPENROUTER_MAX_TOKENS = 32768  # Maximum tokens for LLM responses
 
 # Keyword Matcher Similarity Settings

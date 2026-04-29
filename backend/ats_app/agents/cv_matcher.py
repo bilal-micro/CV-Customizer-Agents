@@ -1,4 +1,3 @@
-from ats_app.services.llm_service import llm_service
 from ats_app.agents.keyword_matcher import EnhancedKeywordMatcherAgent
 from ats_app.agents.match_evaluator import MatchEvaluatorAgent
 import logging
@@ -88,7 +87,13 @@ Respond with ONLY valid JSON containing: section_analysis with present, relevanc
 
 
 class SectionAnalyzerAgent:
+    def __init__(self, llm_service=None):
+        self.llm_service = llm_service
+    
     def run(self, job_title: str, keywords: dict, latex_cv: str) -> dict:
+        if not self.llm_service:
+            raise ValueError("SectionAnalyzerAgent requires an LLMService instance")
+        
         import json
         logger.info(f"SectionAnalyzerAgent: Starting section analysis for job '{job_title}'")
         
@@ -98,7 +103,7 @@ class SectionAnalyzerAgent:
             latex_cv=latex_cv,
         )
         
-        result = llm_service.generate_json(prompt, SECTION_ANALYZER_SYSTEM, temperature=0.3)
+        result = self.llm_service.generate_json(prompt, SECTION_ANALYZER_SYSTEM, temperature=0.3)
         
         section_analysis = result.get('section_analysis', {})
         logger.info(f"SectionAnalyzerAgent: Analyzed {len(section_analysis)} sections")
@@ -152,9 +157,15 @@ Respond with ONLY valid JSON containing: matching_notes (detailed analysis and s
 
 
 class AnalysisSynthesizerAgent:
+    def __init__(self, llm_service=None):
+        self.llm_service = llm_service
+    
     def run(self, job_title: str, match_rate: float, keyword_results: dict, 
              section_analysis: dict, strengths: list, weaknesses: list, 
              detailed_feedback: str = "") -> dict:
+        if not self.llm_service:
+            raise ValueError("AnalysisSynthesizerAgent requires an LLMService instance")
+        
         import json
         logger.info(f"AnalysisSynthesizerAgent: Starting analysis synthesis for job '{job_title}'")
         
@@ -168,7 +179,7 @@ class AnalysisSynthesizerAgent:
             detailed_feedback=detailed_feedback or "No detailed feedback available"
         )
         
-        result = llm_service.generate_json(prompt, ANALYSIS_SYNTHESIZER_SYSTEM, temperature=0.5)
+        result = self.llm_service.generate_json(prompt, ANALYSIS_SYNTHESIZER_SYSTEM, temperature=0.5)
         
         notes_length = len(result.get('matching_notes', ''))
         logger.info(f"AnalysisSynthesizerAgent: Generated analysis notes ({notes_length} chars)")
@@ -181,18 +192,19 @@ class AnalysisSynthesizerAgent:
 # Coordinates enhanced keyword matching pipeline
 # ============================================================================
 class CVMatcherAgent:
-    def __init__(self, include_advanced_analysis: bool = False):
+    def __init__(self, include_advanced_analysis: bool = False, llm_service=None):
         """
         Initialize CV matcher.
         
         Args:
             include_advanced_analysis: If True, include keyword prioritization and gap analysis
+            llm_service: LLMService instance for LLM operations
         """
         self.include_advanced_analysis = include_advanced_analysis
         self.keyword_matcher = EnhancedKeywordMatcherAgent()
-        self.section_analyzer = SectionAnalyzerAgent()
-        self.match_evaluator = MatchEvaluatorAgent()
-        self.analysis_synthesizer = AnalysisSynthesizerAgent()
+        self.section_analyzer = SectionAnalyzerAgent(llm_service=llm_service)
+        self.match_evaluator = MatchEvaluatorAgent(llm_service=llm_service)
+        self.analysis_synthesizer = AnalysisSynthesizerAgent(llm_service=llm_service)
         
         # Optional advanced agents
         self.keyword_prioritizer = None
@@ -201,8 +213,8 @@ class CVMatcherAgent:
         if include_advanced_analysis:
             from ats_app.agents.keyword_prioritizer import KeywordPrioritizerAgent
             from ats_app.agents.keyword_gap_analyzer import KeywordGapAnalyzerAgent
-            self.keyword_prioritizer = KeywordPrioritizerAgent()
-            self.keyword_gap_analyzer = KeywordGapAnalyzerAgent()
+            self.keyword_prioritizer = KeywordPrioritizerAgent(llm_service=llm_service)
+            self.keyword_gap_analyzer = KeywordGapAnalyzerAgent(llm_service=llm_service)
         
         logger.info(f"CVMatcherAgent initialized (advanced_analysis={include_advanced_analysis})")
     

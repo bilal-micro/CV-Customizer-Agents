@@ -19,7 +19,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
-        # Create profile for new user
+        # Create profile for new user with empty fields
         UserProfile.objects.create(user=user)
         return user
 
@@ -30,8 +30,34 @@ class UserProfileSerializer(serializers.ModelSerializer):
         model = UserProfile
         fields = ['id', 'openrouter_api_key', 'preferred_model']
         extra_kwargs = {
-            'openrouter_api_key': {'write_only': True}  # Don't expose API key in responses
+            'openrouter_api_key': {
+                'write_only': True,  # Don't expose API key in responses
+                'required': False,
+                'allow_blank': True
+            },
+            'preferred_model': {
+                'required': False,
+                'allow_blank': True
+            }
         }
+    
+    def validate_openrouter_api_key(self, value):
+        """Validate OpenRouter API key format if provided"""
+        if value and value.strip():
+            # Basic format validation - OpenRouter keys typically start with 'sk-or-'
+            if not value.strip().startswith('sk-or-'):
+                raise serializers.ValidationError(
+                    "Invalid OpenRouter API key format. API keys should start with 'sk-or-'. "
+                    "Get your API key from https://openrouter.ai/keys"
+                )
+            return value.strip()
+        return ''
+    
+    def validate_preferred_model(self, value):
+        """Validate preferred model if provided"""
+        if value and value.strip():
+            return value.strip()
+        return ''
 
 
 class LoginSerializer(serializers.Serializer):

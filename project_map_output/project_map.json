@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project_name": "ATS-Agentic",
-    "scan_date": "2026-04-29T15:18:12",
+    "scan_date": "2026-04-29T15:46:10",
     "total_files": 34,
     "total_functions": 174,
     "languages": [
@@ -12,19 +12,29 @@
       "python": 22,
       "javascript": 12
     },
-    "modules_count": 6
+    "modules_count": 1
   },
   "modules": [
     {
       "id": "module_001",
-      "name": "Backend Core",
-      "description": "Contains application logic, AI agents, data models, and Django-specific components.",
-      "goal": "Processes job applications, extracts keywords, and matches candidates to job requirements.",
+      "name": "All Files",
+      "description": "General project files.",
+      "goal": "Project functionality.",
       "directories": [
-        "backend/ats_app"
+        "backend",
+        "backend/ats_app",
+        "backend/ats_app/agents",
+        "backend/ats_app/migrations",
+        "backend/ats_app/services",
+        "backend/ats_project",
+        "frontend/src",
+        "frontend/src/api",
+        "frontend/src/components",
+        "frontend/src/context",
+        "frontend/src/pages"
       ],
-      "file_count": 6,
-      "function_count": 27,
+      "file_count": 34,
+      "function_count": 174,
       "files": [
         {
           "path": "backend/ats_app/admin.py",
@@ -55,873 +65,6 @@
           "function_count": 0,
           "functions": []
         },
-        {
-          "path": "backend/ats_app/apps.py",
-          "language": "python",
-          "total_lines": 6,
-          "classes": [
-            {
-              "name": "AtsAppConfig",
-              "line": 4
-            }
-          ],
-          "function_count": 0,
-          "functions": []
-        },
-        {
-          "path": "backend/ats_app/authentication.py",
-          "language": "python",
-          "total_lines": 141,
-          "classes": [],
-          "function_count": 5,
-          "functions": [
-            {
-              "name": "register_view",
-              "signature": "def register_view(request) -> Any",
-              "line_number": 23,
-              "description": "Register a new user and return JWT tokens for automatic login",
-              "params_raw": "request"
-            },
-            {
-              "name": "login_view",
-              "signature": "def login_view(request) -> Any",
-              "line_number": 47,
-              "description": "Login user and return JWT tokens",
-              "params_raw": "request"
-            },
-            {
-              "name": "logout_view",
-              "signature": "def logout_view(request) -> Any",
-              "line_number": 79,
-              "description": "Logout user by blacklisting refresh token",
-              "params_raw": "request"
-            },
-            {
-              "name": "profile_view",
-              "signature": "def profile_view(request) -> Any",
-              "line_number": 101,
-              "description": "Get or update user profile",
-              "params_raw": "request"
-            },
-            {
-              "name": "change_password_view",
-              "signature": "def change_password_view(request) -> Any",
-              "line_number": 128,
-              "description": "Change user password",
-              "params_raw": "request"
-            }
-          ]
-        },
-        {
-          "path": "backend/ats_app/models.py",
-          "language": "python",
-          "total_lines": 112,
-          "classes": [
-            {
-              "name": "UserProfile",
-              "line": 8
-            },
-            {
-              "name": "Meta",
-              "line": 26
-            },
-            {
-              "name": "Job",
-              "line": 34
-            },
-            {
-              "name": "Meta",
-              "line": 42
-            },
-            {
-              "name": "ProcessRun",
-              "line": 49
-            },
-            {
-              "name": "Meta",
-              "line": 71
-            },
-            {
-              "name": "StageResult",
-              "line": 78
-            },
-            {
-              "name": "Meta",
-              "line": 106
-            }
-          ],
-          "function_count": 4,
-          "functions": [
-            {
-              "name": "__str__",
-              "signature": "def __str__(self) -> Any",
-              "line_number": 30,
-              "params_raw": "self"
-            },
-            {
-              "name": "__str__",
-              "signature": "def __str__(self) -> Any",
-              "line_number": 45,
-              "params_raw": "self"
-            },
-            {
-              "name": "__str__",
-              "signature": "def __str__(self) -> Any",
-              "line_number": 74,
-              "params_raw": "self"
-            },
-            {
-              "name": "__str__",
-              "signature": "def __str__(self) -> Any",
-              "line_number": 110,
-              "params_raw": "self"
-            }
-          ]
-        },
-        {
-          "path": "backend/ats_app/serializers.py",
-          "language": "python",
-          "total_lines": 129,
-          "classes": [
-            {
-              "name": "UserSerializer",
-              "line": 9
-            },
-            {
-              "name": "Meta",
-              "line": 13
-            },
-            {
-              "name": "UserProfileSerializer",
-              "line": 27
-            },
-            {
-              "name": "Meta",
-              "line": 29
-            },
-            {
-              "name": "LoginSerializer",
-              "line": 37
-            },
-            {
-              "name": "PasswordChangeSerializer",
-              "line": 43
-            },
-            {
-              "name": "StageResultSerializer",
-              "line": 61
-            },
-            {
-              "name": "Meta",
-              "line": 62
-            },
-            {
-              "name": "ProcessRunSerializer",
-              "line": 67
-            },
-            {
-              "name": "Meta",
-              "line": 71
-            },
-            {
-              "name": "JobSerializer",
-              "line": 79
-            },
-            {
-              "name": "Meta",
-              "line": 83
-            },
-            {
-              "name": "JobCreateSerializer",
-              "line": 91
-            },
-            {
-              "name": "Meta",
-              "line": 92
-            },
-            {
-              "name": "ProcessRunCreateSerializer",
-              "line": 102
-            },
-            {
-              "name": "Meta",
-              "line": 103
-            },
-            {
-              "name": "ManualLatexSubmissionSerializer",
-              "line": 114
-            }
-          ],
-          "function_count": 6,
-          "functions": [
-            {
-              "name": "create",
-              "signature": "def create(self, validated_data) -> Any",
-              "line_number": 20,
-              "params_raw": "self, validated_data"
-            },
-            {
-              "name": "validate_old_password",
-              "signature": "def validate_old_password(self, value) -> Any",
-              "line_number": 48,
-              "params_raw": "self, value"
-            },
-            {
-              "name": "validate_new_password",
-              "signature": "def validate_new_password(self, value) -> Any",
-              "line_number": 54,
-              "params_raw": "self, value"
-            },
-            {
-              "name": "create",
-              "signature": "def create(self, validated_data) -> Any",
-              "line_number": 96,
-              "params_raw": "self, validated_data"
-            },
-            {
-              "name": "create",
-              "signature": "def create(self, validated_data) -> Any",
-              "line_number": 107,
-              "params_raw": "self, validated_data"
-            },
-            {
-              "name": "validate_latex_content",
-              "signature": "def validate_latex_content(self, value) -> Any",
-              "line_number": 117,
-              "params_raw": "self, value"
-            }
-          ]
-        },
-        {
-          "path": "backend/ats_app/views.py",
-          "language": "python",
-          "total_lines": 330,
-          "classes": [
-            {
-              "name": "JobViewSet",
-              "line": 70
-            },
-            {
-              "name": "ProcessRunViewSet",
-              "line": 100
-            },
-            {
-              "name": "StageResultViewSet",
-              "line": 327
-            }
-          ],
-          "function_count": 12,
-          "functions": [
-            {
-              "name": "_run_orchestrator_async",
-              "signature": "def _run_orchestrator_async(process_run_id, user_id=None) -> Any",
-              "line_number": 26,
-              "params_raw": "process_run_id, user_id=None"
-            },
-            {
-              "name": "_resume_orchestrator_async",
-              "signature": "def _resume_orchestrator_async(process_run_id) -> Any",
-              "line_number": 42,
-              "params_raw": "process_run_id"
-            },
-            {
-              "name": "_restart_orchestrator_async",
-              "signature": "def _restart_orchestrator_async(process_run_id) -> Any",
-              "line_number": 56,
-              "params_raw": "process_run_id"
-            },
-            {
-              "name": "get_queryset",
-              "signature": "def get_queryset(self) -> Any",
-              "line_number": 75,
-              "params_raw": "self"
-            },
-            {
-              "name": "get_serializer_class",
-              "signature": "def get_serializer_class(self) -> Any",
-              "line_number": 79,
-              "params_raw": "self"
-            },
-            {
-              "name": "run_process",
-              "signature": "def run_process(self, request, pk=None) -> Any",
-              "line_number": 85,
-              "params_raw": "self, request, pk=None"
-            },
-            {
-              "name": "get_queryset",
-              "signature": "def get_queryset(self) -> Any",
-              "line_number": 105,
-              "params_raw": "self"
-            },
-            {
-              "name": "get_prompt",
-              "signature": "def get_prompt(self, request, pk=None) -> Any",
-              "line_number": 110,
-              "description": "Get the generated prompt from Agent 3 for manual LLM input.",
-              "params_raw": "self, request, pk=None"
-            },
-            {
-              "name": "submit_manual_latex",
-              "signature": "def submit_manual_latex(self, request, pk=None) -> Any",
-              "line_number": 150,
-              "description": "Submit manually updated LaTeX from external LLM and continue process.",
-              "params_raw": "self, request, pk=None"
-            },
-            {
-              "name": "continue_iterating",
-              "signature": "def continue_iterating(self, request, pk=None) -> Any",
-              "line_number": 209,
-              "description": "Trigger a new manual iteration after process completion.",
-              "params_raw": "self, request, pk=None"
-            },
-            {
-              "name": "restart",
-              "signature": "def restart(self, request, pk=None) -> Any",
-              "line_number": 257,
-              "description": "Restart a failed process from the point of failure.",
-              "params_raw": "self, request, pk=None"
-            },
-            {
-              "name": "force_complete",
-              "signature": "def force_complete(self, request, pk=None) -> Any",
-              "line_number": 294,
-              "description": "Force complete a process without running any agents.",
-              "params_raw": "self, request, pk=None"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "module_002",
-      "name": "Backend Infrastructure",
-      "description": "Configures Django project settings, routing, and server initialization.",
-      "goal": "Sets up the backend server architecture and URL routing.",
-      "directories": [
-        "backend/ats_project"
-      ],
-      "file_count": 1,
-      "function_count": 1,
-      "files": [
-        {
-          "path": "backend/ats_project/urls.py",
-          "language": "python",
-          "total_lines": 43,
-          "classes": [],
-          "function_count": 1,
-          "functions": [
-            {
-              "name": "health_check",
-              "signature": "def health_check(request) -> Any",
-              "line_number": 11,
-              "description": "Health check endpoint that doesn't require authentication",
-              "params_raw": "request"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "module_003",
-      "name": "Frontend UI Components",
-      "description": "Houses reusable UI elements for forms, displays, and trackers.",
-      "goal": "Provides interactive user interfaces for application interaction.",
-      "directories": [
-        "frontend/src/components"
-      ],
-      "file_count": 7,
-      "function_count": 28,
-      "files": [
-        {
-          "path": "frontend/src/components/JobForm.tsx",
-          "language": "javascript",
-          "total_lines": 226,
-          "classes": [],
-          "function_count": 2,
-          "functions": [
-            {
-              "name": "JobForm",
-              "signature": "export function JobForm() : any",
-              "line_number": 6
-            },
-            {
-              "name": "getCharCounterClass",
-              "signature": "const getCharCounterClass = (current: number, max: number) => any",
-              "line_number": 101,
-              "params_raw": "current: number, max: number"
-            }
-          ]
-        },
-        {
-          "path": "frontend/src/components/KeywordDetails.tsx",
-          "language": "javascript",
-          "total_lines": 163,
-          "classes": [],
-          "function_count": 6,
-          "functions": [
-            {
-              "name": "MatchedKeywordCard",
-              "signature": "function MatchedKeywordCard({ keyword }: { keyword: MatchedKeyword }) : any",
-              "line_number": 8,
-              "params_raw": "{ keyword }: { keyword: MatchedKeyword }"
-            },
-            {
-              "name": "MissingKeywordCard",
-              "signature": "function MissingKeywordCard({ keyword }: { keyword: MissingKeyword }) : any",
-              "line_number": 80,
-              "params_raw": "{ keyword }: { keyword: MissingKeyword }"
-            },
-            {
-              "name": "KeywordDetails",
-              "signature": "export function KeywordDetails({ matchedKeywords, missingKeywords }: KeywordDetailsProps) : any",
-              "line_number": 127,
-              "params_raw": "{ matchedKeywords, missingKeywords }: KeywordDetailsProps"
-            },
-            {
-              "name": "getEffectivenessColor",
-              "signature": "const getEffectivenessColor = (score: number) => any",
-              "line_number": 11,
-              "params_raw": "score: number"
-            },
-            {
-              "name": "getEffectivenessLabel",
-              "signature": "const getEffectivenessLabel = (score: number) => any",
-              "line_number": 17,
-              "params_raw": "score: number"
-            },
-            {
-              "name": "getPriorityColor",
-              "signature": "const getPriorityColor = (impact: string) => any",
-              "line_number": 89,
-              "params_raw": "impact: string"
-            }
-          ]
-        },
-        {
-          "path": "frontend/src/components/KeywordExtractionDisplay.tsx",
-          "language": "javascript",
-          "total_lines": 137,
-          "classes": [],
-          "function_count": 7,
-          "functions": [
-            {
-              "name": "getPriorityIcon",
-              "signature": "function getPriorityIcon(priority: number) : string",
-              "line_number": 9,
-              "params_raw": "priority: number",
-              "return_type": "string"
-            },
-            {
-              "name": "getPriorityLabel",
-              "signature": "function getPriorityLabel(priority: number) : string",
-              "line_number": 15,
-              "params_raw": "priority: number",
-              "return_type": "string"
-            },
-            {
-              "name": "getConfidenceColor",
-              "signature": "function getConfidenceColor(confidence: number) : string",
-              "line_number": 21,
-              "params_raw": "confidence: number",
-              "return_type": "string"
-            },
-            {
-              "name": "getCategoryIcon",
-              "signature": "function getCategoryIcon(category: string) : string",
-              "line_number": 27,
-              "params_raw": "category: string",
-              "return_type": "string"
-            },
-            {
-              "name": "getKeywordText",
-              "signature": "function getKeywordText(item: ExtractedKeyword) : string",
-              "line_number": 51,
-              "params_raw": "item: ExtractedKeyword",
-              "return_type": "string"
-            },
-            {
-              "name": "KeywordCard",
-              "signature": "function KeywordCard({ item, category }: { item: ExtractedKeyword; category?: string }) : any",
-              "line_number": 55,
-              "params_raw": "{ item, category }: { item: ExtractedKeyword; category?: string }"
-            },
-            {
-              "name": "KeywordExtractionDisplay",
-              "signature": "export function KeywordExtractionDisplay({ items, label, category }: KeywordExtractionDisplayProps) : any",
-              "line_number": 119,
-              "params_raw": "{ items, label, category }: KeywordExtractionDisplayProps"
-            }
-          ]
-        },
-        {
-          "path": "frontend/src/components/LoginForm.tsx",
-          "language": "javascript",
-          "total_lines": 91,
-          "classes": [],
-          "function_count": 1,
-          "functions": [
-            {
-              "name": "handleSubmit",
-              "signature": "const handleSubmit = async (e: React.FormEvent) => any",
-              "line_number": 12,
-              "params_raw": "e: React.FormEvent"
-            }
-          ]
-        },
-        {
-          "path": "frontend/src/components/ProcessList.tsx",
-          "language": "javascript",
-          "total_lines": 86,
-          "classes": [],
-          "function_count": 1,
-          "functions": [
-            {
-              "name": "ProcessList",
-              "signature": "export function ProcessList() : any",
-              "line_number": 7
-            }
-          ]
-        },
-        {
-          "path": "frontend/src/components/ProcessTracker.tsx",
-          "language": "javascript",
-          "total_lines": 483,
-          "classes": [],
-          "function_count": 7,
-          "functions": [
-            {
-              "name": "RatingBar",
-              "signature": "function RatingBar({ value, label }: { value: number | null; label: string }) : any",
-              "line_number": 26,
-              "params_raw": "{ value, label }: { value: number | null; label: string }"
-            },
-            {
-              "name": "KeywordList",
-              "signature": "function KeywordList({ items, label, category }: { items: KeywordItem[]; label: string; category?: string }) : any",
-              "line_number": 50,
-              "params_raw": "{ items, label, category }: { items: KeywordItem[]; label: string; category?: string }"
-            },
-            {
-              "name": "ProcessTracker",
-              "signature": "export function ProcessTracker({ stages }: { stages: StageResult[] }) : any",
-              "line_number": 94,
-              "params_raw": "{ stages }: { stages: StageResult[] }"
-            },
-            {
-              "name": "formatKeyword",
-              "signature": "const formatKeyword = (item: KeywordItem) => string",
-              "line_number": 53,
-              "params_raw": "item: KeywordItem",
-              "return_type": "string"
-            },
-            {
-              "name": "getProgressPercentage",
-              "signature": "const getProgressPercentage = () => any",
-              "line_number": 95
-            },
-            {
-              "name": "getSectionIcon",
-              "signature": "const getSectionIcon = (name: string) => any",
-              "line_number": 167,
-              "params_raw": "name: string"
-            },
-            {
-              "name": "getRelevanceColor",
-              "signature": "const getRelevanceColor = (relevance: number) => any",
-              "line_number": 178,
-              "params_raw": "relevance: number"
-            }
-          ]
-        },
-        {
-          "path": "frontend/src/components/RegistrationForm.tsx",
-          "language": "javascript",
-          "total_lines": 264,
-          "classes": [],
-          "function_count": 4,
-          "functions": [
-            {
-              "name": "validateEmail",
-              "signature": "const validateEmail = (email: string) => boolean",
-              "line_number": 22,
-              "params_raw": "email: string",
-              "return_type": "boolean"
-            },
-            {
-              "name": "getPasswordStrength",
-              "signature": "const getPasswordStrength = (password: string) => { strength: string; color: string; percentage: number }",
-              "line_number": 27,
-              "params_raw": "password: string",
-              "return_type": "{ strength: string; color: string; percentage: number }"
-            },
-            {
-              "name": "validateForm",
-              "signature": "const validateForm = () => boolean",
-              "line_number": 45,
-              "return_type": "boolean"
-            },
-            {
-              "name": "handleSubmit",
-              "signature": "const handleSubmit = async (e: React.FormEvent) => any",
-              "line_number": 83,
-              "params_raw": "e: React.FormEvent"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "module_004",
-      "name": "Frontend Pages",
-      "description": "Contains page-level components for application navigation and content display.",
-      "goal": "Defines the primary user interface layout and navigation structure.",
-      "directories": [
-        "frontend/src/pages"
-      ],
-      "file_count": 2,
-      "function_count": 10,
-      "files": [
-        {
-          "path": "frontend/src/pages/ProcessDetail.tsx",
-          "language": "javascript",
-          "total_lines": 660,
-          "classes": [],
-          "function_count": 8,
-          "functions": [
-            {
-              "name": "ProcessDetail",
-              "signature": "export function ProcessDetail() : any",
-              "line_number": 7
-            },
-            {
-              "name": "fetchPrompt",
-              "signature": "const fetchPrompt = async () => any",
-              "line_number": 61
-            },
-            {
-              "name": "handleSubmitLatex",
-              "signature": "const handleSubmitLatex = async () => any",
-              "line_number": 84
-            },
-            {
-              "name": "handleContinueIterating",
-              "signature": "const handleContinueIterating = async () => any",
-              "line_number": 105
-            },
-            {
-              "name": "handleRestart",
-              "signature": "const handleRestart = async () => any",
-              "line_number": 125
-            },
-            {
-              "name": "handleForceComplete",
-              "signature": "const handleForceComplete = async () => any",
-              "line_number": 142
-            },
-            {
-              "name": "getStatusIcon",
-              "signature": "const getStatusIcon = (status: string) => any",
-              "line_number": 171,
-              "params_raw": "status: string"
-            },
-            {
-              "name": "getStatusColor",
-              "signature": "const getStatusColor = (status: string) => any",
-              "line_number": 182,
-              "params_raw": "status: string"
-            }
-          ]
-        },
-        {
-          "path": "frontend/src/pages/ProfilePage.tsx",
-          "language": "javascript",
-          "total_lines": 168,
-          "classes": [],
-          "function_count": 2,
-          "functions": [
-            {
-              "name": "fetchProfile",
-              "signature": "const fetchProfile = async () => any",
-              "line_number": 47
-            },
-            {
-              "name": "handleSubmit",
-              "signature": "const handleSubmit = async (e: React.FormEvent) => any",
-              "line_number": 62,
-              "params_raw": "e: React.FormEvent"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "module_005",
-      "name": "Frontend State & API",
-      "description": "Manages authentication context and API communication.",
-      "goal": "Handles user sessions and data exchange with the backend.",
-      "directories": [
-        "frontend/src/context",
-        "frontend/src/api"
-      ],
-      "file_count": 2,
-      "function_count": 21,
-      "files": [
-        {
-          "path": "frontend/src/api/index.ts",
-          "language": "javascript",
-          "total_lines": 96,
-          "classes": [],
-          "function_count": 16,
-          "functions": [
-            {
-              "name": "login",
-              "signature": "export const login = (username: string, password: string) => any",
-              "line_number": 47,
-              "params_raw": "username: string, password: string"
-            },
-            {
-              "name": "logout",
-              "signature": "export const logout = (refreshToken: string) => any",
-              "line_number": 50,
-              "params_raw": "refreshToken: string"
-            },
-            {
-              "name": "getProfile",
-              "signature": "export const getProfile = () => any",
-              "line_number": 53
-            },
-            {
-              "name": "updateProfile",
-              "signature": "export const updateProfile = (data: { openrouter_api_key?: string; preferred_model?: string }) => any",
-              "line_number": 56,
-              "params_raw": "data: { openrouter_api_key?: string; preferred_model?: string }"
-            },
-            {
-              "name": "register",
-              "signature": "export const register = (username: string, email: string, password: string) => any",
-              "line_number": 59,
-              "params_raw": "username: string, email: string, password: string"
-            },
-            {
-              "name": "createJob",
-              "signature": "export const createJob = (data: { title: string; description: string; latex_cv: string }) => any",
-              "line_number": 62,
-              "params_raw": "data: { title: string; description: string; latex_cv: string }"
-            },
-            {
-              "name": "getJobs",
-              "signature": "export const getJobs = () => any",
-              "line_number": 68
-            },
-            {
-              "name": "getJob",
-              "signature": "export const getJob = (id: string) => any",
-              "line_number": 70,
-              "params_raw": "id: string"
-            },
-            {
-              "name": "runProcess",
-              "signature": "export const runProcess = (jobId: string, maxRetries = 3) => any",
-              "line_number": 72,
-              "params_raw": "jobId: string, maxRetries = 3"
-            },
-            {
-              "name": "getProcessRuns",
-              "signature": "export const getProcessRuns = () => any",
-              "line_number": 78
-            },
-            {
-              "name": "getProcessRun",
-              "signature": "export const getProcessRun = (id: string) => any",
-              "line_number": 80,
-              "params_raw": "id: string"
-            },
-            {
-              "name": "getPrompt",
-              "signature": "export const getPrompt = (id: string) => any",
-              "line_number": 82,
-              "params_raw": "id: string"
-            },
-            {
-              "name": "submitManualLatex",
-              "signature": "export const submitManualLatex = (id: string, latexContent: string) => any",
-              "line_number": 85,
-              "params_raw": "id: string, latexContent: string"
-            },
-            {
-              "name": "continueIterating",
-              "signature": "export const continueIterating = (id: string) => any",
-              "line_number": 88,
-              "params_raw": "id: string"
-            },
-            {
-              "name": "restartProcess",
-              "signature": "export const restartProcess = (id: string) => any",
-              "line_number": 91,
-              "params_raw": "id: string"
-            },
-            {
-              "name": "forceComplete",
-              "signature": "export const forceComplete = (id: string) => any",
-              "line_number": 94,
-              "params_raw": "id: string"
-            }
-          ]
-        },
-        {
-          "path": "frontend/src/context/AuthContext.tsx",
-          "language": "javascript",
-          "total_lines": 187,
-          "classes": [],
-          "function_count": 5,
-          "functions": [
-            {
-              "name": "useAuth",
-              "signature": "export const useAuth = () => any",
-              "line_number": 23
-            },
-            {
-              "name": "register",
-              "signature": "const register = async (username: string, email: string, password: string) => any",
-              "line_number": 52,
-              "params_raw": "username: string, email: string, password: string"
-            },
-            {
-              "name": "login",
-              "signature": "const login = async (username: string, password: string) => any",
-              "line_number": 90,
-              "params_raw": "username: string, password: string"
-            },
-            {
-              "name": "logout",
-              "signature": "const logout = async () => any",
-              "line_number": 116
-            },
-            {
-              "name": "refreshToken",
-              "signature": "const refreshToken = async () => any",
-              "line_number": 150
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "module_006",
-      "name": "Unclassified",
-      "description": "Files not matched to any architectural module.",
-      "goal": "Miscellaneous project functionality.",
-      "directories": [
-        "backend/ats_app/services",
-        "backend/ats_app/agents",
-        "frontend/src",
-        "backend",
-        "backend/ats_app/migrations"
-      ],
-      "file_count": 16,
-      "function_count": 87,
-      "files": [
         {
           "path": "backend/ats_app/agents/ats_rater.py",
           "language": "python",
@@ -1544,6 +687,63 @@
           ]
         },
         {
+          "path": "backend/ats_app/apps.py",
+          "language": "python",
+          "total_lines": 6,
+          "classes": [
+            {
+              "name": "AtsAppConfig",
+              "line": 4
+            }
+          ],
+          "function_count": 0,
+          "functions": []
+        },
+        {
+          "path": "backend/ats_app/authentication.py",
+          "language": "python",
+          "total_lines": 141,
+          "classes": [],
+          "function_count": 5,
+          "functions": [
+            {
+              "name": "register_view",
+              "signature": "def register_view(request) -> Any",
+              "line_number": 23,
+              "description": "Register a new user and return JWT tokens for automatic login",
+              "params_raw": "request"
+            },
+            {
+              "name": "login_view",
+              "signature": "def login_view(request) -> Any",
+              "line_number": 47,
+              "description": "Login user and return JWT tokens",
+              "params_raw": "request"
+            },
+            {
+              "name": "logout_view",
+              "signature": "def logout_view(request) -> Any",
+              "line_number": 79,
+              "description": "Logout user - blacklist the refresh token to invalidate it",
+              "params_raw": "request"
+            },
+            {
+              "name": "profile_view",
+              "signature": "def profile_view(request) -> Any",
+              "line_number": 101,
+              "description": "Get or update user profile",
+              "params_raw": "request"
+            },
+            {
+              "name": "change_password_view",
+              "signature": "def change_password_view(request) -> Any",
+              "line_number": 128,
+              "description": "Change user password",
+              "params_raw": "request"
+            }
+          ]
+        },
+        {
           "path": "backend/ats_app/migrations/0001_initial.py",
           "language": "python",
           "total_lines": 63,
@@ -1594,6 +794,186 @@
           ],
           "function_count": 0,
           "functions": []
+        },
+        {
+          "path": "backend/ats_app/models.py",
+          "language": "python",
+          "total_lines": 112,
+          "classes": [
+            {
+              "name": "UserProfile",
+              "line": 8
+            },
+            {
+              "name": "Meta",
+              "line": 26
+            },
+            {
+              "name": "Job",
+              "line": 34
+            },
+            {
+              "name": "Meta",
+              "line": 42
+            },
+            {
+              "name": "ProcessRun",
+              "line": 49
+            },
+            {
+              "name": "Meta",
+              "line": 71
+            },
+            {
+              "name": "StageResult",
+              "line": 78
+            },
+            {
+              "name": "Meta",
+              "line": 106
+            }
+          ],
+          "function_count": 4,
+          "functions": [
+            {
+              "name": "__str__",
+              "signature": "def __str__(self) -> Any",
+              "line_number": 30,
+              "params_raw": "self"
+            },
+            {
+              "name": "__str__",
+              "signature": "def __str__(self) -> Any",
+              "line_number": 45,
+              "params_raw": "self"
+            },
+            {
+              "name": "__str__",
+              "signature": "def __str__(self) -> Any",
+              "line_number": 74,
+              "params_raw": "self"
+            },
+            {
+              "name": "__str__",
+              "signature": "def __str__(self) -> Any",
+              "line_number": 110,
+              "params_raw": "self"
+            }
+          ]
+        },
+        {
+          "path": "backend/ats_app/serializers.py",
+          "language": "python",
+          "total_lines": 129,
+          "classes": [
+            {
+              "name": "UserSerializer",
+              "line": 9
+            },
+            {
+              "name": "Meta",
+              "line": 13
+            },
+            {
+              "name": "UserProfileSerializer",
+              "line": 27
+            },
+            {
+              "name": "Meta",
+              "line": 29
+            },
+            {
+              "name": "LoginSerializer",
+              "line": 37
+            },
+            {
+              "name": "PasswordChangeSerializer",
+              "line": 43
+            },
+            {
+              "name": "StageResultSerializer",
+              "line": 61
+            },
+            {
+              "name": "Meta",
+              "line": 62
+            },
+            {
+              "name": "ProcessRunSerializer",
+              "line": 67
+            },
+            {
+              "name": "Meta",
+              "line": 71
+            },
+            {
+              "name": "JobSerializer",
+              "line": 79
+            },
+            {
+              "name": "Meta",
+              "line": 83
+            },
+            {
+              "name": "JobCreateSerializer",
+              "line": 91
+            },
+            {
+              "name": "Meta",
+              "line": 92
+            },
+            {
+              "name": "ProcessRunCreateSerializer",
+              "line": 102
+            },
+            {
+              "name": "Meta",
+              "line": 103
+            },
+            {
+              "name": "ManualLatexSubmissionSerializer",
+              "line": 114
+            }
+          ],
+          "function_count": 6,
+          "functions": [
+            {
+              "name": "create",
+              "signature": "def create(self, validated_data) -> Any",
+              "line_number": 20,
+              "params_raw": "self, validated_data"
+            },
+            {
+              "name": "validate_old_password",
+              "signature": "def validate_old_password(self, value) -> Any",
+              "line_number": 48,
+              "params_raw": "self, value"
+            },
+            {
+              "name": "validate_new_password",
+              "signature": "def validate_new_password(self, value) -> Any",
+              "line_number": 54,
+              "params_raw": "self, value"
+            },
+            {
+              "name": "create",
+              "signature": "def create(self, validated_data) -> Any",
+              "line_number": 96,
+              "params_raw": "self, validated_data"
+            },
+            {
+              "name": "create",
+              "signature": "def create(self, validated_data) -> Any",
+              "line_number": 107,
+              "params_raw": "self, validated_data"
+            },
+            {
+              "name": "validate_latex_content",
+              "signature": "def validate_latex_content(self, value) -> Any",
+              "line_number": 117,
+              "params_raw": "self, value"
+            }
+          ]
         },
         {
           "path": "backend/ats_app/services/llm_service.py",
@@ -1673,6 +1053,121 @@
           ]
         },
         {
+          "path": "backend/ats_app/views.py",
+          "language": "python",
+          "total_lines": 330,
+          "classes": [
+            {
+              "name": "JobViewSet",
+              "line": 70
+            },
+            {
+              "name": "ProcessRunViewSet",
+              "line": 100
+            },
+            {
+              "name": "StageResultViewSet",
+              "line": 327
+            }
+          ],
+          "function_count": 12,
+          "functions": [
+            {
+              "name": "_run_orchestrator_async",
+              "signature": "def _run_orchestrator_async(process_run_id, user_id=None) -> Any",
+              "line_number": 26,
+              "params_raw": "process_run_id, user_id=None"
+            },
+            {
+              "name": "_resume_orchestrator_async",
+              "signature": "def _resume_orchestrator_async(process_run_id) -> Any",
+              "line_number": 42,
+              "params_raw": "process_run_id"
+            },
+            {
+              "name": "_restart_orchestrator_async",
+              "signature": "def _restart_orchestrator_async(process_run_id) -> Any",
+              "line_number": 56,
+              "params_raw": "process_run_id"
+            },
+            {
+              "name": "get_queryset",
+              "signature": "def get_queryset(self) -> Any",
+              "line_number": 75,
+              "params_raw": "self"
+            },
+            {
+              "name": "get_serializer_class",
+              "signature": "def get_serializer_class(self) -> Any",
+              "line_number": 79,
+              "params_raw": "self"
+            },
+            {
+              "name": "run_process",
+              "signature": "def run_process(self, request, pk=None) -> Any",
+              "line_number": 85,
+              "params_raw": "self, request, pk=None"
+            },
+            {
+              "name": "get_queryset",
+              "signature": "def get_queryset(self) -> Any",
+              "line_number": 105,
+              "params_raw": "self"
+            },
+            {
+              "name": "get_prompt",
+              "signature": "def get_prompt(self, request, pk=None) -> Any",
+              "line_number": 110,
+              "description": "Get the generated prompt from Agent 3 for manual LLM input.",
+              "params_raw": "self, request, pk=None"
+            },
+            {
+              "name": "submit_manual_latex",
+              "signature": "def submit_manual_latex(self, request, pk=None) -> Any",
+              "line_number": 150,
+              "description": "Submit manually updated LaTeX from external LLM and continue process.",
+              "params_raw": "self, request, pk=None"
+            },
+            {
+              "name": "continue_iterating",
+              "signature": "def continue_iterating(self, request, pk=None) -> Any",
+              "line_number": 209,
+              "description": "Trigger a new manual iteration after process completion.",
+              "params_raw": "self, request, pk=None"
+            },
+            {
+              "name": "restart",
+              "signature": "def restart(self, request, pk=None) -> Any",
+              "line_number": 257,
+              "description": "Restart a failed process from the point of failure.",
+              "params_raw": "self, request, pk=None"
+            },
+            {
+              "name": "force_complete",
+              "signature": "def force_complete(self, request, pk=None) -> Any",
+              "line_number": 294,
+              "description": "Force complete a process without running any agents.",
+              "params_raw": "self, request, pk=None"
+            }
+          ]
+        },
+        {
+          "path": "backend/ats_project/urls.py",
+          "language": "python",
+          "total_lines": 43,
+          "classes": [],
+          "function_count": 1,
+          "functions": [
+            {
+              "name": "health_check",
+              "signature": "def health_check(request) -> Any",
+              "line_number": 11,
+              "description": "Health check endpoint that doesn't require authentication",
+              "params_raw": "request"
+            }
+          ]
+        },
+        {
           "path": "backend/manage.py",
           "language": "python",
           "total_lines": 23,
@@ -1729,6 +1224,451 @@
               "name": "getUserInitials",
               "signature": "const getUserInitials = () => any",
               "line_number": 38
+            }
+          ]
+        },
+        {
+          "path": "frontend/src/api/index.ts",
+          "language": "javascript",
+          "total_lines": 96,
+          "classes": [],
+          "function_count": 16,
+          "functions": [
+            {
+              "name": "login",
+              "signature": "export const login = (username: string, password: string) => any",
+              "line_number": 47,
+              "params_raw": "username: string, password: string"
+            },
+            {
+              "name": "logout",
+              "signature": "export const logout = (refreshToken: string) => any",
+              "line_number": 50,
+              "params_raw": "refreshToken: string"
+            },
+            {
+              "name": "getProfile",
+              "signature": "export const getProfile = () => any",
+              "line_number": 53
+            },
+            {
+              "name": "updateProfile",
+              "signature": "export const updateProfile = (data: { openrouter_api_key?: string; preferred_model?: string }) => any",
+              "line_number": 56,
+              "params_raw": "data: { openrouter_api_key?: string; preferred_model?: string }"
+            },
+            {
+              "name": "register",
+              "signature": "export const register = (username: string, email: string, password: string) => any",
+              "line_number": 59,
+              "params_raw": "username: string, email: string, password: string"
+            },
+            {
+              "name": "createJob",
+              "signature": "export const createJob = (data: { title: string; description: string; latex_cv: string }) => any",
+              "line_number": 62,
+              "params_raw": "data: { title: string; description: string; latex_cv: string }"
+            },
+            {
+              "name": "getJobs",
+              "signature": "export const getJobs = () => any",
+              "line_number": 68
+            },
+            {
+              "name": "getJob",
+              "signature": "export const getJob = (id: string) => any",
+              "line_number": 70,
+              "params_raw": "id: string"
+            },
+            {
+              "name": "runProcess",
+              "signature": "export const runProcess = (jobId: string, maxRetries = 3) => any",
+              "line_number": 72,
+              "params_raw": "jobId: string, maxRetries = 3"
+            },
+            {
+              "name": "getProcessRuns",
+              "signature": "export const getProcessRuns = () => any",
+              "line_number": 78
+            },
+            {
+              "name": "getProcessRun",
+              "signature": "export const getProcessRun = (id: string) => any",
+              "line_number": 80,
+              "params_raw": "id: string"
+            },
+            {
+              "name": "getPrompt",
+              "signature": "export const getPrompt = (id: string) => any",
+              "line_number": 82,
+              "params_raw": "id: string"
+            },
+            {
+              "name": "submitManualLatex",
+              "signature": "export const submitManualLatex = (id: string, latexContent: string) => any",
+              "line_number": 85,
+              "params_raw": "id: string, latexContent: string"
+            },
+            {
+              "name": "continueIterating",
+              "signature": "export const continueIterating = (id: string) => any",
+              "line_number": 88,
+              "params_raw": "id: string"
+            },
+            {
+              "name": "restartProcess",
+              "signature": "export const restartProcess = (id: string) => any",
+              "line_number": 91,
+              "params_raw": "id: string"
+            },
+            {
+              "name": "forceComplete",
+              "signature": "export const forceComplete = (id: string) => any",
+              "line_number": 94,
+              "params_raw": "id: string"
+            }
+          ]
+        },
+        {
+          "path": "frontend/src/components/JobForm.tsx",
+          "language": "javascript",
+          "total_lines": 226,
+          "classes": [],
+          "function_count": 2,
+          "functions": [
+            {
+              "name": "JobForm",
+              "signature": "export function JobForm() : any",
+              "line_number": 6
+            },
+            {
+              "name": "getCharCounterClass",
+              "signature": "const getCharCounterClass = (current: number, max: number) => any",
+              "line_number": 101,
+              "params_raw": "current: number, max: number"
+            }
+          ]
+        },
+        {
+          "path": "frontend/src/components/KeywordDetails.tsx",
+          "language": "javascript",
+          "total_lines": 163,
+          "classes": [],
+          "function_count": 6,
+          "functions": [
+            {
+              "name": "MatchedKeywordCard",
+              "signature": "function MatchedKeywordCard({ keyword }: { keyword: MatchedKeyword }) : any",
+              "line_number": 8,
+              "params_raw": "{ keyword }: { keyword: MatchedKeyword }"
+            },
+            {
+              "name": "MissingKeywordCard",
+              "signature": "function MissingKeywordCard({ keyword }: { keyword: MissingKeyword }) : any",
+              "line_number": 80,
+              "params_raw": "{ keyword }: { keyword: MissingKeyword }"
+            },
+            {
+              "name": "KeywordDetails",
+              "signature": "export function KeywordDetails({ matchedKeywords, missingKeywords }: KeywordDetailsProps) : any",
+              "line_number": 127,
+              "params_raw": "{ matchedKeywords, missingKeywords }: KeywordDetailsProps"
+            },
+            {
+              "name": "getEffectivenessColor",
+              "signature": "const getEffectivenessColor = (score: number) => any",
+              "line_number": 11,
+              "params_raw": "score: number"
+            },
+            {
+              "name": "getEffectivenessLabel",
+              "signature": "const getEffectivenessLabel = (score: number) => any",
+              "line_number": 17,
+              "params_raw": "score: number"
+            },
+            {
+              "name": "getPriorityColor",
+              "signature": "const getPriorityColor = (impact: string) => any",
+              "line_number": 89,
+              "params_raw": "impact: string"
+            }
+          ]
+        },
+        {
+          "path": "frontend/src/components/KeywordExtractionDisplay.tsx",
+          "language": "javascript",
+          "total_lines": 137,
+          "classes": [],
+          "function_count": 7,
+          "functions": [
+            {
+              "name": "getPriorityIcon",
+              "signature": "function getPriorityIcon(priority: number) : string",
+              "line_number": 9,
+              "params_raw": "priority: number",
+              "return_type": "string"
+            },
+            {
+              "name": "getPriorityLabel",
+              "signature": "function getPriorityLabel(priority: number) : string",
+              "line_number": 15,
+              "params_raw": "priority: number",
+              "return_type": "string"
+            },
+            {
+              "name": "getConfidenceColor",
+              "signature": "function getConfidenceColor(confidence: number) : string",
+              "line_number": 21,
+              "params_raw": "confidence: number",
+              "return_type": "string"
+            },
+            {
+              "name": "getCategoryIcon",
+              "signature": "function getCategoryIcon(category: string) : string",
+              "line_number": 27,
+              "params_raw": "category: string",
+              "return_type": "string"
+            },
+            {
+              "name": "getKeywordText",
+              "signature": "function getKeywordText(item: ExtractedKeyword) : string",
+              "line_number": 51,
+              "params_raw": "item: ExtractedKeyword",
+              "return_type": "string"
+            },
+            {
+              "name": "KeywordCard",
+              "signature": "function KeywordCard({ item, category }: { item: ExtractedKeyword; category?: string }) : any",
+              "line_number": 55,
+              "params_raw": "{ item, category }: { item: ExtractedKeyword; category?: string }"
+            },
+            {
+              "name": "KeywordExtractionDisplay",
+              "signature": "export function KeywordExtractionDisplay({ items, label, category }: KeywordExtractionDisplayProps) : any",
+              "line_number": 119,
+              "params_raw": "{ items, label, category }: KeywordExtractionDisplayProps"
+            }
+          ]
+        },
+        {
+          "path": "frontend/src/components/LoginForm.tsx",
+          "language": "javascript",
+          "total_lines": 91,
+          "classes": [],
+          "function_count": 1,
+          "functions": [
+            {
+              "name": "handleSubmit",
+              "signature": "const handleSubmit = async (e: React.FormEvent) => any",
+              "line_number": 12,
+              "params_raw": "e: React.FormEvent"
+            }
+          ]
+        },
+        {
+          "path": "frontend/src/components/ProcessList.tsx",
+          "language": "javascript",
+          "total_lines": 86,
+          "classes": [],
+          "function_count": 1,
+          "functions": [
+            {
+              "name": "ProcessList",
+              "signature": "export function ProcessList() : any",
+              "line_number": 7
+            }
+          ]
+        },
+        {
+          "path": "frontend/src/components/ProcessTracker.tsx",
+          "language": "javascript",
+          "total_lines": 483,
+          "classes": [],
+          "function_count": 7,
+          "functions": [
+            {
+              "name": "RatingBar",
+              "signature": "function RatingBar({ value, label }: { value: number | null; label: string }) : any",
+              "line_number": 26,
+              "params_raw": "{ value, label }: { value: number | null; label: string }"
+            },
+            {
+              "name": "KeywordList",
+              "signature": "function KeywordList({ items, label, category }: { items: KeywordItem[]; label: string; category?: string }) : any",
+              "line_number": 50,
+              "params_raw": "{ items, label, category }: { items: KeywordItem[]; label: string; category?: string }"
+            },
+            {
+              "name": "ProcessTracker",
+              "signature": "export function ProcessTracker({ stages }: { stages: StageResult[] }) : any",
+              "line_number": 94,
+              "params_raw": "{ stages }: { stages: StageResult[] }"
+            },
+            {
+              "name": "formatKeyword",
+              "signature": "const formatKeyword = (item: KeywordItem) => string",
+              "line_number": 53,
+              "params_raw": "item: KeywordItem",
+              "return_type": "string"
+            },
+            {
+              "name": "getProgressPercentage",
+              "signature": "const getProgressPercentage = () => any",
+              "line_number": 95
+            },
+            {
+              "name": "getSectionIcon",
+              "signature": "const getSectionIcon = (name: string) => any",
+              "line_number": 167,
+              "params_raw": "name: string"
+            },
+            {
+              "name": "getRelevanceColor",
+              "signature": "const getRelevanceColor = (relevance: number) => any",
+              "line_number": 178,
+              "params_raw": "relevance: number"
+            }
+          ]
+        },
+        {
+          "path": "frontend/src/components/RegistrationForm.tsx",
+          "language": "javascript",
+          "total_lines": 264,
+          "classes": [],
+          "function_count": 4,
+          "functions": [
+            {
+              "name": "validateEmail",
+              "signature": "const validateEmail = (email: string) => boolean",
+              "line_number": 22,
+              "params_raw": "email: string",
+              "return_type": "boolean"
+            },
+            {
+              "name": "getPasswordStrength",
+              "signature": "const getPasswordStrength = (password: string) => { strength: string; color: string; percentage: number }",
+              "line_number": 27,
+              "params_raw": "password: string",
+              "return_type": "{ strength: string; color: string; percentage: number }"
+            },
+            {
+              "name": "validateForm",
+              "signature": "const validateForm = () => boolean",
+              "line_number": 45,
+              "return_type": "boolean"
+            },
+            {
+              "name": "handleSubmit",
+              "signature": "const handleSubmit = async (e: React.FormEvent) => any",
+              "line_number": 83,
+              "params_raw": "e: React.FormEvent"
+            }
+          ]
+        },
+        {
+          "path": "frontend/src/context/AuthContext.tsx",
+          "language": "javascript",
+          "total_lines": 180,
+          "classes": [],
+          "function_count": 5,
+          "functions": [
+            {
+              "name": "useAuth",
+              "signature": "export const useAuth = () => any",
+              "line_number": 23
+            },
+            {
+              "name": "register",
+              "signature": "const register = async (username: string, email: string, password: string) => any",
+              "line_number": 52,
+              "params_raw": "username: string, email: string, password: string"
+            },
+            {
+              "name": "login",
+              "signature": "const login = async (username: string, password: string) => any",
+              "line_number": 90,
+              "params_raw": "username: string, password: string"
+            },
+            {
+              "name": "logout",
+              "signature": "const logout = async () => any",
+              "line_number": 116
+            },
+            {
+              "name": "refreshToken",
+              "signature": "const refreshToken = async () => any",
+              "line_number": 143
+            }
+          ]
+        },
+        {
+          "path": "frontend/src/pages/ProcessDetail.tsx",
+          "language": "javascript",
+          "total_lines": 660,
+          "classes": [],
+          "function_count": 8,
+          "functions": [
+            {
+              "name": "ProcessDetail",
+              "signature": "export function ProcessDetail() : any",
+              "line_number": 7
+            },
+            {
+              "name": "fetchPrompt",
+              "signature": "const fetchPrompt = async () => any",
+              "line_number": 61
+            },
+            {
+              "name": "handleSubmitLatex",
+              "signature": "const handleSubmitLatex = async () => any",
+              "line_number": 84
+            },
+            {
+              "name": "handleContinueIterating",
+              "signature": "const handleContinueIterating = async () => any",
+              "line_number": 105
+            },
+            {
+              "name": "handleRestart",
+              "signature": "const handleRestart = async () => any",
+              "line_number": 125
+            },
+            {
+              "name": "handleForceComplete",
+              "signature": "const handleForceComplete = async () => any",
+              "line_number": 142
+            },
+            {
+              "name": "getStatusIcon",
+              "signature": "const getStatusIcon = (status: string) => any",
+              "line_number": 171,
+              "params_raw": "status: string"
+            },
+            {
+              "name": "getStatusColor",
+              "signature": "const getStatusColor = (status: string) => any",
+              "line_number": 182,
+              "params_raw": "status: string"
+            }
+          ]
+        },
+        {
+          "path": "frontend/src/pages/ProfilePage.tsx",
+          "language": "javascript",
+          "total_lines": 199,
+          "classes": [],
+          "function_count": 2,
+          "functions": [
+            {
+              "name": "fetchProfile",
+              "signature": "const fetchProfile = async () => any",
+              "line_number": 47
+            },
+            {
+              "name": "handleSubmit",
+              "signature": "const handleSubmit = async (e: React.FormEvent) => any",
+              "line_number": 62,
+              "params_raw": "e: React.FormEvent"
             }
           ]
         }

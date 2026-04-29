@@ -1,4 +1,3 @@
-from ats_app.services.llm_service import llm_service
 import logging
 
 logger = logging.getLogger(__name__)
@@ -72,6 +71,9 @@ Return a JSON object with: hard_skills, soft_skills, qualifications, keywords, j
 
 
 class KeywordExtractorAgent:
+    def __init__(self, llm_service=None):
+        self.llm_service = llm_service
+    
     def run(self, job_title: str, job_description: str) -> dict:
         """
         Extract keywords with priorities and detailed metadata.
@@ -83,6 +85,9 @@ class KeywordExtractorAgent:
         Returns:
             Dictionary with prioritized keywords and metadata
         """
+        if not self.llm_service:
+            raise ValueError("KeywordExtractorAgent requires an LLMService instance")
+        
         logger.info(f"KeywordExtractorAgent: Starting enhanced extraction for job '{job_title}'")
         
         prompt = ENHANCED_EXTRACTION_PROMPT.format(
@@ -90,7 +95,7 @@ class KeywordExtractorAgent:
             description=job_description,
         )
         
-        result = llm_service.generate_json(prompt, ENHANCED_KEYWORD_EXTRACTOR_SYSTEM, temperature=0.3)
+        result = self.llm_service.generate_json(prompt, ENHANCED_KEYWORD_EXTRACTOR_SYSTEM, temperature=0.3)
         
         # Validate and log extraction results
         self._log_extraction_summary(result)

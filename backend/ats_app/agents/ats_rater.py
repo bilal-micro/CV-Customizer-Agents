@@ -1,4 +1,3 @@
-from ats_app.services.llm_service import llm_service
 import logging
 
 logger = logging.getLogger(__name__)
@@ -43,7 +42,13 @@ Return a JSON object with: ats_score, ats_breakdown, recruiter_appeal, strong_po
 
 
 class ATSRaterAgent:
+    def __init__(self, llm_service=None):
+        self.llm_service = llm_service
+    
     def run(self, job_title: str, job_description: str, latex_cv: str, match_rate: float) -> dict:
+        if not self.llm_service:
+            raise ValueError("ATSRaterAgent requires an LLMService instance")
+        
         prompt = RATING_PROMPT.format(
             title=job_title,
             description=job_description,
@@ -51,7 +56,7 @@ class ATSRaterAgent:
             match_rate=match_rate,
         )
         # Use temperature=0 for strict, deterministic, consistent evaluations
-        return llm_service.generate_json(prompt, SYSTEM_PROMPT, temperature=0)
+        return self.llm_service.generate_json(prompt, SYSTEM_PROMPT, temperature=0)
     
     def evaluate_results(self, result: dict, match_rate: float) -> tuple[bool, dict]:
         """

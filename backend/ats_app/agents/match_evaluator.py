@@ -1,4 +1,3 @@
-from ats_app.services.llm_service import llm_service
 import logging
 from typing import List, Dict
 
@@ -80,6 +79,10 @@ class MatchEvaluatorAgent:
     and calculates match rate in a single efficient LLM call.
     """
     
+    def __init__(self, llm_service=None):
+        """Initialize match evaluator."""
+        self.llm_service = llm_service
+    
     def run(self, job_title: str, keywords: Dict, match_results: Dict,
              section_analysis: Dict, latex_cv: str) -> Dict:
         """
@@ -95,6 +98,9 @@ class MatchEvaluatorAgent:
         Returns:
             Dictionary with strengths, weaknesses, match_rate, and evaluation details
         """
+        if not self.llm_service:
+            raise ValueError("MatchEvaluatorAgent requires an LLMService instance")
+        
         logger.info(f"MatchEvaluatorAgent: Starting comprehensive evaluation for job '{job_title}'")
         
         # Format data for LLM
@@ -111,7 +117,7 @@ class MatchEvaluatorAgent:
         )
         
         # Use temperature=0.4 for balanced, analytical evaluation
-        result = llm_service.generate_json(prompt, MATCH_EVALUATOR_SYSTEM, temperature=0.4)
+        result = self.llm_service.generate_json(prompt, MATCH_EVALUATOR_SYSTEM, temperature=0.4)
         
         # Log summary
         strengths = result.get('strengths', [])

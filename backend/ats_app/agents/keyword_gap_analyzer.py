@@ -1,4 +1,3 @@
-from ats_app.services.llm_service import llm_service
 import logging
 from typing import List, Dict
 
@@ -114,8 +113,9 @@ class KeywordGapAnalyzerAgent:
     Helps focus CV optimization on the most impactful areas.
     """
     
-    def __init__(self):
+    def __init__(self, llm_service=None):
         """Initialize keyword gap analyzer."""
+        self.llm_service = llm_service
         logger.info("KeywordGapAnalyzerAgent initialized")
     
     def analyze_gaps(self, job_title: str, keywords: Dict, match_results: Dict,
@@ -133,6 +133,9 @@ class KeywordGapAnalyzerAgent:
         Returns:
             Dictionary with gap analysis and action plan
         """
+        if not self.llm_service:
+            raise ValueError("KeywordGapAnalyzerAgent requires an LLMService instance")
+        
         logger.info(f"KeywordGapAnalyzerAgent: Starting gap analysis for job '{job_title}'")
         
         prompt = KEYWORD_GAP_ANALYZER_PROMPT.format(
@@ -143,7 +146,7 @@ class KeywordGapAnalyzerAgent:
             prioritization=self._format_prioritization_for_llm(prioritization)
         )
         
-        result = llm_service.generate_json(prompt, KEYWORD_GAP_ANALYZER_SYSTEM, temperature=0.5)
+        result = self.llm_service.generate_json(prompt, KEYWORD_GAP_ANALYZER_SYSTEM, temperature=0.5)
         
         # Log summary
         priority_score = result.get('priority_score', 0.0)

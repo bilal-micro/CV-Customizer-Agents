@@ -6,6 +6,7 @@ from ats_app.agents.cv_matcher import CVMatcherAgent
 from ats_app.agents.cv_updater import CVUpdaterAgent
 from ats_app.agents.ats_rater import ATSRaterAgent
 from ats_app.models import Job, ProcessRun, StageResult, UserProfile
+from ats_app.services.llm_service import LLMService
 
 logger = logging.getLogger(__name__)
 
@@ -34,24 +35,53 @@ class OrchestratorAgent:
     
     def __init__(self, user=None):
         self.user = user
-        self.keyword_extractor = KeywordExtractorAgent()
-        self.cv_matcher = CVMatcherAgent(include_advanced_analysis=True)
-        self.cv_updater = CVUpdaterAgent()
-        self.ats_rater = ATSRaterAgent()
         
-        # Get user-specific API key and model if user is provided
-        self.api_key = None
-        self.model = None
+        # Validate user profile and get configuration
+        api_key = None
+        model = None
+        
         if user:
             try:
                 profile = user.profile
-                self.api_key = profile.openrouter_api_key
-                self.model = profile.preferred_model
+                api_key = profile.openrouter_api_key
+                model = profile.preferred_model
+                
+                # Validate that required fields are present
+                if not api_key or not api_key.strip():
+                    raise ValueError(
+                        "OpenRouter API key is required. Please update your profile with your API key. "
+                        "Get your API key from https://openrouter.ai/keys"
+                    )
+                if not model or not model.strip():
+                    raise ValueError(
+                        "OpenRouter model is required. Please update your profile with your preferred model. "
+                        "Available models at https://openrouter.ai/models"
+                    )
+                
                 logger.info(f"OrchestratorAgent: Using user-specific configuration for {user.username}")
             except UserProfile.DoesNotExist:
-                logger.warning(f"OrchestratorAgent: No profile found for user {user.username}, using defaults")
+                raise ValueError(
+                    f"User profile not found for {user.username}. Please complete your registration or "
+                    "contact support."
+                )
             except Exception as e:
                 logger.error(f"OrchestratorAgent: Error loading user profile: {e}")
+                raise ValueError(
+                    f"Error loading user profile: {str(e)}. Please update your profile."
+                )
+        else:
+            raise ValueError(
+                "User is required to initialize OrchestratorAgent. Please provide a valid user."
+            )
+        
+        # Initialize LLM service with user configuration
+        self.llm_service = LLMService(api_key=api_key, model=model)
+        
+        # Initialize agents with user-specific LLM service
+        self.keyword_extractor = KeywordExtractorAgent(llm_service=self.llm_service)
+        self.cv_matcher = CVMatcherAgent(include_advanced_analysis=True, llm_service=self.llm_service)
+        self.cv_updater = CVUpdaterAgent()
+        self.ats_rater = ATSRaterAgent(llm_service=self.llm_service)
         
         logger.info("OrchestratorAgent initialized")
     

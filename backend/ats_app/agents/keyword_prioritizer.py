@@ -1,4 +1,3 @@
-from ats_app.services.llm_service import llm_service
 import logging
 from typing import List, Dict
 
@@ -90,11 +89,12 @@ Respond with ONLY valid JSON containing: priority_order, critical_gaps, enhancem
 class KeywordPrioritizerAgent:
     """
     Analyzes and prioritizes keywords for CV optimization.
-    Helps focus efforts on the most impactful improvements.
+    Helps focus efforts on most impactful improvements.
     """
     
-    def __init__(self):
+    def __init__(self, llm_service=None):
         """Initialize keyword prioritizer."""
+        self.llm_service = llm_service
         logger.info("KeywordPrioritizerAgent initialized")
     
     def prioritize(self, job_title: str, keywords: Dict, match_results: Dict, 
@@ -111,6 +111,9 @@ class KeywordPrioritizerAgent:
         Returns:
             Dictionary with prioritized optimization plan
         """
+        if not self.llm_service:
+            raise ValueError("KeywordPrioritizerAgent requires an LLMService instance")
+        
         logger.info(f"KeywordPrioritizerAgent: Starting prioritization for job '{job_title}'")
         
         prompt = KEYWORD_PRIORITIZER_PROMPT.format(
@@ -120,7 +123,7 @@ class KeywordPrioritizerAgent:
             section_analysis=self._format_section_analysis_for_llm(section_analysis)
         )
         
-        result = llm_service.generate_json(prompt, KEYWORD_PRIORITIZER_SYSTEM, temperature=0.4)
+        result = self.llm_service.generate_json(prompt, KEYWORD_PRIORITIZER_SYSTEM, temperature=0.4)
         
         # Log summary
         summary = result.get('summary', {})

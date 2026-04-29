@@ -1,13 +1,19 @@
-# 🗺️ Module: Unclassified
+# 🗺️ Module: All Files
 
-**Description:** Files not matched to any architectural module.
-**Goal:** Miscellaneous project functionality.
-**Directories:** `backend/ats_app/services, backend/ats_app/agents, frontend/src, backend, backend/ats_app/migrations`
-**Files:** 16 | **Functions:** 87
+**Description:** General project files.
+**Goal:** Project functionality.
+**Directories:** `backend, backend/ats_app, backend/ats_app/agents, backend/ats_app/migrations, backend/ats_app/services, backend/ats_project, frontend/src, frontend/src/api, frontend/src/components, frontend/src/context, frontend/src/pages`
+**Files:** 34 | **Functions:** 174
 
 [⬅️ Back to Index](./index.md)
 
 ---
+
+## 📄 File: `backend/ats_app/admin.py`
+- **Language:** PYTHON
+- **Lines:** 36
+- **Classes:** `StageResultInline` (line 6), `ProcessRunInline` (line 12), `JobAdmin` (line 19), `ProcessRunAdmin` (line 26), `StageResultAdmin` (line 33)
+- **Functions:** 0
 
 ## 📄 File: `backend/ats_app/agents/ats_rater.py`
 - **Language:** PYTHON
@@ -178,6 +184,27 @@
 
 ---
 
+## 📄 File: `backend/ats_app/apps.py`
+- **Language:** PYTHON
+- **Lines:** 6
+- **Classes:** `AtsAppConfig` (line 4)
+- **Functions:** 0
+
+## 📄 File: `backend/ats_app/authentication.py`
+- **Language:** PYTHON
+- **Lines:** 141
+- **Functions:** 5
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `register_view` | `def register_view(request) -> Any` | 23 | Register a new user and return JWT tokens for automatic login |
+| `login_view` | `def login_view(request) -> Any` | 47 | Login user and return JWT tokens |
+| `logout_view` | `def logout_view(request) -> Any` | 79 | Logout user - blacklist the refresh token to invalidate it |
+| `profile_view` | `def profile_view(request) -> Any` | 101 | Get or update user profile |
+| `change_password_view` | `def change_password_view(request) -> Any` | 128 | Change user password |
+
+---
+
 ## 📄 File: `backend/ats_app/migrations/0001_initial.py`
 - **Language:** PYTHON
 - **Lines:** 63
@@ -202,6 +229,38 @@
 - **Classes:** `Migration` (line 6)
 - **Functions:** 0
 
+## 📄 File: `backend/ats_app/models.py`
+- **Language:** PYTHON
+- **Lines:** 112
+- **Classes:** `UserProfile` (line 8), `Meta` (line 26), `Job` (line 34), `Meta` (line 42), `ProcessRun` (line 49), `Meta` (line 71), `StageResult` (line 78), `Meta` (line 106)
+- **Functions:** 4
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `__str__` | `def __str__(self) -> Any` | 30 |  |
+| `__str__` | `def __str__(self) -> Any` | 45 |  |
+| `__str__` | `def __str__(self) -> Any` | 74 |  |
+| `__str__` | `def __str__(self) -> Any` | 110 |  |
+
+---
+
+## 📄 File: `backend/ats_app/serializers.py`
+- **Language:** PYTHON
+- **Lines:** 129
+- **Classes:** `UserSerializer` (line 9), `Meta` (line 13), `UserProfileSerializer` (line 27), `Meta` (line 29), `LoginSerializer` (line 37), `PasswordChangeSerializer` (line 43), `StageResultSerializer` (line 61), `Meta` (line 62), `ProcessRunSerializer` (line 67), `Meta` (line 71), `JobSerializer` (line 79), `Meta` (line 83), `JobCreateSerializer` (line 91), `Meta` (line 92), `ProcessRunCreateSerializer` (line 102), `Meta` (line 103), `ManualLatexSubmissionSerializer` (line 114)
+- **Functions:** 6
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `create` | `def create(self, validated_data) -> Any` | 20 |  |
+| `validate_old_password` | `def validate_old_password(self, value) -> Any` | 48 |  |
+| `validate_new_password` | `def validate_new_password(self, value) -> Any` | 54 |  |
+| `create` | `def create(self, validated_data) -> Any` | 96 |  |
+| `create` | `def create(self, validated_data) -> Any` | 107 |  |
+| `validate_latex_content` | `def validate_latex_content(self, value) -> Any` | 117 |  |
+
+---
+
 ## 📄 File: `backend/ats_app/services/llm_service.py`
 - **Language:** PYTHON
 - **Lines:** 417
@@ -219,6 +278,40 @@
 | `_complete_truncated_json` | `def _complete_truncated_json(self, json_str: str) -> str` | 167 |  |
 | `_ensure_dict_result` | `def _ensure_dict_result(self, result) -> dict` | 224 | Ensure the result is always a dict. |
 | `generate_json` | `def generate_json(self, prompt: str, system: str = "", temperature: float = None) -> dict` | 246 |  |
+
+---
+
+## 📄 File: `backend/ats_app/views.py`
+- **Language:** PYTHON
+- **Lines:** 330
+- **Classes:** `JobViewSet` (line 70), `ProcessRunViewSet` (line 100), `StageResultViewSet` (line 327)
+- **Functions:** 12
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `_run_orchestrator_async` | `def _run_orchestrator_async(process_run_id, user_id=None) -> Any` | 26 |  |
+| `_resume_orchestrator_async` | `def _resume_orchestrator_async(process_run_id) -> Any` | 42 |  |
+| `_restart_orchestrator_async` | `def _restart_orchestrator_async(process_run_id) -> Any` | 56 |  |
+| `get_queryset` | `def get_queryset(self) -> Any` | 75 |  |
+| `get_serializer_class` | `def get_serializer_class(self) -> Any` | 79 |  |
+| `run_process` | `def run_process(self, request, pk=None) -> Any` | 85 |  |
+| `get_queryset` | `def get_queryset(self) -> Any` | 105 |  |
+| `get_prompt` | `def get_prompt(self, request, pk=None) -> Any` | 110 | Get the generated prompt from Agent 3 for manual LLM input. |
+| `submit_manual_latex` | `def submit_manual_latex(self, request, pk=None) -> Any` | 150 | Submit manually updated LaTeX from external LLM and continue process. |
+| `continue_iterating` | `def continue_iterating(self, request, pk=None) -> Any` | 209 | Trigger a new manual iteration after process completion. |
+| `restart` | `def restart(self, request, pk=None) -> Any` | 257 | Restart a failed process from the point of failure. |
+| `force_complete` | `def force_complete(self, request, pk=None) -> Any` | 294 | Force complete a process without running any agents. |
+
+---
+
+## 📄 File: `backend/ats_project/urls.py`
+- **Language:** PYTHON
+- **Lines:** 43
+- **Functions:** 1
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `health_check` | `def health_check(request) -> Any` | 11 | Health check endpoint that doesn't require authentication |
 
 ---
 
@@ -247,5 +340,174 @@
 | `confirmLogout` | `const confirmLogout = async () => any` | 23 |  |
 | `cancelLogout` | `const cancelLogout = () => any` | 33 |  |
 | `getUserInitials` | `const getUserInitials = () => any` | 38 |  |
+
+---
+
+## 📄 File: `frontend/src/api/index.ts`
+- **Language:** JAVASCRIPT
+- **Lines:** 96
+- **Functions:** 16
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `login` | `export const login = (username: string, password: string) => any` | 47 |  |
+| `logout` | `export const logout = (refreshToken: string) => any` | 50 |  |
+| `getProfile` | `export const getProfile = () => any` | 53 |  |
+| `updateProfile` | `export const updateProfile = (data: { openrouter_api_key?: string; preferred_model?: string }) => any` | 56 |  |
+| `register` | `export const register = (username: string, email: string, password: string) => any` | 59 |  |
+| `createJob` | `export const createJob = (data: { title: string; description: string; latex_cv: string }) => any` | 62 |  |
+| `getJobs` | `export const getJobs = () => any` | 68 |  |
+| `getJob` | `export const getJob = (id: string) => any` | 70 |  |
+| `runProcess` | `export const runProcess = (jobId: string, maxRetries = 3) => any` | 72 |  |
+| `getProcessRuns` | `export const getProcessRuns = () => any` | 78 |  |
+| `getProcessRun` | `export const getProcessRun = (id: string) => any` | 80 |  |
+| `getPrompt` | `export const getPrompt = (id: string) => any` | 82 |  |
+| `submitManualLatex` | `export const submitManualLatex = (id: string, latexContent: string) => any` | 85 |  |
+| `continueIterating` | `export const continueIterating = (id: string) => any` | 88 |  |
+| `restartProcess` | `export const restartProcess = (id: string) => any` | 91 |  |
+| `forceComplete` | `export const forceComplete = (id: string) => any` | 94 |  |
+
+---
+
+## 📄 File: `frontend/src/components/JobForm.tsx`
+- **Language:** JAVASCRIPT
+- **Lines:** 226
+- **Functions:** 2
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `JobForm` | `export function JobForm() : any` | 6 |  |
+| `getCharCounterClass` | `const getCharCounterClass = (current: number, max: number) => any` | 101 |  |
+
+---
+
+## 📄 File: `frontend/src/components/KeywordDetails.tsx`
+- **Language:** JAVASCRIPT
+- **Lines:** 163
+- **Functions:** 6
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `MatchedKeywordCard` | `function MatchedKeywordCard({ keyword }: { keyword: MatchedKeyword }) : any` | 8 |  |
+| `MissingKeywordCard` | `function MissingKeywordCard({ keyword }: { keyword: MissingKeyword }) : any` | 80 |  |
+| `KeywordDetails` | `export function KeywordDetails({ matchedKeywords, missingKeywords }: KeywordDetailsProps) : any` | 127 |  |
+| `getEffectivenessColor` | `const getEffectivenessColor = (score: number) => any` | 11 |  |
+| `getEffectivenessLabel` | `const getEffectivenessLabel = (score: number) => any` | 17 |  |
+| `getPriorityColor` | `const getPriorityColor = (impact: string) => any` | 89 |  |
+
+---
+
+## 📄 File: `frontend/src/components/KeywordExtractionDisplay.tsx`
+- **Language:** JAVASCRIPT
+- **Lines:** 137
+- **Functions:** 7
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `getPriorityIcon` | `function getPriorityIcon(priority: number) : string` | 9 |  |
+| `getPriorityLabel` | `function getPriorityLabel(priority: number) : string` | 15 |  |
+| `getConfidenceColor` | `function getConfidenceColor(confidence: number) : string` | 21 |  |
+| `getCategoryIcon` | `function getCategoryIcon(category: string) : string` | 27 |  |
+| `getKeywordText` | `function getKeywordText(item: ExtractedKeyword) : string` | 51 |  |
+| `KeywordCard` | `function KeywordCard({ item, category }: { item: ExtractedKeyword; category?: string }) : any` | 55 |  |
+| `KeywordExtractionDisplay` | `export function KeywordExtractionDisplay({ items, label, category }: KeywordExtractionDisplayProps) : any` | 119 |  |
+
+---
+
+## 📄 File: `frontend/src/components/LoginForm.tsx`
+- **Language:** JAVASCRIPT
+- **Lines:** 91
+- **Functions:** 1
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `handleSubmit` | `const handleSubmit = async (e: React.FormEvent) => any` | 12 |  |
+
+---
+
+## 📄 File: `frontend/src/components/ProcessList.tsx`
+- **Language:** JAVASCRIPT
+- **Lines:** 86
+- **Functions:** 1
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `ProcessList` | `export function ProcessList() : any` | 7 |  |
+
+---
+
+## 📄 File: `frontend/src/components/ProcessTracker.tsx`
+- **Language:** JAVASCRIPT
+- **Lines:** 483
+- **Functions:** 7
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `RatingBar` | `function RatingBar({ value, label }: { value: number \| null; label: string }) : any` | 26 |  |
+| `KeywordList` | `function KeywordList({ items, label, category }: { items: KeywordItem[]; label: string; category?: string }) : any` | 50 |  |
+| `ProcessTracker` | `export function ProcessTracker({ stages }: { stages: StageResult[] }) : any` | 94 |  |
+| `formatKeyword` | `const formatKeyword = (item: KeywordItem) => string` | 53 |  |
+| `getProgressPercentage` | `const getProgressPercentage = () => any` | 95 |  |
+| `getSectionIcon` | `const getSectionIcon = (name: string) => any` | 167 |  |
+| `getRelevanceColor` | `const getRelevanceColor = (relevance: number) => any` | 178 |  |
+
+---
+
+## 📄 File: `frontend/src/components/RegistrationForm.tsx`
+- **Language:** JAVASCRIPT
+- **Lines:** 264
+- **Functions:** 4
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `validateEmail` | `const validateEmail = (email: string) => boolean` | 22 |  |
+| `getPasswordStrength` | `const getPasswordStrength = (password: string) => { strength: string; color: string; percentage: number }` | 27 |  |
+| `validateForm` | `const validateForm = () => boolean` | 45 |  |
+| `handleSubmit` | `const handleSubmit = async (e: React.FormEvent) => any` | 83 |  |
+
+---
+
+## 📄 File: `frontend/src/context/AuthContext.tsx`
+- **Language:** JAVASCRIPT
+- **Lines:** 180
+- **Functions:** 5
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `useAuth` | `export const useAuth = () => any` | 23 |  |
+| `register` | `const register = async (username: string, email: string, password: string) => any` | 52 |  |
+| `login` | `const login = async (username: string, password: string) => any` | 90 |  |
+| `logout` | `const logout = async () => any` | 116 |  |
+| `refreshToken` | `const refreshToken = async () => any` | 143 |  |
+
+---
+
+## 📄 File: `frontend/src/pages/ProcessDetail.tsx`
+- **Language:** JAVASCRIPT
+- **Lines:** 660
+- **Functions:** 8
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `ProcessDetail` | `export function ProcessDetail() : any` | 7 |  |
+| `fetchPrompt` | `const fetchPrompt = async () => any` | 61 |  |
+| `handleSubmitLatex` | `const handleSubmitLatex = async () => any` | 84 |  |
+| `handleContinueIterating` | `const handleContinueIterating = async () => any` | 105 |  |
+| `handleRestart` | `const handleRestart = async () => any` | 125 |  |
+| `handleForceComplete` | `const handleForceComplete = async () => any` | 142 |  |
+| `getStatusIcon` | `const getStatusIcon = (status: string) => any` | 171 |  |
+| `getStatusColor` | `const getStatusColor = (status: string) => any` | 182 |  |
+
+---
+
+## 📄 File: `frontend/src/pages/ProfilePage.tsx`
+- **Language:** JAVASCRIPT
+- **Lines:** 199
+- **Functions:** 2
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `fetchProfile` | `const fetchProfile = async () => any` | 47 |  |
+| `handleSubmit` | `const handleSubmit = async (e: React.FormEvent) => any` | 62 |  |
 
 ---

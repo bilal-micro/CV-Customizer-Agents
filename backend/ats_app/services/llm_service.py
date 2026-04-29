@@ -10,23 +10,42 @@ logger = logging.getLogger(__name__)
 
 class LLMService:
     def __init__(self, api_key=None, model=None):
-        self.provider = getattr(settings, 'LLM_PROVIDER', 'ollama').lower()
+        self.provider = getattr(settings, 'LLM_PROVIDER', 'openrouter').lower()
         
-        # Use user-specific API key and model if provided, otherwise use defaults
-        user_api_key = api_key if api_key and api_key.strip() else None
-        user_model = model if model and model.strip() else None
+        # Validate required parameters
+        if not api_key or not api_key.strip():
+            raise ValueError(
+                "OpenRouter API key is required. Please provide your API key during registration "
+                "or update your profile. Get your API key from https://openrouter.ai/keys"
+            )
+        
+        if not model or not model.strip():
+            raise ValueError(
+                "OpenRouter model is required. Please provide your preferred model during registration "
+                "or update your profile. Available models at https://openrouter.ai/models"
+            )
+        
+        # Use user-provided configuration
+        self.api_key = api_key.strip()
+        self.model = model.strip()
         
         if self.provider == 'openrouter':
             self.base_url = getattr(settings, 'OPENROUTER_BASE_URL', 'https://openrouter.ai/api/v1')
-            self.model = user_model if user_model else getattr(settings, 'OPENROUTER_MODEL')
-            self.api_key = user_api_key if user_api_key else getattr(settings, 'OPENROUTER_API_KEY', '')
             self.max_tokens = getattr(settings, 'OPENROUTER_MAX_TOKENS', 32768)
-            logger.info(f"LLMService initialized with OpenRouter - Model: {self.model}, API Key: {'Custom' if user_api_key else 'Default'}")
-        else:  # Default to Ollama
+            logger.info(f"LLMService initialized with OpenRouter - Model: {self.model}")
+        else:
+            # Deprecation warning for Ollama
+            import warnings
+            warnings.warn(
+                "Ollama support is deprecated and will be removed in a future version. "
+                "Please switch to OpenRouter by setting LLM_PROVIDER='openrouter' in settings "
+                "and providing your OpenRouter API key.",
+                DeprecationWarning,
+                stacklevel=2
+            )
             self.base_url = getattr(settings, 'OLLAMA_BASE_URL', 'http://localhost:11434')
-            self.model = user_model if user_model else getattr(settings, 'OLLAMA_MODEL', 'llama3.1')
             self.max_tokens = getattr(settings, 'OLLAMA_MAX_TOKENS', 32768)
-            logger.info(f"LLMService initialized with Ollama - Model: {self.model}")
+            logger.info(f"LLMService initialized with Ollama (DEPRECATED) - Model: {self.model}")
 
     def generate(self, prompt: str, system: str = "", temperature: float = None) -> str:
         if self.provider == 'openrouter':
@@ -418,6 +437,3 @@ class LLMService:
         # All strategies failed
         logger.warning(f"JSON parse failed for all strategies, raw: {raw[:500]}...")
         return {"raw_response": raw, "parse_error": "Failed to extract valid JSON"}
-
-
-llm_service = LLMService()
