@@ -98,6 +98,12 @@
           "type": "file",
           "path": "ExecutionSummary/Commit_2026-04-29_18-14-07_255836c6.md",
           "size_bytes": 12331
+        },
+        {
+          "name": "Commit_2026-04-29_18-31-18_a7c546dd.md",
+          "type": "file",
+          "path": "ExecutionSummary/Commit_2026-04-29_18-31-18_a7c546dd.md",
+          "size_bytes": 12780
         }
       ]
     },
@@ -577,7 +583,12 @@
                   "type": "file",
                   "path": "backend/ats_app/migrations/0005_job_user_processrun_user_userprofile.py",
                   "language": "python",
-                  "size_bytes": 1911
+                  "total_lines": 42,
+                  "function_count": 0,
+                  "classes": [
+                    "Migration"
+                  ],
+                  "functions": []
                 },
                 {
                   "name": "0006_alter_userprofile_fields.py",
@@ -596,7 +607,12 @@
                   "type": "file",
                   "path": "backend/ats_app/migrations/0007_alter_userprofile_openrouter_api_key_and_more.py",
                   "language": "python",
-                  "size_bytes": 842
+                  "total_lines": 24,
+                  "function_count": 0,
+                  "classes": [
+                    "Migration"
+                  ],
+                  "functions": []
                 },
                 {
                   "name": "__init__.py",
@@ -729,8 +745,8 @@
               "type": "file",
               "path": "backend/ats_app/serializers.py",
               "language": "python",
-              "total_lines": 129,
-              "function_count": 6,
+              "total_lines": 170,
+              "function_count": 9,
               "classes": [
                 "UserSerializer",
                 "Meta",
@@ -752,6 +768,9 @@
               ],
               "functions": [
                 "create",
+                "to_representation",
+                "validate_openrouter_api_key",
+                "validate_preferred_model",
                 "validate_old_password",
                 "validate_new_password",
                 "create",
@@ -833,12 +852,7 @@
               "type": "file",
               "path": "backend/ats_project/urls.py",
               "language": "python",
-              "total_lines": 43,
-              "function_count": 1,
-              "classes": [],
-              "functions": [
-                "health_check"
-              ]
+              "size_bytes": 149
             },
             {
               "name": "wsgi.py",
@@ -859,7 +873,7 @@
           "name": "db.sqlite3",
           "type": "file",
           "path": "backend/db.sqlite3",
-          "size_bytes": 3133440
+          "size_bytes": 3239936
         },
         {
           "name": "manage.py",
@@ -1140,12 +1154,14 @@
                   "type": "file",
                   "path": "frontend/src/pages/ProfilePage.tsx",
                   "language": "javascript",
-                  "total_lines": 207,
-                  "function_count": 2,
+                  "total_lines": 329,
+                  "function_count": 4,
                   "classes": [],
                   "functions": [
                     "fetchProfile",
-                    "handleSubmit"
+                    "handleSubmit",
+                    "handleUpdateApiKey",
+                    "handleOpenApiKeyModal"
                   ]
                 },
                 {
@@ -1175,7 +1191,7 @@
               "name": "App.css",
               "type": "file",
               "path": "frontend/src/App.css",
-              "size_bytes": 34903
+              "size_bytes": 36720
             },
             {
               "name": "App.tsx",
@@ -1330,5 +1346,5 @@
     }
   ],
   "total_directories": 21,
-  "total_files": 125
+  "total_files": 126
 }
