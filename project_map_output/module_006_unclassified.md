@@ -1,9 +1,9 @@
-# 🗺️ Module: Backend Core
+# 🗺️ Module: Unclassified
 
-**Description:** Contains Django application setup, models, views, serializers, and authentication logic.
-**Goal:** To define the application data structure, handle API requests, and manage user authentication.
-**Directories:** `backend, backend/ats_app`
-**Files:** 7 | **Functions:** 28
+**Description:** Files not matched to any architectural module.
+**Goal:** Miscellaneous project functionality.
+**Directories:** `backend/ats_app`
+**Files:** 6 | **Functions:** 27
 
 [⬅️ Back to Index](./index.md)
 
@@ -23,16 +23,16 @@
 
 ## 📄 File: `backend/ats_app/authentication.py`
 - **Language:** PYTHON
-- **Lines:** 136
+- **Lines:** 141
 - **Functions:** 5
 
 | Function | Signature | Line | Description |
 |----------|-----------|------|-------------|
-| `register_view` | `def register_view(request) -> Any` | 23 | Register a new user |
-| `login_view` | `def login_view(request) -> Any` | 42 | Login user and return JWT tokens |
-| `logout_view` | `def logout_view(request) -> Any` | 74 | Logout user by blacklisting refresh token |
-| `profile_view` | `def profile_view(request) -> Any` | 96 | Get or update user profile |
-| `change_password_view` | `def change_password_view(request) -> Any` | 123 | Change user password |
+| `register_view` | `def register_view(request) -> Any` | 23 | Register a new user and return JWT tokens for automatic login |
+| `login_view` | `def login_view(request) -> Any` | 47 | Login user and return JWT tokens |
+| `logout_view` | `def logout_view(request) -> Any` | 79 | Logout user by blacklisting refresh token |
+| `profile_view` | `def profile_view(request) -> Any` | 101 | Get or update user profile |
+| `change_password_view` | `def change_password_view(request) -> Any` | 128 | Change user password |
 
 ---
 
@@ -88,16 +88,5 @@
 | `continue_iterating` | `def continue_iterating(self, request, pk=None) -> Any` | 207 | Trigger a new manual iteration after process completion. |
 | `restart` | `def restart(self, request, pk=None) -> Any` | 255 | Restart a failed process from the point of failure. |
 | `force_complete` | `def force_complete(self, request, pk=None) -> Any` | 292 | Force complete a process without running any agents. |
-
----
-
-## 📄 File: `backend/manage.py`
-- **Language:** PYTHON
-- **Lines:** 23
-- **Functions:** 1
-
-| Function | Signature | Line | Description |
-|----------|-----------|------|-------------|
-| `main` | `def main() -> Any` | 7 | Run administrative tasks. |
 
 ---

@@ -1,11 +1,25 @@
-# 🗺️ Module: API Integration
+# 🗺️ Module: Frontend Infrastructure
 
-**Description:** Manages communication between frontend and backend services.
-**Goal:** To provide a clean interface for data exchange and API request handling.
-**Directories:** `frontend/src/api`
-**Files:** 1 | **Functions:** 16
+**Description:** Handles API communication and global state management.
+**Goal:** Enables data exchange and user session handling.
+**Directories:** `frontend/src/api, frontend/src/context, frontend/src`
+**Files:** 3 | **Functions:** 25
 
 [⬅️ Back to Index](./index.md)
+
+---
+
+## 📄 File: `frontend/src/App.tsx`
+- **Language:** JAVASCRIPT
+- **Lines:** 61
+- **Functions:** 4
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `NavLinks` | `function NavLinks() : any` | 11 |  |
+| `App` | `function App() : any` | 35 |  |
+| `isActive` | `const isActive = (path: string) => any` | 14 |  |
+| `handleLogout` | `const handleLogout = async () => any` | 16 |  |
 
 ---
 
@@ -32,5 +46,20 @@
 | `continueIterating` | `export const continueIterating = (id: string) => any` | 88 |  |
 | `restartProcess` | `export const restartProcess = (id: string) => any` | 91 |  |
 | `forceComplete` | `export const forceComplete = (id: string) => any` | 94 |  |
+
+---
+
+## 📄 File: `frontend/src/context/AuthContext.tsx`
+- **Language:** JAVASCRIPT
+- **Lines:** 179
+- **Functions:** 5
+
+| Function | Signature | Line | Description |
+|----------|-----------|------|-------------|
+| `useAuth` | `export const useAuth = () => any` | 23 |  |
+| `register` | `const register = async (username: string, email: string, password: string) => any` | 52 |  |
+| `login` | `const login = async (username: string, password: string) => any` | 90 |  |
+| `logout` | `const logout = async () => any` | 116 |  |
+| `refreshToken` | `const refreshToken = async () => any` | 142 |  |
 
 ---

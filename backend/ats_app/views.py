@@ -68,6 +68,7 @@ def _restart_orchestrator_async(process_run_id):
 
 
 class JobViewSet(viewsets.ModelViewSet):
+    queryset = Job.objects.all()
     permission_classes = [IsAuthenticated]
     serializer_class = JobSerializer
 
@@ -97,6 +98,7 @@ class JobViewSet(viewsets.ModelViewSet):
 
 
 class ProcessRunViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = ProcessRun.objects.all()
     permission_classes = [IsAuthenticated]
     serializer_class = ProcessRunSerializer
 

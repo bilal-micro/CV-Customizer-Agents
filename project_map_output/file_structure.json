@@ -41,6 +41,19 @@
       ]
     },
     {
+      "name": "ExecutionSummary",
+      "type": "directory",
+      "path": "ExecutionSummary",
+      "children": [
+        {
+          "name": ".gitkeep",
+          "type": "file",
+          "path": "ExecutionSummary/.gitkeep",
+          "size_bytes": 0
+        }
+      ]
+    },
+    {
       "name": "Plans",
       "type": "directory",
       "path": "Plans",
@@ -598,7 +611,7 @@
               "type": "file",
               "path": "backend/ats_app/authentication.py",
               "language": "python",
-              "total_lines": 136,
+              "total_lines": 141,
               "function_count": 5,
               "classes": [],
               "functions": [
@@ -888,12 +901,11 @@
                   "type": "file",
                   "path": "frontend/src/components/JobForm.tsx",
                   "language": "javascript",
-                  "total_lines": 249,
-                  "function_count": 3,
+                  "total_lines": 226,
+                  "function_count": 2,
                   "classes": [],
                   "functions": [
                     "JobForm",
-                    "checkHealth",
                     "getCharCounterClass"
                   ]
                 },
@@ -937,7 +949,7 @@
                   "type": "file",
                   "path": "frontend/src/components/LoginForm.tsx",
                   "language": "javascript",
-                  "total_lines": 61,
+                  "total_lines": 91,
                   "function_count": 1,
                   "classes": [],
                   "functions": [
@@ -979,7 +991,7 @@
                   "type": "file",
                   "path": "frontend/src/components/RegistrationForm.tsx",
                   "language": "javascript",
-                  "total_lines": 191,
+                  "total_lines": 264,
                   "function_count": 4,
                   "classes": [],
                   "functions": [
@@ -1024,7 +1036,7 @@
                   "type": "file",
                   "path": "frontend/src/pages/LoginPage.tsx",
                   "language": "javascript",
-                  "size_bytes": 784
+                  "size_bytes": 1155
                 },
                 {
                   "name": "ProcessDetail.tsx",
@@ -1063,7 +1075,7 @@
                   "type": "file",
                   "path": "frontend/src/pages/RegisterPage.tsx",
                   "language": "javascript",
-                  "size_bytes": 825
+                  "size_bytes": 1268
                 }
               ]
             },
@@ -1085,7 +1097,7 @@
               "name": "App.css",
               "type": "file",
               "path": "frontend/src/App.css",
-              "size_bytes": 22575
+              "size_bytes": 28969
             },
             {
               "name": "App.tsx",
@@ -1236,6 +1248,6 @@
       "size_bytes": 16629
     }
   ],
-  "total_directories": 20,
-  "total_files": 113
+  "total_directories": 21,
+  "total_files": 114
 }

@@ -1,7 +1,7 @@
-# 🗺️ Module: Database Migrations
+# 🗺️ Module: Data Layer
 
-**Description:** Manages database schema changes and version control.
-**Goal:** To maintain data integrity and support database evolution as the application grows.
+**Description:** Manages database models and schema migrations.
+**Goal:** Ensures data persistence and structural integrity.
 **Directories:** `backend/ats_app/migrations`
 **Files:** 4 | **Functions:** 0
 

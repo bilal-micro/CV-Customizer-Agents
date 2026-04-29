@@ -1,9 +1,9 @@
-# 🗺️ Module: UI Components
+# 🗺️ Module: Frontend UI
 
-**Description:** Builds reusable UI elements for forms, displays, and page layouts.
-**Goal:** To create a consistent and modular user interface for better maintainability.
+**Description:** Contains reusable UI components and page layouts.
+**Goal:** Constructs the user interface for application interactions.
 **Directories:** `frontend/src/components, frontend/src/pages`
-**Files:** 9 | **Functions:** 39
+**Files:** 9 | **Functions:** 38
 
 [⬅️ Back to Index](./index.md)
 
@@ -11,14 +11,13 @@
 
 ## 📄 File: `frontend/src/components/JobForm.tsx`
 - **Language:** JAVASCRIPT
-- **Lines:** 249
-- **Functions:** 3
+- **Lines:** 226
+- **Functions:** 2
 
 | Function | Signature | Line | Description |
 |----------|-----------|------|-------------|
 | `JobForm` | `export function JobForm() : any` | 6 |  |
-| `checkHealth` | `const checkHealth = async () => any` | 27 |  |
-| `getCharCounterClass` | `const getCharCounterClass = (current: number, max: number) => any` | 124 |  |
+| `getCharCounterClass` | `const getCharCounterClass = (current: number, max: number) => any` | 101 |  |
 
 ---
 
@@ -57,12 +56,12 @@
 
 ## 📄 File: `frontend/src/components/LoginForm.tsx`
 - **Language:** JAVASCRIPT
-- **Lines:** 61
+- **Lines:** 91
 - **Functions:** 1
 
 | Function | Signature | Line | Description |
 |----------|-----------|------|-------------|
-| `handleSubmit` | `const handleSubmit = async (e: React.FormEvent) => any` | 11 |  |
+| `handleSubmit` | `const handleSubmit = async (e: React.FormEvent) => any` | 12 |  |
 
 ---
 
@@ -96,15 +95,15 @@
 
 ## 📄 File: `frontend/src/components/RegistrationForm.tsx`
 - **Language:** JAVASCRIPT
-- **Lines:** 191
+- **Lines:** 264
 - **Functions:** 4
 
 | Function | Signature | Line | Description |
 |----------|-----------|------|-------------|
-| `validateEmail` | `const validateEmail = (email: string) => boolean` | 20 |  |
-| `getPasswordStrength` | `const getPasswordStrength = (password: string) => { strength: string; color: string }` | 25 |  |
-| `validateForm` | `const validateForm = () => boolean` | 32 |  |
-| `handleSubmit` | `const handleSubmit = async (e: React.FormEvent) => any` | 70 |  |
+| `validateEmail` | `const validateEmail = (email: string) => boolean` | 22 |  |
+| `getPasswordStrength` | `const getPasswordStrength = (password: string) => { strength: string; color: string; percentage: number }` | 27 |  |
+| `validateForm` | `const validateForm = () => boolean` | 45 |  |
+| `handleSubmit` | `const handleSubmit = async (e: React.FormEvent) => any` | 83 |  |
 
 ---
 

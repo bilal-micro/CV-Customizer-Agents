@@ -1,9 +1,9 @@
 {
   "metadata": {
     "project_name": "ATS-Agentic",
-    "scan_date": "2026-04-29T02:48:53",
+    "scan_date": "2026-04-29T03:24:37",
     "total_files": 34,
-    "total_functions": 172,
+    "total_functions": 171,
     "languages": [
       "javascript",
       "python"
@@ -12,383 +12,34 @@
       "python": 22,
       "javascript": 12
     },
-    "modules_count": 9
+    "modules_count": 6
   },
   "modules": [
     {
       "id": "module_001",
-      "name": "Backend Core",
-      "description": "Contains Django application setup, models, views, serializers, and authentication logic.",
-      "goal": "To define the application data structure, handle API requests, and manage user authentication.",
+      "name": "Backend Infrastructure",
+      "description": "Provides Django project setup and URL routing.",
+      "goal": "Configures the backend environment and API endpoints.",
       "directories": [
         "backend",
-        "backend/ats_app"
+        "backend/ats_project"
       ],
-      "file_count": 7,
-      "function_count": 28,
+      "file_count": 2,
+      "function_count": 2,
       "files": [
         {
-          "path": "backend/ats_app/admin.py",
+          "path": "backend/ats_project/urls.py",
           "language": "python",
-          "total_lines": 36,
-          "classes": [
-            {
-              "name": "StageResultInline",
-              "line": 6
-            },
-            {
-              "name": "ProcessRunInline",
-              "line": 12
-            },
-            {
-              "name": "JobAdmin",
-              "line": 19
-            },
-            {
-              "name": "ProcessRunAdmin",
-              "line": 26
-            },
-            {
-              "name": "StageResultAdmin",
-              "line": 33
-            }
-          ],
-          "function_count": 0,
-          "functions": []
-        },
-        {
-          "path": "backend/ats_app/apps.py",
-          "language": "python",
-          "total_lines": 6,
-          "classes": [
-            {
-              "name": "AtsAppConfig",
-              "line": 4
-            }
-          ],
-          "function_count": 0,
-          "functions": []
-        },
-        {
-          "path": "backend/ats_app/authentication.py",
-          "language": "python",
-          "total_lines": 136,
+          "total_lines": 43,
           "classes": [],
-          "function_count": 5,
+          "function_count": 1,
           "functions": [
             {
-              "name": "register_view",
-              "signature": "def register_view(request) -> Any",
-              "line_number": 23,
-              "description": "Register a new user",
+              "name": "health_check",
+              "signature": "def health_check(request) -> Any",
+              "line_number": 11,
+              "description": "Health check endpoint that doesn't require authentication",
               "params_raw": "request"
-            },
-            {
-              "name": "login_view",
-              "signature": "def login_view(request) -> Any",
-              "line_number": 42,
-              "description": "Login user and return JWT tokens",
-              "params_raw": "request"
-            },
-            {
-              "name": "logout_view",
-              "signature": "def logout_view(request) -> Any",
-              "line_number": 74,
-              "description": "Logout user by blacklisting refresh token",
-              "params_raw": "request"
-            },
-            {
-              "name": "profile_view",
-              "signature": "def profile_view(request) -> Any",
-              "line_number": 96,
-              "description": "Get or update user profile",
-              "params_raw": "request"
-            },
-            {
-              "name": "change_password_view",
-              "signature": "def change_password_view(request) -> Any",
-              "line_number": 123,
-              "description": "Change user password",
-              "params_raw": "request"
-            }
-          ]
-        },
-        {
-          "path": "backend/ats_app/models.py",
-          "language": "python",
-          "total_lines": 112,
-          "classes": [
-            {
-              "name": "UserProfile",
-              "line": 8
-            },
-            {
-              "name": "Meta",
-              "line": 26
-            },
-            {
-              "name": "Job",
-              "line": 34
-            },
-            {
-              "name": "Meta",
-              "line": 42
-            },
-            {
-              "name": "ProcessRun",
-              "line": 49
-            },
-            {
-              "name": "Meta",
-              "line": 71
-            },
-            {
-              "name": "StageResult",
-              "line": 78
-            },
-            {
-              "name": "Meta",
-              "line": 106
-            }
-          ],
-          "function_count": 4,
-          "functions": [
-            {
-              "name": "__str__",
-              "signature": "def __str__(self) -> Any",
-              "line_number": 30,
-              "params_raw": "self"
-            },
-            {
-              "name": "__str__",
-              "signature": "def __str__(self) -> Any",
-              "line_number": 45,
-              "params_raw": "self"
-            },
-            {
-              "name": "__str__",
-              "signature": "def __str__(self) -> Any",
-              "line_number": 74,
-              "params_raw": "self"
-            },
-            {
-              "name": "__str__",
-              "signature": "def __str__(self) -> Any",
-              "line_number": 110,
-              "params_raw": "self"
-            }
-          ]
-        },
-        {
-          "path": "backend/ats_app/serializers.py",
-          "language": "python",
-          "total_lines": 129,
-          "classes": [
-            {
-              "name": "UserSerializer",
-              "line": 9
-            },
-            {
-              "name": "Meta",
-              "line": 13
-            },
-            {
-              "name": "UserProfileSerializer",
-              "line": 27
-            },
-            {
-              "name": "Meta",
-              "line": 29
-            },
-            {
-              "name": "LoginSerializer",
-              "line": 37
-            },
-            {
-              "name": "PasswordChangeSerializer",
-              "line": 43
-            },
-            {
-              "name": "StageResultSerializer",
-              "line": 61
-            },
-            {
-              "name": "Meta",
-              "line": 62
-            },
-            {
-              "name": "ProcessRunSerializer",
-              "line": 67
-            },
-            {
-              "name": "Meta",
-              "line": 71
-            },
-            {
-              "name": "JobSerializer",
-              "line": 79
-            },
-            {
-              "name": "Meta",
-              "line": 83
-            },
-            {
-              "name": "JobCreateSerializer",
-              "line": 91
-            },
-            {
-              "name": "Meta",
-              "line": 92
-            },
-            {
-              "name": "ProcessRunCreateSerializer",
-              "line": 102
-            },
-            {
-              "name": "Meta",
-              "line": 103
-            },
-            {
-              "name": "ManualLatexSubmissionSerializer",
-              "line": 114
-            }
-          ],
-          "function_count": 6,
-          "functions": [
-            {
-              "name": "create",
-              "signature": "def create(self, validated_data) -> Any",
-              "line_number": 20,
-              "params_raw": "self, validated_data"
-            },
-            {
-              "name": "validate_old_password",
-              "signature": "def validate_old_password(self, value) -> Any",
-              "line_number": 48,
-              "params_raw": "self, value"
-            },
-            {
-              "name": "validate_new_password",
-              "signature": "def validate_new_password(self, value) -> Any",
-              "line_number": 54,
-              "params_raw": "self, value"
-            },
-            {
-              "name": "create",
-              "signature": "def create(self, validated_data) -> Any",
-              "line_number": 96,
-              "params_raw": "self, validated_data"
-            },
-            {
-              "name": "create",
-              "signature": "def create(self, validated_data) -> Any",
-              "line_number": 107,
-              "params_raw": "self, validated_data"
-            },
-            {
-              "name": "validate_latex_content",
-              "signature": "def validate_latex_content(self, value) -> Any",
-              "line_number": 117,
-              "params_raw": "self, value"
-            }
-          ]
-        },
-        {
-          "path": "backend/ats_app/views.py",
-          "language": "python",
-          "total_lines": 328,
-          "classes": [
-            {
-              "name": "JobViewSet",
-              "line": 70
-            },
-            {
-              "name": "ProcessRunViewSet",
-              "line": 99
-            },
-            {
-              "name": "StageResultViewSet",
-              "line": 325
-            }
-          ],
-          "function_count": 12,
-          "functions": [
-            {
-              "name": "_run_orchestrator_async",
-              "signature": "def _run_orchestrator_async(process_run_id, user_id=None) -> Any",
-              "line_number": 26,
-              "params_raw": "process_run_id, user_id=None"
-            },
-            {
-              "name": "_resume_orchestrator_async",
-              "signature": "def _resume_orchestrator_async(process_run_id) -> Any",
-              "line_number": 42,
-              "params_raw": "process_run_id"
-            },
-            {
-              "name": "_restart_orchestrator_async",
-              "signature": "def _restart_orchestrator_async(process_run_id) -> Any",
-              "line_number": 56,
-              "params_raw": "process_run_id"
-            },
-            {
-              "name": "get_queryset",
-              "signature": "def get_queryset(self) -> Any",
-              "line_number": 74,
-              "params_raw": "self"
-            },
-            {
-              "name": "get_serializer_class",
-              "signature": "def get_serializer_class(self) -> Any",
-              "line_number": 78,
-              "params_raw": "self"
-            },
-            {
-              "name": "run_process",
-              "signature": "def run_process(self, request, pk=None) -> Any",
-              "line_number": 84,
-              "params_raw": "self, request, pk=None"
-            },
-            {
-              "name": "get_queryset",
-              "signature": "def get_queryset(self) -> Any",
-              "line_number": 103,
-              "params_raw": "self"
-            },
-            {
-              "name": "get_prompt",
-              "signature": "def get_prompt(self, request, pk=None) -> Any",
-              "line_number": 108,
-              "description": "Get the generated prompt from Agent 3 for manual LLM input.",
-              "params_raw": "self, request, pk=None"
-            },
-            {
-              "name": "submit_manual_latex",
-              "signature": "def submit_manual_latex(self, request, pk=None) -> Any",
-              "line_number": 148,
-              "description": "Submit manually updated LaTeX from external LLM and continue process.",
-              "params_raw": "self, request, pk=None"
-            },
-            {
-              "name": "continue_iterating",
-              "signature": "def continue_iterating(self, request, pk=None) -> Any",
-              "line_number": 207,
-              "description": "Trigger a new manual iteration after process completion.",
-              "params_raw": "self, request, pk=None"
-            },
-            {
-              "name": "restart",
-              "signature": "def restart(self, request, pk=None) -> Any",
-              "line_number": 255,
-              "description": "Restart a failed process from the point of failure.",
-              "params_raw": "self, request, pk=None"
-            },
-            {
-              "name": "force_complete",
-              "signature": "def force_complete(self, request, pk=None) -> Any",
-              "line_number": 292,
-              "description": "Force complete a process without running any agents.",
-              "params_raw": "self, request, pk=None"
             }
           ]
         },
@@ -411,14 +62,15 @@
     },
     {
       "id": "module_002",
-      "name": "AI Agents",
-      "description": "Implements specialized agents for candidate evaluation, keyword processing, and matching.",
-      "goal": "To automate resume screening, keyword extraction, and candidate scoring for efficiency.",
+      "name": "Core Logic",
+      "description": "Implements business rules and document processing agents.",
+      "goal": "Automates ATS matching and keyword analysis workflows.",
       "directories": [
-        "backend/ats_app/agents"
+        "backend/ats_app/agents",
+        "backend/ats_app/services"
       ],
-      "file_count": 9,
-      "function_count": 70,
+      "file_count": 10,
+      "function_count": 79,
       "files": [
         {
           "path": "backend/ats_app/agents/ats_rater.py",
@@ -1040,20 +692,7 @@
               "return_type": "None"
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "module_003",
-      "name": "Services",
-      "description": "Provides reusable services like LLM integration and shared business logic.",
-      "goal": "To enable external service integrations and encapsulate common application utilities.",
-      "directories": [
-        "backend/ats_app/services"
-      ],
-      "file_count": 1,
-      "function_count": 9,
-      "files": [
+        },
         {
           "path": "backend/ats_app/services/llm_service.py",
           "language": "python",
@@ -1134,10 +773,10 @@
       ]
     },
     {
-      "id": "module_004",
-      "name": "Database Migrations",
-      "description": "Manages database schema changes and version control.",
-      "goal": "To maintain data integrity and support database evolution as the application grows.",
+      "id": "module_003",
+      "name": "Data Layer",
+      "description": "Manages database models and schema migrations.",
+      "goal": "Ensures data persistence and structural integrity.",
       "directories": [
         "backend/ats_app/migrations"
       ],
@@ -1199,66 +838,23 @@
       ]
     },
     {
-      "id": "module_005",
-      "name": "Frontend Core",
-      "description": "Provides the main application entry point and structure.",
-      "goal": "To initialize the React application and manage the overall UI framework.",
-      "directories": [
-        "frontend/src"
-      ],
-      "file_count": 1,
-      "function_count": 4,
-      "files": [
-        {
-          "path": "frontend/src/App.tsx",
-          "language": "javascript",
-          "total_lines": 61,
-          "classes": [],
-          "function_count": 4,
-          "functions": [
-            {
-              "name": "NavLinks",
-              "signature": "function NavLinks() : any",
-              "line_number": 11
-            },
-            {
-              "name": "App",
-              "signature": "function App() : any",
-              "line_number": 35
-            },
-            {
-              "name": "isActive",
-              "signature": "const isActive = (path: string) => any",
-              "line_number": 14,
-              "params_raw": "path: string"
-            },
-            {
-              "name": "handleLogout",
-              "signature": "const handleLogout = async () => any",
-              "line_number": 16
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "module_006",
-      "name": "UI Components",
-      "description": "Builds reusable UI elements for forms, displays, and page layouts.",
-      "goal": "To create a consistent and modular user interface for better maintainability.",
+      "id": "module_004",
+      "name": "Frontend UI",
+      "description": "Contains reusable UI components and page layouts.",
+      "goal": "Constructs the user interface for application interactions.",
       "directories": [
         "frontend/src/components",
         "frontend/src/pages"
       ],
       "file_count": 9,
-      "function_count": 39,
+      "function_count": 38,
       "files": [
         {
           "path": "frontend/src/components/JobForm.tsx",
           "language": "javascript",
-          "total_lines": 249,
+          "total_lines": 226,
           "classes": [],
-          "function_count": 3,
+          "function_count": 2,
           "functions": [
             {
               "name": "JobForm",
@@ -1266,14 +862,9 @@
               "line_number": 6
             },
             {
-              "name": "checkHealth",
-              "signature": "const checkHealth = async () => any",
-              "line_number": 27
-            },
-            {
               "name": "getCharCounterClass",
               "signature": "const getCharCounterClass = (current: number, max: number) => any",
-              "line_number": 124,
+              "line_number": 101,
               "params_raw": "current: number, max: number"
             }
           ]
@@ -1382,14 +973,14 @@
         {
           "path": "frontend/src/components/LoginForm.tsx",
           "language": "javascript",
-          "total_lines": 61,
+          "total_lines": 91,
           "classes": [],
           "function_count": 1,
           "functions": [
             {
               "name": "handleSubmit",
               "signature": "const handleSubmit = async (e: React.FormEvent) => any",
-              "line_number": 11,
+              "line_number": 12,
               "params_raw": "e: React.FormEvent"
             }
           ]
@@ -1462,34 +1053,34 @@
         {
           "path": "frontend/src/components/RegistrationForm.tsx",
           "language": "javascript",
-          "total_lines": 191,
+          "total_lines": 264,
           "classes": [],
           "function_count": 4,
           "functions": [
             {
               "name": "validateEmail",
               "signature": "const validateEmail = (email: string) => boolean",
-              "line_number": 20,
+              "line_number": 22,
               "params_raw": "email: string",
               "return_type": "boolean"
             },
             {
               "name": "getPasswordStrength",
-              "signature": "const getPasswordStrength = (password: string) => { strength: string; color: string }",
-              "line_number": 25,
+              "signature": "const getPasswordStrength = (password: string) => { strength: string; color: string; percentage: number }",
+              "line_number": 27,
               "params_raw": "password: string",
-              "return_type": "{ strength: string; color: string }"
+              "return_type": "{ strength: string; color: string; percentage: number }"
             },
             {
               "name": "validateForm",
               "signature": "const validateForm = () => boolean",
-              "line_number": 32,
+              "line_number": 45,
               "return_type": "boolean"
             },
             {
               "name": "handleSubmit",
               "signature": "const handleSubmit = async (e: React.FormEvent) => any",
-              "line_number": 70,
+              "line_number": 83,
               "params_raw": "e: React.FormEvent"
             }
           ]
@@ -1568,65 +1159,48 @@
       ]
     },
     {
-      "id": "module_007",
-      "name": "State Management",
-      "description": "Handles global application state and user authentication context.",
-      "goal": "To enable centralized state sharing and secure user session management.",
+      "id": "module_005",
+      "name": "Frontend Infrastructure",
+      "description": "Handles API communication and global state management.",
+      "goal": "Enables data exchange and user session handling.",
       "directories": [
-        "frontend/src/context"
+        "frontend/src/api",
+        "frontend/src/context",
+        "frontend/src"
       ],
-      "file_count": 1,
-      "function_count": 5,
+      "file_count": 3,
+      "function_count": 25,
       "files": [
         {
-          "path": "frontend/src/context/AuthContext.tsx",
+          "path": "frontend/src/App.tsx",
           "language": "javascript",
-          "total_lines": 179,
+          "total_lines": 61,
           "classes": [],
-          "function_count": 5,
+          "function_count": 4,
           "functions": [
             {
-              "name": "useAuth",
-              "signature": "export const useAuth = () => any",
-              "line_number": 23
+              "name": "NavLinks",
+              "signature": "function NavLinks() : any",
+              "line_number": 11
             },
             {
-              "name": "register",
-              "signature": "const register = async (username: string, email: string, password: string) => any",
-              "line_number": 52,
-              "params_raw": "username: string, email: string, password: string"
+              "name": "App",
+              "signature": "function App() : any",
+              "line_number": 35
             },
             {
-              "name": "login",
-              "signature": "const login = async (username: string, password: string) => any",
-              "line_number": 90,
-              "params_raw": "username: string, password: string"
+              "name": "isActive",
+              "signature": "const isActive = (path: string) => any",
+              "line_number": 14,
+              "params_raw": "path: string"
             },
             {
-              "name": "logout",
-              "signature": "const logout = async () => any",
-              "line_number": 116
-            },
-            {
-              "name": "refreshToken",
-              "signature": "const refreshToken = async () => any",
-              "line_number": 142
+              "name": "handleLogout",
+              "signature": "const handleLogout = async () => any",
+              "line_number": 16
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "module_008",
-      "name": "API Integration",
-      "description": "Manages communication between frontend and backend services.",
-      "goal": "To provide a clean interface for data exchange and API request handling.",
-      "directories": [
-        "frontend/src/api"
-      ],
-      "file_count": 1,
-      "function_count": 16,
-      "files": [
+        },
         {
           "path": "frontend/src/api/index.ts",
           "language": "javascript",
@@ -1728,33 +1302,418 @@
               "params_raw": "id: string"
             }
           ]
+        },
+        {
+          "path": "frontend/src/context/AuthContext.tsx",
+          "language": "javascript",
+          "total_lines": 179,
+          "classes": [],
+          "function_count": 5,
+          "functions": [
+            {
+              "name": "useAuth",
+              "signature": "export const useAuth = () => any",
+              "line_number": 23
+            },
+            {
+              "name": "register",
+              "signature": "const register = async (username: string, email: string, password: string) => any",
+              "line_number": 52,
+              "params_raw": "username: string, email: string, password: string"
+            },
+            {
+              "name": "login",
+              "signature": "const login = async (username: string, password: string) => any",
+              "line_number": 90,
+              "params_raw": "username: string, password: string"
+            },
+            {
+              "name": "logout",
+              "signature": "const logout = async () => any",
+              "line_number": 116
+            },
+            {
+              "name": "refreshToken",
+              "signature": "const refreshToken = async () => any",
+              "line_number": 142
+            }
+          ]
         }
       ]
     },
     {
-      "id": "module_009",
+      "id": "module_006",
       "name": "Unclassified",
       "description": "Files not matched to any architectural module.",
       "goal": "Miscellaneous project functionality.",
       "directories": [
-        "backend/ats_project"
+        "backend/ats_app"
       ],
-      "file_count": 1,
-      "function_count": 1,
+      "file_count": 6,
+      "function_count": 27,
       "files": [
         {
-          "path": "backend/ats_project/urls.py",
+          "path": "backend/ats_app/admin.py",
           "language": "python",
-          "total_lines": 43,
+          "total_lines": 36,
+          "classes": [
+            {
+              "name": "StageResultInline",
+              "line": 6
+            },
+            {
+              "name": "ProcessRunInline",
+              "line": 12
+            },
+            {
+              "name": "JobAdmin",
+              "line": 19
+            },
+            {
+              "name": "ProcessRunAdmin",
+              "line": 26
+            },
+            {
+              "name": "StageResultAdmin",
+              "line": 33
+            }
+          ],
+          "function_count": 0,
+          "functions": []
+        },
+        {
+          "path": "backend/ats_app/apps.py",
+          "language": "python",
+          "total_lines": 6,
+          "classes": [
+            {
+              "name": "AtsAppConfig",
+              "line": 4
+            }
+          ],
+          "function_count": 0,
+          "functions": []
+        },
+        {
+          "path": "backend/ats_app/authentication.py",
+          "language": "python",
+          "total_lines": 141,
           "classes": [],
-          "function_count": 1,
+          "function_count": 5,
           "functions": [
             {
-              "name": "health_check",
-              "signature": "def health_check(request) -> Any",
-              "line_number": 11,
-              "description": "Health check endpoint that doesn't require authentication",
+              "name": "register_view",
+              "signature": "def register_view(request) -> Any",
+              "line_number": 23,
+              "description": "Register a new user and return JWT tokens for automatic login",
               "params_raw": "request"
+            },
+            {
+              "name": "login_view",
+              "signature": "def login_view(request) -> Any",
+              "line_number": 47,
+              "description": "Login user and return JWT tokens",
+              "params_raw": "request"
+            },
+            {
+              "name": "logout_view",
+              "signature": "def logout_view(request) -> Any",
+              "line_number": 79,
+              "description": "Logout user by blacklisting refresh token",
+              "params_raw": "request"
+            },
+            {
+              "name": "profile_view",
+              "signature": "def profile_view(request) -> Any",
+              "line_number": 101,
+              "description": "Get or update user profile",
+              "params_raw": "request"
+            },
+            {
+              "name": "change_password_view",
+              "signature": "def change_password_view(request) -> Any",
+              "line_number": 128,
+              "description": "Change user password",
+              "params_raw": "request"
+            }
+          ]
+        },
+        {
+          "path": "backend/ats_app/models.py",
+          "language": "python",
+          "total_lines": 112,
+          "classes": [
+            {
+              "name": "UserProfile",
+              "line": 8
+            },
+            {
+              "name": "Meta",
+              "line": 26
+            },
+            {
+              "name": "Job",
+              "line": 34
+            },
+            {
+              "name": "Meta",
+              "line": 42
+            },
+            {
+              "name": "ProcessRun",
+              "line": 49
+            },
+            {
+              "name": "Meta",
+              "line": 71
+            },
+            {
+              "name": "StageResult",
+              "line": 78
+            },
+            {
+              "name": "Meta",
+              "line": 106
+            }
+          ],
+          "function_count": 4,
+          "functions": [
+            {
+              "name": "__str__",
+              "signature": "def __str__(self) -> Any",
+              "line_number": 30,
+              "params_raw": "self"
+            },
+            {
+              "name": "__str__",
+              "signature": "def __str__(self) -> Any",
+              "line_number": 45,
+              "params_raw": "self"
+            },
+            {
+              "name": "__str__",
+              "signature": "def __str__(self) -> Any",
+              "line_number": 74,
+              "params_raw": "self"
+            },
+            {
+              "name": "__str__",
+              "signature": "def __str__(self) -> Any",
+              "line_number": 110,
+              "params_raw": "self"
+            }
+          ]
+        },
+        {
+          "path": "backend/ats_app/serializers.py",
+          "language": "python",
+          "total_lines": 129,
+          "classes": [
+            {
+              "name": "UserSerializer",
+              "line": 9
+            },
+            {
+              "name": "Meta",
+              "line": 13
+            },
+            {
+              "name": "UserProfileSerializer",
+              "line": 27
+            },
+            {
+              "name": "Meta",
+              "line": 29
+            },
+            {
+              "name": "LoginSerializer",
+              "line": 37
+            },
+            {
+              "name": "PasswordChangeSerializer",
+              "line": 43
+            },
+            {
+              "name": "StageResultSerializer",
+              "line": 61
+            },
+            {
+              "name": "Meta",
+              "line": 62
+            },
+            {
+              "name": "ProcessRunSerializer",
+              "line": 67
+            },
+            {
+              "name": "Meta",
+              "line": 71
+            },
+            {
+              "name": "JobSerializer",
+              "line": 79
+            },
+            {
+              "name": "Meta",
+              "line": 83
+            },
+            {
+              "name": "JobCreateSerializer",
+              "line": 91
+            },
+            {
+              "name": "Meta",
+              "line": 92
+            },
+            {
+              "name": "ProcessRunCreateSerializer",
+              "line": 102
+            },
+            {
+              "name": "Meta",
+              "line": 103
+            },
+            {
+              "name": "ManualLatexSubmissionSerializer",
+              "line": 114
+            }
+          ],
+          "function_count": 6,
+          "functions": [
+            {
+              "name": "create",
+              "signature": "def create(self, validated_data) -> Any",
+              "line_number": 20,
+              "params_raw": "self, validated_data"
+            },
+            {
+              "name": "validate_old_password",
+              "signature": "def validate_old_password(self, value) -> Any",
+              "line_number": 48,
+              "params_raw": "self, value"
+            },
+            {
+              "name": "validate_new_password",
+              "signature": "def validate_new_password(self, value) -> Any",
+              "line_number": 54,
+              "params_raw": "self, value"
+            },
+            {
+              "name": "create",
+              "signature": "def create(self, validated_data) -> Any",
+              "line_number": 96,
+              "params_raw": "self, validated_data"
+            },
+            {
+              "name": "create",
+              "signature": "def create(self, validated_data) -> Any",
+              "line_number": 107,
+              "params_raw": "self, validated_data"
+            },
+            {
+              "name": "validate_latex_content",
+              "signature": "def validate_latex_content(self, value) -> Any",
+              "line_number": 117,
+              "params_raw": "self, value"
+            }
+          ]
+        },
+        {
+          "path": "backend/ats_app/views.py",
+          "language": "python",
+          "total_lines": 328,
+          "classes": [
+            {
+              "name": "JobViewSet",
+              "line": 70
+            },
+            {
+              "name": "ProcessRunViewSet",
+              "line": 99
+            },
+            {
+              "name": "StageResultViewSet",
+              "line": 325
+            }
+          ],
+          "function_count": 12,
+          "functions": [
+            {
+              "name": "_run_orchestrator_async",
+              "signature": "def _run_orchestrator_async(process_run_id, user_id=None) -> Any",
+              "line_number": 26,
+              "params_raw": "process_run_id, user_id=None"
+            },
+            {
+              "name": "_resume_orchestrator_async",
+              "signature": "def _resume_orchestrator_async(process_run_id) -> Any",
+              "line_number": 42,
+              "params_raw": "process_run_id"
+            },
+            {
+              "name": "_restart_orchestrator_async",
+              "signature": "def _restart_orchestrator_async(process_run_id) -> Any",
+              "line_number": 56,
+              "params_raw": "process_run_id"
+            },
+            {
+              "name": "get_queryset",
+              "signature": "def get_queryset(self) -> Any",
+              "line_number": 74,
+              "params_raw": "self"
+            },
+            {
+              "name": "get_serializer_class",
+              "signature": "def get_serializer_class(self) -> Any",
+              "line_number": 78,
+              "params_raw": "self"
+            },
+            {
+              "name": "run_process",
+              "signature": "def run_process(self, request, pk=None) -> Any",
+              "line_number": 84,
+              "params_raw": "self, request, pk=None"
+            },
+            {
+              "name": "get_queryset",
+              "signature": "def get_queryset(self) -> Any",
+              "line_number": 103,
+              "params_raw": "self"
+            },
+            {
+              "name": "get_prompt",
+              "signature": "def get_prompt(self, request, pk=None) -> Any",
+              "line_number": 108,
+              "description": "Get the generated prompt from Agent 3 for manual LLM input.",
+              "params_raw": "self, request, pk=None"
+            },
+            {
+              "name": "submit_manual_latex",
+              "signature": "def submit_manual_latex(self, request, pk=None) -> Any",
+              "line_number": 148,
+              "description": "Submit manually updated LaTeX from external LLM and continue process.",
+              "params_raw": "self, request, pk=None"
+            },
+            {
+              "name": "continue_iterating",
+              "signature": "def continue_iterating(self, request, pk=None) -> Any",
+              "line_number": 207,
+              "description": "Trigger a new manual iteration after process completion.",
+              "params_raw": "self, request, pk=None"
+            },
+            {
+              "name": "restart",
+              "signature": "def restart(self, request, pk=None) -> Any",
+              "line_number": 255,
+              "description": "Restart a failed process from the point of failure.",
+              "params_raw": "self, request, pk=None"
+            },
+            {
+              "name": "force_complete",
+              "signature": "def force_complete(self, request, pk=None) -> Any",
+              "line_number": 292,
+              "description": "Force complete a process without running any agents.",
+              "params_raw": "self, request, pk=None"
             }
           ]
         }
