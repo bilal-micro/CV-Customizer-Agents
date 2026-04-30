@@ -192,5 +192,3 @@ start.sh
 
 # Keep these files if they exist
 !.gitkeep
-backend/db.sqlite3
-backend/db.sqlite3
