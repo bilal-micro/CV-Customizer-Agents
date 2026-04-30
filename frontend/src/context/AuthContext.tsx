@@ -50,7 +50,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   }, []);
 
   const register = async (username: string, email: string, password: string) => {
-    const response = await fetch('http://localhost:8000/api/auth/register/', {
+    const response = await fetch('/cv-ats/api/auth/register/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -88,7 +88,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   const login = async (username: string, password: string) => {
-    const response = await fetch('http://localhost:8000/api/auth/login/', {
+    const response = await fetch('/cv-ats/api/auth/login/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -118,7 +118,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const refreshToken = localStorage.getItem('refresh_token');
     
     try {
-      await fetch('http://localhost:8000/api/auth/logout/', {
+      await fetch('/cv-ats/api/auth/logout/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -146,7 +146,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       throw new Error('No refresh token available');
     }
 
-    const response = await fetch('http://localhost:8000/api/auth/token/refresh/', {
+    const response = await fetch('/cv-ats/api/auth/token/refresh/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

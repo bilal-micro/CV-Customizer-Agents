@@ -104,7 +104,7 @@ function NavLinks() {
 function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/cv-ats">
         <div className="app">
           <nav className="navbar">
             <Link to="/" className="nav-brand">ATS Agentic</Link>

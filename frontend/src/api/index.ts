@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8000/api',
+  baseURL: '/cv-ats/api',
   headers: { 'Content-Type': 'application/json' },
   timeout: 30000, // 30 second timeout
 });
@@ -32,7 +32,7 @@ api.interceptors.response.use(
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
         localStorage.removeItem('user');
-        window.location.href = '/login';
+        window.location.href = '/cv-ats/login';
       }
     } else if (error.request) {
       console.error('No response received:', error.request);
@@ -45,7 +45,7 @@ api.interceptors.response.use(
 
 // Authentication API functions
 export const login = (username: string, password: string) =>
-  axios.post('http://localhost:8000/api/auth/login/', { username, password }).then((r) => r.data);
+  api.post('/auth/login/', { username, password }).then((r) => r.data);
 
 export const logout = (refreshToken: string) =>
   api.post('/auth/logout/', { refresh: refreshToken }).then((r) => r.data);
@@ -57,7 +57,7 @@ export const updateProfile = (data: { openrouter_api_key?: string; preferred_mod
   api.put('/auth/profile/', data).then((r) => r.data);
 
 export const register = (username: string, email: string, password: string) =>
-  axios.post('http://localhost:8000/api/auth/register/', { username, email, password }).then((r) => r.data);
+  api.post('/auth/register/', { username, email, password }).then((r) => r.data);
 
 export const createJob = (data: { title: string; description: string; latex_cv: string }) =>
   api.post('/jobs/', data).then((r) => {

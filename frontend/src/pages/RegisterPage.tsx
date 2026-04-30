@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import RegistrationForm from '../components/RegistrationForm';
 
 const RegisterPage: React.FC = () => {
@@ -30,9 +30,9 @@ const RegisterPage: React.FC = () => {
         <div className="register-links">
           <p>
             Already have an account?{' '}
-            <a href="/login" className="auth-link">
+            <Link to="/login" className="auth-link">
               Login here
-            </a>
+            </Link>
           </p>
         </div>
       </div>

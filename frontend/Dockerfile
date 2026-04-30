@@ -21,8 +21,8 @@ RUN npm run build
 # Production stage
 FROM nginx:alpine
 
-# Copy built files to nginx
-COPY --from=build /app/dist /usr/share/nginx/html
+# Copy built files to nginx under /cv-ats/ subdirectory
+COPY --from=build /app/dist /usr/share/nginx/html/cv-ats
 
 # Copy nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf

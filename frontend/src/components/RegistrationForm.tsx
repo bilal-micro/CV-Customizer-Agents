@@ -97,7 +97,7 @@ const RegistrationForm: React.FC = () => {
       setError(null);
       // Redirect will be handled by the parent component
       setTimeout(() => {
-        window.location.href = '/login';
+        window.location.href = '/cv-ats/login';
       }, 1500);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Registration failed');

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LoginForm from '../components/LoginForm';
 
 const LoginPage: React.FC = () => {
@@ -28,9 +28,9 @@ const LoginPage: React.FC = () => {
         <div className="login-links">
           <p>
             Don't have an account?{' '}
-            <a href="/register" className="auth-link">
+            <Link to="/register" className="auth-link">
               Create one here
-            </a>
+            </Link>
           </p>
         </div>
       </div>
