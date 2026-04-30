@@ -40,7 +40,7 @@ IMPORTANT RULES:
 - Keep all LaTeX braces, environments, and commands properly closed.
 - Maintain a professional, high-impact technical tone.
 - 100% TRUTH RATE: Every modification must be traceable back to the original CV content.
-- LATEX SYNTAX SAFETY: NEVER use the `$` symbol for regular text or tool names (e.g., NEVER write $(C\#/WPF)$). Only use standard text formatting. Properly escape special characters like \&, \%, and \#.
+- LATEX SYNTAX SAFETY: NEVER use the `$` symbol for regular text or tool names (e.g., NEVER write $(C\\#/WPF)$). Only use standard text formatting. Properly escape special characters like \\&, \\%, and \\#.
 - AVOID REDUNDANCY: Ensure the "Professional Summary" does not directly repeat the phrase used in the \\quote{{}} section. Merge them or make them distinct.
 
 STANDARD ENGINEERING PRACTICES (SAFE INFERENCE):
