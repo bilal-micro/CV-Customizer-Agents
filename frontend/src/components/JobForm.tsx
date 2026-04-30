@@ -88,7 +88,7 @@ export default function JobForm() {
         
         navigate(`/process/${processRun.id}`);
       } catch (err: any) {
-        const errorMessage = err?.response?.data?.detail || err?.message || 'Failed to start process';
+        const errorMessage = err?.response?.data?.error || err?.response?.data?.detail || err?.message || 'Failed to start process';
         setError(`${errorMessage}. Make sure the backend is running and check console for details.`);
         console.error('Error:', err);
       } finally {

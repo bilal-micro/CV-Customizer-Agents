@@ -87,8 +87,24 @@ class JobViewSet(viewsets.ModelViewSet):
 
     @action(detail=True, methods=['post'])
     def run_process(self, request, pk=None):
-        job = self.get_object()
-        process_run = ProcessRun.objects.create(job=job, user=request.user)
+        from django.contrib.auth.models import User
+        from django.db import transaction
+
+        with transaction.atomic():
+            # Lock the user row to prevent concurrent process creation
+            User.objects.select_for_update().get(id=request.user.id)
+
+            # Check if user already has an active process
+            active_statuses = ['pending', 'running', 'awaiting_manual_input']
+            if ProcessRun.objects.filter(user=request.user, status__in=active_statuses).exists():
+                return Response(
+                    {'error': 'You already have an active process. Please wait for it to complete before starting a new one.'},
+                    status=status.HTTP_409_CONFLICT
+                )
+
+            job = self.get_object()
+            process_run = ProcessRun.objects.create(job=job, user=request.user)
+
         # Pass user ID to orchestrator thread
         user_id = request.user.id
         thread = threading.Thread(
