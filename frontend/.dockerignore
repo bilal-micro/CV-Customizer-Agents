@@ -25,7 +25,6 @@ dist-ssr/
 # Docker
 Dockerfile
 .dockerignore
-nginx.conf
 
 # Environment
 .env

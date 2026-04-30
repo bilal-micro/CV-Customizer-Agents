@@ -1,7 +1,7 @@
 # Frontend Dockerfile for React + Vite Application
 
 # Build stage
-FROM node:20-alpine AS build
+FROM node:20 AS build
 
 # Set working directory
 WORKDIR /app

@@ -179,17 +179,6 @@ export default function ProcessDetail() {
     }
   };
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'completed': return 'var(--success)';
-      case 'running': return 'var(--primary)';
-      case 'awaiting_manual_input': return '#f59e0b';
-      case 'failed': return 'var(--error)';
-      case 'pending': return 'var(--text-light)';
-      default: return 'var(--text)';
-    }
-  };
-
   if (loading) {
     return (
       <div className="loading-container animate-fade-in">
