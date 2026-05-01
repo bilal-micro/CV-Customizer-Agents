@@ -55,6 +55,7 @@ class ProcessRun(models.Model):
         ('awaiting_manual_input', 'Awaiting Manual Input'),
         ('completed', 'Completed'),
         ('failed', 'Failed'),
+        ('cancelled', 'Cancelled'),
     ]
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

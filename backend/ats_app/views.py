@@ -9,7 +9,7 @@ from rest_framework.decorators import action
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 
-from ats_app.agents.orchestrator import OrchestratorAgent
+from ats_app.agents.orchestrator import OrchestratorAgent, ProcessCancelledException
 from ats_app.models import Job, ProcessRun, StageResult
 from ats_app.serializers import (
     JobCreateSerializer,
@@ -29,12 +29,19 @@ def _run_orchestrator_async(process_run_id, user_id=None):
     db.connections.close_all()
     try:
         process_run = ProcessRun.objects.get(id=process_run_id)
+        # Check if already cancelled before starting
+        if process_run.status == 'cancelled':
+            logger.info(f"Orchestrator skipping cancelled process {process_run_id}")
+            return
         user = User.objects.get(id=user_id) if user_id else None
         orchestrator = OrchestratorAgent(user=user)
         orchestrator.start_process(process_run)
+    except ProcessCancelledException:
+        logger.info(f"Orchestrator stopped for cancelled process {process_run_id}")
     except Exception as e:
         logger.error(f"Orchestrator failed for process {process_run_id}: {e}", exc_info=True)
-        ProcessRun.objects.filter(id=process_run_id).update(status='failed')
+        # Don't override cancelled status
+        ProcessRun.objects.filter(id=process_run_id).exclude(status='cancelled').update(status='failed')
     finally:
         db.connections.close_all()
 
@@ -45,12 +52,19 @@ def _resume_orchestrator_async(process_run_id, user_id=None):
     db.connections.close_all()
     try:
         process_run = ProcessRun.objects.get(id=process_run_id)
+        # Check if cancelled before resuming
+        if process_run.status == 'cancelled':
+            logger.info(f"Orchestrator skipping cancelled process {process_run_id}")
+            return
         user = User.objects.get(id=user_id) if user_id else None
         orchestrator = OrchestratorAgent(user=user)
         orchestrator.resume_after_manual_input(process_run)
+    except ProcessCancelledException:
+        logger.info(f"Resume orchestrator stopped for cancelled process {process_run_id}")
     except Exception as e:
         logger.error(f"Resume orchestrator failed for process {process_run_id}: {e}", exc_info=True)
-        ProcessRun.objects.filter(id=process_run_id).update(status='failed')
+        # Don't override cancelled status
+        ProcessRun.objects.filter(id=process_run_id).exclude(status='cancelled').update(status='failed')
     finally:
         db.connections.close_all()
 
@@ -61,12 +75,19 @@ def _restart_orchestrator_async(process_run_id, user_id=None):
     db.connections.close_all()
     try:
         process_run = ProcessRun.objects.get(id=process_run_id)
+        # Check if cancelled before restarting
+        if process_run.status == 'cancelled':
+            logger.info(f"Orchestrator skipping cancelled process {process_run_id}")
+            return
         user = User.objects.get(id=user_id) if user_id else None
         orchestrator = OrchestratorAgent(user=user)
         orchestrator.restart_from_failure(process_run)
+    except ProcessCancelledException:
+        logger.info(f"Restart orchestrator stopped for cancelled process {process_run_id}")
     except Exception as e:
         logger.error(f"Restart orchestrator failed for process {process_run_id}: {e}", exc_info=True)
-        ProcessRun.objects.filter(id=process_run_id).update(status='failed')
+        # Don't override cancelled status
+        ProcessRun.objects.filter(id=process_run_id).exclude(status='cancelled').update(status='failed')
     finally:
         db.connections.close_all()
 
@@ -94,12 +115,16 @@ class JobViewSet(viewsets.ModelViewSet):
             # Lock the user row to prevent concurrent process creation
             User.objects.select_for_update().get(id=request.user.id)
 
-            # Check if user already has an active process
+            # Cancel any active processes for this user
             active_statuses = ['pending', 'running', 'awaiting_manual_input']
-            if ProcessRun.objects.filter(user=request.user, status__in=active_statuses).exists():
-                return Response(
-                    {'error': 'You already have an active process. Please wait for it to complete before starting a new one.'},
-                    status=status.HTTP_409_CONFLICT
+            active_processes = ProcessRun.objects.filter(
+                user=request.user, status__in=active_statuses
+            )
+            cancelled_count = active_processes.update(status='cancelled')
+            if cancelled_count > 0:
+                logger.info(
+                    f"Cancelled {cancelled_count} active process(es) for user {request.user.id} "
+                    f"to start a new one"
                 )
 
             job = self.get_object()

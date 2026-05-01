@@ -10,6 +10,11 @@ from ats_app.services.llm_service import LLMService
 
 logger = logging.getLogger(__name__)
 
+
+class ProcessCancelledException(Exception):
+    """Raised when a process has been cancelled by the user."""
+    pass
+
 STAGE_ORDER = [
     'keyword_extraction',
     'cv_matching',
@@ -113,12 +118,14 @@ class OrchestratorAgent:
             logger.info("OrchestratorAgent: ===== PHASE 1: INITIAL ANALYSIS =====")
             
             # Stage 1: Extract keywords
+            self._check_if_cancelled(process_run)
             keywords = self._execute_keyword_extraction(process_run, job)
             if not keywords:
                 self._fail_process(process_run, "Keyword extraction failed")
                 return
             
             # Stage 2: Initial CV matching
+            self._check_if_cancelled(process_run)
             match_result = self._execute_cv_matching(process_run, job, keywords, latex_cv)
             if not match_result:
                 self._fail_process(process_run, "Initial CV matching failed")
@@ -127,11 +134,15 @@ class OrchestratorAgent:
             # ============================================================================
             # ITERATION LOOP: CV Optimization
             # ============================================================================
+            self._check_if_cancelled(process_run)
             logger.info("OrchestratorAgent: ===== PHASE 2: ITERATIVE OPTIMIZATION =====")
             
             # Start iteration loop
             self._run_iteration_loop(process_run, job, keywords, latex_cv)
             
+        except ProcessCancelledException:
+            logger.info(f"OrchestratorAgent: Process {process_run.id} cancelled during start_process")
+            # Don't change status - it's already 'cancelled'
         except Exception as e:
             logger.error(f"OrchestratorAgent: Process failed: {e}", exc_info=True)
             self._fail_process(process_run, str(e))
@@ -214,6 +225,7 @@ class OrchestratorAgent:
             # ========================================================================
             # Step 1: Re-run CV matching with updated LaTeX
             # ========================================================================
+            self._check_if_cancelled(process_run)
             logger.info(f"OrchestratorAgent: [Resume {current_iteration}] Re-matching CV")
             match_result = self._execute_cv_matching(
                 process_run, job, keywords, new_latex
@@ -226,6 +238,7 @@ class OrchestratorAgent:
             # ========================================================================
             # Step 2: Run ATS rating on new LaTeX
             # ========================================================================
+            self._check_if_cancelled(process_run)
             logger.info(f"OrchestratorAgent: [Resume {current_iteration}] Rating CV with ATS")
             rating_result = self._execute_ats_rating(
                 process_run, job, new_latex, match_result
@@ -274,6 +287,9 @@ class OrchestratorAgent:
                     process_run, job, keywords, new_latex, feedback
                 )
         
+        except ProcessCancelledException:
+            logger.info(f"OrchestratorAgent: Process {process_run.id} cancelled during resume")
+            # Don't change status - it's already 'cancelled'
         except Exception as e:
             logger.error(f"OrchestratorAgent: Resume failed: {e}", exc_info=True)
             self._fail_process(process_run, str(e))
@@ -514,6 +530,22 @@ class OrchestratorAgent:
         
         logger.info(f"OrchestratorAgent: Prepared feedback for next iteration")
         return feedback
+    
+    # ==========================================================================
+    # CANCELLATION CHECK
+    # ==========================================================================
+    
+    def _check_if_cancelled(self, process_run: ProcessRun) -> None:
+        """
+        Check if the process has been cancelled by the user.
+        Raises ProcessCancelledException if cancelled, allowing the orchestrator
+        to gracefully stop execution.
+        """
+        # Refresh from DB to get the latest status
+        fresh_status = ProcessRun.objects.filter(id=process_run.id).values_list('status', flat=True).first()
+        if fresh_status == 'cancelled':
+            logger.info(f"OrchestratorAgent: Process {process_run.id} has been cancelled, stopping execution")
+            raise ProcessCancelledException(f"Process {process_run.id} was cancelled by user")
     
     # ==========================================================================
     # UTILITY METHODS
