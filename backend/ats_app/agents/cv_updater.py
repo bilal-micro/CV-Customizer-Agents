@@ -57,6 +57,7 @@ EXTRACTED KEYWORDS:
 MATCHING ANALYSIS:
 {matching_analysis_json}
 
+{additional_skills_section}
 CURRENT LATEX CV:
 {latex_cv}
 
@@ -99,6 +100,7 @@ EXTRACTED KEYWORDS:
 MATCHING ANALYSIS:
 {matching_analysis_json}
 
+{additional_skills_section}
 CURRENT LATEX CV (from iteration {previous_iteration}):
 {latex_cv}
 
@@ -143,7 +145,8 @@ Please provide the updated LaTeX CV now:"""
 
 class CVUpdaterAgent:
     def generate_prompt(self, job_title: str, keywords: dict, matching_analysis: dict, 
-                        latex_cv: str, iteration_number: int = 1, feedback: dict = None) -> str:
+                        latex_cv: str, iteration_number: int = 1, feedback: dict = None,
+                        additional_skills: str = '') -> str:
         """
         Generate a prompt for the external LLM to improve the CV.
         
@@ -154,6 +157,7 @@ class CVUpdaterAgent:
             latex_cv: Current LaTeX CV content
             iteration_number: Current iteration number (1, 2, or 3)
             feedback: Feedback from Agent 4 (for iterations 2 and 3)
+            additional_skills: Additional skills, tools, and technologies provided by the candidate
         
         Returns:
             A formatted prompt string ready to be copied to an external LLM
@@ -161,12 +165,28 @@ class CVUpdaterAgent:
         keywords_json = json.dumps(keywords, indent=2)
         matching_analysis_json = json.dumps(matching_analysis, indent=2)
         
+        # Build additional skills section if provided
+        additional_skills_section = ''
+        if additional_skills and additional_skills.strip():
+            additional_skills_section = (
+                "CANDIDATE'S ADDITIONAL SKILLS & EXPERIENCE (provided by candidate):\n"
+                "The following is a comprehensive list of tools, technologies, frameworks, and skills "
+                "that the candidate has direct experience with. Use this information to:\n"
+                "1. Enrich the CV by incorporating these skills where relevant to the job requirements.\n"
+                "2. Strengthen \"Skill Translation\" by mapping job requirements to these known competencies.\n"
+                "3. Add these skills to appropriate sections (Skills, Technologies, Projects) when they match "
+                "the job's needs.\n"
+                "IMPORTANT: Only include skills that are genuinely relevant to the target position.\n\n"
+                f"{additional_skills.strip()}\n"
+            )
+        
         if iteration_number == 1:
             # First iteration - initial prompt
             prompt = INITIAL_PROMPT_TEMPLATE.format(
                 job_title=job_title,
                 keywords_json=keywords_json,
                 matching_analysis_json=matching_analysis_json,
+                additional_skills_section=additional_skills_section,
                 latex_cv=latex_cv,
             )
         else:
@@ -180,6 +200,7 @@ class CVUpdaterAgent:
                 job_title=job_title,
                 keywords_json=keywords_json,
                 matching_analysis_json=matching_analysis_json,
+                additional_skills_section=additional_skills_section,
                 latex_cv=latex_cv,
             )
         

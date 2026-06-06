@@ -123,7 +123,7 @@ class JobSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Job
-        fields = ['id', 'title', 'description', 'latex_cv', 'process_runs', 'user', 'username', 'created_at']
+        fields = ['id', 'title', 'description', 'latex_cv', 'additional_skills', 'process_runs', 'user', 'username', 'created_at']
         extra_kwargs = {
             'user': {'read_only': True}
         }
@@ -132,7 +132,7 @@ class JobSerializer(serializers.ModelSerializer):
 class JobCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Job
-        fields = ['id' , 'title', 'description', 'latex_cv']
+        fields = ['id' , 'title', 'description', 'latex_cv', 'additional_skills']
 
     def create(self, validated_data):
         # Set the current user when creating a job

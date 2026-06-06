@@ -59,7 +59,7 @@ export const updateProfile = (data: { openrouter_api_key?: string; preferred_mod
 export const register = (username: string, email: string, password: string) =>
   api.post('/auth/register/', { username, email, password }).then((r) => r.data);
 
-export const createJob = (data: { title: string; description: string; latex_cv: string }) =>
+export const createJob = (data: { title: string; description: string; latex_cv: string; additional_skills?: string }) =>
   api.post('/jobs/', data).then((r) => {
     console.log('Job created successfully:', r.data);
     return r.data;

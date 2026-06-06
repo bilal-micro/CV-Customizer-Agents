@@ -31,6 +31,7 @@ export interface Job {
   title: string;
   description: string;
   latex_cv: string;
+  additional_skills: string;
   process_runs: ProcessRun[];
   created_at: string;
 }
@@ -39,6 +40,7 @@ export interface JobCreate {
   title: string;
   description: string;
   latex_cv: string;
+  additional_skills?: string;
 }
 
 export interface ExtractedKeyword {

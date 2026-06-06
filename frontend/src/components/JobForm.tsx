@@ -16,6 +16,7 @@ export default function JobForm() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [latexCv, setLatexCv] = useState('');
+  const [additionalSkills, setAdditionalSkills] = useState('');
   const [fileName, setFileName] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -71,7 +72,7 @@ export default function JobForm() {
       setError('');
       try {
         console.log('Creating job...');
-        const job = await createJob({ title, description, latex_cv: latexCv });
+        const job = await createJob({ title, description, latex_cv: latexCv, additional_skills: additionalSkills });
         console.log('Job created:', job);
         
         if (!job?.id) {
@@ -205,6 +206,23 @@ export default function JobForm() {
 Your CV content here...
 \end{document}"
           />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="additional-skills">
+            Additional Skills & Experience
+            <span className="label-hint">(Optional — helps generate a stronger CV)</span>
+          </label>
+          <textarea
+            id="additional-skills"
+            value={additionalSkills}
+            onChange={(e) => setAdditionalSkills(e.target.value)}
+            rows={6}
+            placeholder="List your tools, technologies, frameworks, programming languages, platforms, and skills you have experience with. For example: Docker, Kubernetes, PostgreSQL, Redis, Celery, Git, CI/CD, REST APIs, GraphQL, AWS, Linux, Agile/Scrum..."
+          />
+          <div className="field-hint" style={{ fontSize: '0.85em', color: 'var(--text-secondary)', marginTop: '4px' }}>
+            💡 This information helps the AI agent create a more personalized and stronger CV by incorporating your actual skills into the optimization process.
+          </div>
         </div>
 
         <button type="submit" disabled={loading || !title || !description || !latexCv} className="btn-primary">

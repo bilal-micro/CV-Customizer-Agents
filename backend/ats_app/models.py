@@ -39,6 +39,11 @@ class Job(models.Model):
     title = models.CharField(max_length=500)
     description = models.TextField()
     latex_cv = models.TextField()
+    additional_skills = models.TextField(
+        blank=True,
+        default='',
+        help_text="Additional tools, skills, frameworks, and technologies the user has experience with"
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

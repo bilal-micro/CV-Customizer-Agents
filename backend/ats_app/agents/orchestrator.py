@@ -380,7 +380,8 @@ class OrchestratorAgent:
                 matching_analysis=cv_matching_stage.result,
                 latex_cv=latex_cv,
                 iteration_number=iteration,
-                feedback=feedback
+                feedback=feedback,
+                additional_skills=getattr(job, 'additional_skills', '') or ''
             )
             
             # Save result
