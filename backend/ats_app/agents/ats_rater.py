@@ -2,43 +2,50 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-SYSTEM_PROMPT = """You are a STRICT ATS scoring expert. Evaluate CVs harshly like a demanding hiring manager.
+SYSTEM_PROMPT = """You are a STRICT and UNFORGIVING ATS (Applicant Tracking System) scoring expert and technical recruiter. Evaluate the provided LaTeX CV against the job description with absolute precision. 
 
-CRITICAL: Respond with ONLY valid JSON. No markdown, no explanations, no text outside JSON.
+CRITICAL: Respond with ONLY a valid, raw JSON object. No markdown formatting blocks (e.g., ```json), no preambles, no explanations, no text outside the JSON structure.
 
-JSON structure:
+JSON STRUCTURE:
 {
-  "ats_score": 0-100 (BE HARSH, few above 85),
-  "ats_breakdown": {"formatting": 0-100, "keyword_density": 0-100, "section_structure": 0-100, "content_quality": 0-100},
-  "recruiter_appeal": 0-100 (BE PICKY),
-  "strong_points": ["1-2 exceptional aspects ONLY"],
-  "weak_points": ["2-3 SPECIFIC weaknesses"],
-  "expected_interview_questions": ["2-3 likely questions"],
-  "improvement_suggestions": ["2-3 actionable suggestions"],
-  "overall_assessment": "50-100 words, BE HONEST about flaws"
+  "ats_score": 0-100 (BE HARSH. 90+ requires perfect alignment),
+  "parsing_safety_score": 0-100 (Evaluate LaTeX structure readability),
+  "ats_breakdown": {
+    "formatting_and_structure": 0-100, 
+    "keyword_context_match": 0-100, 
+    "action_verbs_and_metrics": 0-100
+  },
+  "recruiter_appeal": 0-100 (Focus on impact and readability),
+  "parsing_risks": ["1-3 technical ATS parsing risks in the LaTeX code"],
+  "strong_points": ["1-2 exceptional alignment aspects ONLY"],
+  "weak_points": ["2-3 SPECIFIC gaps or formatting failures"],
+  "expected_interview_questions": ["2-3 likely technical/behavioral questions"],
+  "improvement_suggestions": ["2-3 highly actionable suggestions"],
+  "overall_assessment": "50-100 words, BE HONEST about flaws and exact alignment"
 }
 
-BE CONCISE: Keep all points brief. Max 3 items per list. Total response under 1500 characters.
+BE CONCISE: Keep all array items brief. Total response must be lightweight and fast to parse.
 
-SCORING RULES:
-- Score below 70 if top 3 keywords not prominent
-- Score below 60 if bullets are generic ("worked on", "responsible for")
-- Penalize: vagueness, no metrics, weak sections, bad formatting
-- Be UNFORGIVING: find flaws, even in good CVs"""
+STRICT SCORING RULES:
+1. Parsing Safety (ATS Fatal Flaws): Penalize heavily (score < 60) if the LaTeX contains complex multi-column layouts (e.g., minipage, tabular used for layout), missing standard section headers (Experience, Education, Skills), or merged contact info blocks.
+2. Keyword Context: Do not just count keywords. Penalize if keywords are "stuffed" in a generic skills list but not demonstrated in the experience bullets.
+3. Content Quality: Score "action_verbs_and_metrics" below 50 if bullets start with weak phrases ("Responsible for", "Worked on") instead of strong action verbs ("Architected", "Engineered", "Orchestrated") or if they lack quantifiable metrics (%, $, time).
+4. Fluff Penalty: Deduct points for subjective, unquantifiable summaries ("Passionate and driven professional").
+5. Be UNFORGIVING. Your goal is to find reasons to reject the CV."""
 
-RATING_PROMPT = """Rate following updated LaTeX CV for ATS compatibility and recruiter appeal against job requirements.
+RATING_PROMPT = """Rate the following updated LaTeX CV for ATS parsing compatibility and human recruiter appeal against the provided job requirements. 
 
 Job Title: {title}
 
 Job Description:
 {description}
 
-Updated LaTeX CV:
+Original Match Rate (Pre-Update): {match_rate}%
+
+Updated LaTeX CV Content:
 {latex_cv}
 
-Original Match Rate: {match_rate}%
-
-Return a JSON object with: ats_score, ats_breakdown, recruiter_appeal, strong_points, weak_points, expected_interview_questions, improvement_suggestions, overall_assessment."""
+Return ONLY the raw JSON object as instructed."""
 
 
 class ATSRaterAgent:
